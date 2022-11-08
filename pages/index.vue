@@ -1,87 +1,172 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
-        <NuxtLogo />
-        <VuetifyLogo />
-      </v-card>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>
-            Vuetify is a progressive Material Design component framework for
-            Vue.js. It was designed to empower developers to create amazing
-            applications.
-          </p>
-          <p>
-            For more information on Vuetify, check out the
-            <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation </a
-            >.
-          </p>
-          <p>
-            If you have questions, please join the official
-            <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord </a
-            >.
-          </p>
-          <p>
-            Find a bug? Report it on the github
-            <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board </a
-            >.
-          </p>
-          <p>
-            Thank you for developing with Vuetify and I look forward to bringing
-            more exciting features in the future.
-          </p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3" />
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br />
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="primary" nuxt to="/inspire"> Continue </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+  <div>
+    <talk-hero />
+
+    <!-- Crypto Topics -->
+    <div class="crypto-topics">
+      <h1 class="main-header">Crypto topics</h1>
+      <hr class="header-line" />
+      <div class="crypto-topics__all">
+        <!-- TODO: change key (temporary use index as key) -->
+        <talk-crypto-card
+          v-for="(meta, index) in cardMeta"
+          :key="index"
+          :meta="meta"
+        />
+      </div>
+    </div>
+
+    <!-- Experts -->
+    <div class="featured-experts">
+      <h1 class="main-header">Featured Experts this week</h1>
+      <hr class="header-line" />
+      <div class="featured-experts__experts">
+        <!-- TODO: change key (temporary use index as key) -->
+        <v-slide-group show-arrows class="expert-slider">
+          <talk-expert-card
+            v-for="(expert, index) in experts"
+            :key="index"
+            :expert="expert"
+          />
+        </v-slide-group>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'MainPage',
+  data: () => {
+    return {
+      cardMeta: [
+        {
+          href: '#',
+          img: 'topic1.svg',
+          title: 'Blockchains',
+        },
+        {
+          href: '#',
+          img: 'topic2.svg',
+          title: 'Wallets',
+        },
+        {
+          href: '#',
+          img: 'topic3.svg',
+          title: 'Money tranfers',
+        },
+        {
+          href: '#',
+          img: 'topic4.svg',
+          title: 'Investments',
+        },
+        {
+          href: '#',
+          img: 'topic5.svg',
+          title: 'Trading',
+        },
+      ],
+
+      experts: [
+        {
+          img: 'photo.png',
+          name: 'David Hutapea',
+          job: 'Professional Trader',
+          price: 30,
+        },
+        {
+          img: 'photo.png',
+          name: 'David Hutapea',
+          job: 'Professional Trader',
+          price: 30,
+        },
+        {
+          img: 'photo.png',
+          name: 'David Hutapea',
+          job: 'Professional Trader',
+          price: 30,
+        },
+        {
+          img: 'photo.png',
+          name: 'David Hutapea',
+          job: 'Professional Trader',
+          price: 30,
+        },
+        {
+          img: 'photo.png',
+          name: 'David Hutapea',
+          job: 'Professional Trader',
+          price: 30,
+        },
+        {
+          img: 'photo.png',
+          name: 'David Hutapea',
+          job: 'Professional Trader',
+          price: 30,
+        },
+      ],
+    }
+  },
 }
 </script>
+
+<style lang="scss" scoped>
+.crypto-topics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  &__all {
+    display: flex;
+    gap: 25px;
+    &__topic {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      // background-color: #5241c1;
+      width: 220px;
+      height: 225px;
+      box-shadow: 0px 5px 10px rgba(31, 31, 51, 0.3);
+      border-radius: 20px;
+      color: $darkColor;
+      font-size: 20px;
+      font-weight: 500;
+      transition: background-color 0.3s ease-in-out;
+      transition: color 0.15s ease-in-out;
+    }
+    &__topic:hover {
+      color: $whiteColor;
+      background-color: $purpleColor;
+    }
+  }
+}
+
+.featured-experts {
+  margin: 70px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  &__experts {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    &__arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $purpleColor;
+      border-radius: 95px;
+      width: 46px;
+      height: 45px;
+      & img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+</style>
