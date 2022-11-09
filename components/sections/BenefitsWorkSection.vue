@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="benefits__right">
-      <img src="/src/img/index/benefits/benefits.png" alt="man" />
+      <img src="/img/index/benefits/benefits.png" alt="man" />
     </div>
   </section>
 </template>

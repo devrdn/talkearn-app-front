@@ -91,7 +91,7 @@ export default {}
         border-radius: 30px;
         color: $whiteColor;
         font-size: inherit;
-        font-family: inherit;
+        font-family: 'inherit';
         transform: translateX(-8px);
         transition: background 0.3s ease-in-out;
       }

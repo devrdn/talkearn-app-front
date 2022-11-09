@@ -1,6 +1,6 @@
 <template>
   <div>
-    <the-home-hero />
+    <the-main-hero />
 
     <!-- Crypto Topics Section -->
     <crypto-topic-section />

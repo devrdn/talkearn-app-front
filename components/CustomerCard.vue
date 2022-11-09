@@ -23,7 +23,7 @@
               length="5"
               :value="customer.stars"
             ></v-rating>
-            <p class="customers__container__right__head__rating_digit">4.8</p>
+            <p class="customers__container__right__head__rating_digit">{{ customer.stars }}</p>
           </div>
         </div>
         <div class="customers__container__right__text">

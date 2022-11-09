@@ -3,18 +3,27 @@
 // The variables you want to modify
 // $font-size-root: 20px;
 
-$darkColor:#1F2131;
+@font-face {
+  font-family: "onest";
+  src: url("~/static/fonts/OnestRegular1602-hint.woff") format("woff");
+}
 
-$purpleColor:#5F4BDB;
+$body-font-family: "onest";
 
-$whiteColor:#FFF;
+$title-font: "onest";
 
-$accentColor: #FE8D4D;
+$darkColor: #1f2131;
 
-$bckgColor: #F8F9FD;
+$purpleColor: #5f4bdb;
+
+$whiteColor: #fff;
+
+$accentColor: #fe8d4d;
+
+$bckgColor: #f8f9fd;
 
 $fs: 16px;
 
 $material-light: (
-  'background': rgb(226, 0, 0)
+  "background": rgb(226, 0, 0),
 );
