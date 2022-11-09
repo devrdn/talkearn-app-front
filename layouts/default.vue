@@ -46,10 +46,4 @@ export default {
   text-align: center;
   color: $darkColor;
 }
-.header-line {
-  width: 140px;
-  height: 5px;
-  border-radius: 3px;
-  background-color: $purpleColor;
-}
 </style>
