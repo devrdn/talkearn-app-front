@@ -1,27 +1,24 @@
 <template>
   <div>
-    <talk-hero />
+    <the-home-hero />
 
     <!-- Crypto Topics Section -->
-    <section-talk-crypto />
+    <crypto-topic-section />
 
     <!-- Experts Section -->
-    <section-talk-experts />
+    <featured-experts-section />
 
     <!-- How it Works Section -->
-    <section-talk-how-works />
+    <how-work-section />
 
     <!-- Become Expert Section -->
-    <section-talk-become-expert />
+    <become-expert-section />
 
     <!-- Benefits Section -->
-    <section-talk-benefits />
+    <benefits-work-section />
 
     <!-- Customers Section -->
-    <section-talk-customers />
-
-    <!-- Footer -->
-    <talk-footer />
+    <customer-section />
   </div>
 </template>
 

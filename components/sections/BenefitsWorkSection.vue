@@ -1,5 +1,5 @@
 <template>
-  <div class="benefits">
+  <section class="benefits">
     <div class="benefits__left">
       <div class="benefits__left__title">
         <h1 class="benefits__left__title">
@@ -22,7 +22,7 @@
     <div class="benefits__right">
       <img src="/src/img/index/benefits/benefits.png" alt="man" />
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

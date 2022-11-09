@@ -33,11 +33,13 @@
 export default {}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .main {
+  background-color: $bckgColor;
   &__container {
     max-width: 85%;
-    margin: 70px auto;
+    margin: 0px 70px auto;
+    padding-top: 70px;
     display: flex;
     justify-content: space-between;
   }

@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header__container">
       <div class="header__container__logo">
-        <talk-logo />
+        <the-logo />
       </div>
 
       <div class="header__container__searchfield">
@@ -28,7 +28,6 @@
         >
       </div>
       <!-- ~ -->
-
     </div>
   </header>
 </template>
@@ -39,6 +38,7 @@ export default {}
 
 <style lang="scss">
 .header {
+  background-color: $bckgColor;
   width: 100%;
   &__container {
     max-width: 85%;

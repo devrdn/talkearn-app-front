@@ -1,5 +1,5 @@
 <template>
-  <div class="become-expert">
+  <section class="become-expert">
     <div class="become-expert__container">
       <img
         src="/img/index/become an expert/bckg.png"
@@ -16,7 +16,7 @@
         <a href="#" class="become-expert__container__text__btn">Join With Us</a>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

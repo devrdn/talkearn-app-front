@@ -1,9 +1,10 @@
 <template>
   <v-app>
-    <talk-header />
+    <the-header />
     <v-main>
       <nuxt />
     </v-main>
+    <the-footer />
   </v-app>
 </template>
 
@@ -37,9 +38,7 @@ export default {
 
 <style lang="scss">
 @import '@/assets/nullstyle.scss';
-.bckg {
-  background-color: $bckgColor;
-}
+
 .main-header {
   font-weight: 600;
   font-size: 40px;

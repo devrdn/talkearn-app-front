@@ -1,10 +1,10 @@
 <template>
   <section class="crypto-topics">
     <h1 class="main-header">Crypto topics</h1>
-    <HeaderLine />
+    <ui-header-line />
     <div class="crypto-topics__all">
       <!-- TODO: change key (temporary use index as key) -->
-      <talk-crypto-card
+      <crypto-topic-card
         v-for="(meta, index) in cardMeta"
         :key="index"
         :meta="meta"
@@ -14,10 +14,7 @@
 </template>
 
 <script>
-import HeaderLine from '@/components/UI/HeaderLine.vue'
-
 export default {
-  components: { HeaderLine },
   data: () => {
     return {
       cardMeta: [
@@ -57,6 +54,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
   gap: 50px;
   &__all {
     display: flex;

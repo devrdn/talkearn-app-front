@@ -1,45 +1,32 @@
 <template>
-  <div class="how-it-works">
-    <div class="how-it-works__left">
-      <p class="how-it-works__left__little-title">How it works</p>
-      <h1 class="how-it-works__left__title">
-        Start find a Crypto expert you love with us easily
-      </h1>
-      <div class="how-it-works__left__accordion">
-        <talk-accordion />
-        <talk-accordion />
-        <talk-accordion />
+  <div>
+    <div class="how-it-works__left__accordion__btn">
+      <div class="how-it-works__left__accordion__btn1__number">
+        <button><span>1</span></button>
+        <p>Complete Profile</p>
       </div>
+      <img src="/img/index/how it works/dropdown.svg" alt="" />
     </div>
-    <div class="how-it-works__right">
-      <div class="how-it-works__right__video">
-        <img src="/img/index/how it works/preview.png" alt="" />
-        <video controls width="500" height="450" hidden>
-          <source src="/img/index/how it works/video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+    <div class="how-it-works__left__accordion__text" hidden>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aut culpa
+        ratione fugit adipisci sequi minus pariatur non atque temporibus
+        doloribus nemo quae ipsam consequatur accusantium itaque eius aspernatur
+        aperiam?
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {},
+}
 </script>
 
 <style lang="scss" scoped>
 .how-it-works {
-  max-width: 85%;
-  margin: 70px auto;
-  display: flex;
-  justify-content: space-between;
   &__left {
-    display: flex;
-    width: 50%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
     &__little-title {
       color: $purpleColor;
       font-size: 18px;
@@ -108,16 +95,6 @@ export default {}
           color: #3dcd65;
           font-size: 26px;
         }
-      }
-    }
-  }
-  &__right {
-    &__video {
-      & img,
-      video {
-        width: 500px;
-        height: 450px;
-        border-radius: 40px;
       }
     }
   }

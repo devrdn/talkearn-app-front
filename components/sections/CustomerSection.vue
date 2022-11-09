@@ -2,7 +2,7 @@
   <div class="customers">
     <h1 class="customers__title main-header">What our Customer Says</h1>
     <v-carousel height="auto" hide-delimiters>
-      <talk-customer
+      <customer-card
         v-for="(customer, index) in customers"
         :key="index"
         :customer="customer"
