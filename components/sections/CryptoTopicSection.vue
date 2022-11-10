@@ -1,10 +1,10 @@
 <template>
   <section class="crypto-topics">
     <h1 class="main-header">Crypto topics</h1>
-    <ui-header-line />
+    <UiHeaderLine />
     <div class="crypto-topics__all">
       <!-- TODO: change key (temporary use index as key) -->
-      <crypto-topic-card
+      <CryptoTopicCard
         v-for="(meta, index) in cardMeta"
         :key="index"
         :meta="meta"

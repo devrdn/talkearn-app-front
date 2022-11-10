@@ -1,11 +1,11 @@
 <template>
   <section class="featured-experts">
     <h1 class="main-header">Featured Experts this week</h1>
-    <ui-header-line />
+    <UiHeaderLine />
     <div class="featured-experts__experts">
       <!-- TODO: change key (temporary use index as key) -->
       <v-slide-group show-arrows class="expert-slider">
-        <featured-expert-card
+        <FeaturedExpertCard
           v-for="(expert, index) in experts"
           :key="index"
           :expert="expert"

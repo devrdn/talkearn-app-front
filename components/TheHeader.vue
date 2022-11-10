@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header__container">
       <div class="header__container__logo">
-        <the-logo />
+        <TheLogo />
       </div>
 
       <div class="header__container__searchfield">
@@ -11,9 +11,9 @@
           class="header__container__searchfield__input"
           placeholder="Search here..."
         />
-        <a href="/src/search-page.html"
-          ><img src="/img/index/search.svg" alt="search"
-        /></a>
+        <a href="/src/search-page.html">
+          <img src="/img/index/search.svg" alt="search" />
+        </a>
       </div>
 
       <!-- ~ TODO: make separate component with own classes ~ -->
@@ -23,9 +23,9 @@
           <li class="header__menu__item"><a href="/src/#">Experts</a></li>
           <li class="header__menu__item"><a href="/src/">Docs</a></li>
         </ul>
-        <a class="header__container__buttons__connect" href="/src/#"
-          >Connect wallet</a
-        >
+        <a class="header__container__buttons__connect" href="/src/#">
+          Connect wallet
+        </a>
       </div>
       <!-- ~ -->
     </div>

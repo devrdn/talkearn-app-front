@@ -6,9 +6,9 @@
         Start find a Crypto expert you love with us easily
       </h1>
       <div class="how-it-works__left__accordion">
-        <how-work-item />
-        <how-work-item />
-        <how-work-item />
+        <HowItWorkItem />
+        <HowItWorkItem />
+        <HowItWorkItem />
       </div>
     </div>
     <div class="how-it-works__right">

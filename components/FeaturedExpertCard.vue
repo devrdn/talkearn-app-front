@@ -3,8 +3,8 @@
     <div class="featured-experts__experts__card">
       <div class="featured-experts__experts__card_left">
         <div class="featured-experts__experts__card_left__photo">
-          <v-avatar size="80"
-            ><img :src="`/img/index/experts/${expert.img}`" alt="photo" />
+          <v-avatar size="80">
+            <img :src="`/img/index/experts/${expert.img}`" alt="photo" />
           </v-avatar>
         </div>
         <div class="featured-experts__experts__card_left__text">
@@ -21,9 +21,9 @@
           <img src="/img/index/experts/stars.svg" alt="stars" />
           <span>4.3</span>
         </div>
-        <a class="featured-experts__experts__card_right_btn" href="#"
-          >${{ expert.price }}/hr</a
-        >
+        <a class="featured-experts__experts__card_right_btn" href="#">
+          ${{ expert.price }}/hr
+        </a>
       </div>
     </div>
   </v-slide-item>

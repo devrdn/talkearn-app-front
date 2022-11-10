@@ -19,7 +19,8 @@
           hover
           length="5"
           :value="expert.stars"
-        ></v-rating>
+        >
+        </v-rating>
         <p class="all-experts__container__cards__block__info__rating__number">
           {{ expert.stars }}
         </p>

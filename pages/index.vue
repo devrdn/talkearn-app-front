@@ -1,24 +1,25 @@
 <template>
   <div>
-    <the-main-hero />
+
+    <!-- Landing Page -->
 
     <!-- Crypto Topics Section -->
-    <crypto-topic-section />
+    <CryptoTopicSection />
 
     <!-- Experts Section -->
-    <featured-experts-section />
+    <FeaturedExpertsSection />
 
     <!-- How it Works Section -->
-    <how-work-section />
+    <HowItWorkSection />
 
     <!-- Become Expert Section -->
-    <become-expert-section />
+    <BecomeExpertSection />
 
     <!-- Benefits Section -->
-    <benefits-work-section />
+    <BenefitsWorkSection />
 
     <!-- Customers Section -->
-    <customer-section />
+    <CustomerSection />
   </div>
 </template>
 

@@ -38,7 +38,11 @@
           </div>
         </div>
         <div class="main-cat__container__content__tags">
-          <category-tag-item v-for="(tag, index) in tags" :key="index" :tag-name="tag" />
+          <CategoryTagItem
+            v-for="(tag, index) in tags"
+            :key="index"
+            :tag-name="tag"
+          />
         </div>
       </div>
     </div>

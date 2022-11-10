@@ -1,18 +1,15 @@
 <template>
   <div>
-    <!-- Page Hero -->
-    <the-category-hero />
-
     <!-- Featured Experts -->
-    <featured-experts-section />
+    <FeaturedExpertSection />
 
     <!-- All Expert Section -->
-    <expert-section />
+    <ExpertSection />
   </div>
 </template>
 
 <script>
-export default {}
+export default {  }
 </script>
 
 <style lang="scss" scoped></style>
