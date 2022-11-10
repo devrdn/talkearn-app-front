@@ -7,6 +7,7 @@
     <v-main>
       <Nuxt />
     </v-main>
+    <TheSubscribe />
     <TheFooter />
   </v-app>
 </template>

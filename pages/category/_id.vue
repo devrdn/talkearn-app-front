@@ -1,62 +1,60 @@
 <template>
-  <div>
-    <!-- Featured Experts -->
-    <v-container fluid ma-0 pa-0>
-      <FeaturedExpertSection />
-    </v-container>
+  <!-- Featured Experts -->
+  <v-container fluid ma-0 pa-0>
+    <FeaturedExpertsSection />
 
     <!-- All Expert Section -->
-    <v-container fluid ma-0 pa-0>
-      <div class="all-experts">
-        <div class="all-experts__container">
-          <div class="all-experts__container__head">
-            <p class="all-experts__container__head__left">
-              Showing {{ experts.length }} of 234 Experts
-            </p>
-            <div class="all-experts__container__head__right">
-              <div class="all-experts__container__head__right__online">
-                <p>Online</p>
-                <label
-                  class="all-experts__container__head__right__online__switch"
-                >
-                  <input type="checkbox" />
-                  <span
-                    class="all-experts__container__head__right__online__slider round"
-                  ></span>
-                </label>
-              </div>
-              <div class="all-experts__container__head__right__category">
-                <select
-                  class="all-experts__container__head__right__category__select"
-                >
-                  <option value="">Category</option>
-                  <option value="1">Blockchains</option>
-                  <option value="2">Wallets</option>
-                  <option value="3">Money tranfers</option>
-                  <option value="4">Investments</option>
-                </select>
-              </div>
-              <div class="all-experts__container__head__right__filter">
-                <a
-                  class="all-experts__container__head__right__filter__link"
-                  href="/"
-                >
-                  <img src="/img/cat-one/all-experts/filter.svg" alt="" />
-                </a>
-              </div>
+    <div class="all-experts">
+      <div class="all-experts__container">
+        <div class="all-experts__container__head">
+          <p class="all-experts__container__head__left">
+            Showing {{ experts.length }} of 234 Experts
+          </p>
+          <div class="all-experts__container__head__right">
+            <div class="all-experts__container__head__right__online">
+              <p>Online</p>
+              <label
+                class="all-experts__container__head__right__online__switch"
+              >
+                <input type="checkbox" />
+                <span
+                  class="all-experts__container__head__right__online__slider round"
+                ></span>
+              </label>
+            </div>
+            <div class="all-experts__container__head__right__category">
+              <select
+                class="all-experts__container__head__right__category__select"
+              >
+                <option value="">Category</option>
+                <option value="1">Blockchains</option>
+                <option value="2">Wallets</option>
+                <option value="3">Money tranfers</option>
+                <option value="4">Investments</option>
+              </select>
+            </div>
+            <div class="all-experts__container__head__right__filter">
+              <a
+                class="all-experts__container__head__right__filter__link"
+                href="/"
+              >
+                <img src="/img/cat-one/all-experts/filter.svg" alt="" />
+              </a>
             </div>
           </div>
-          <div class="all-experts__container__cards">
-            <ExpertCard
-              v-for="(expert, index) in experts"
-              :key="index"
-              :expert="expert"
-            />
-          </div>
+        </div>
+        <div class="all-experts__container__cards">
+          <!-- Expert Card List -->
+          <ExpertCard
+            v-for="(expert, index) in experts"
+            :key="index"
+            :expert="expert"
+          />
         </div>
       </div>
-    </v-container>
-  </div>
+    </div>
+    <SponsorList />
+  </v-container>
 </template>
 
 <script>
