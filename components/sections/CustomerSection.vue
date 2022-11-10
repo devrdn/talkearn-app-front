@@ -33,9 +33,9 @@ export default {
             'TalkEarn was worth a fortune to my company. Thank you for making it painless, pleasant and most of all hassle free! I have gotten at least 50 times the value from TalkEarn. Your service is truly upstanding and is behind its product 100%. We made a lot of work in our company with the freelancers on TalkEarn platform. Great work and pleasant people.',
         },
       ],
-    }
+    };
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

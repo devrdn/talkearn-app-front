@@ -23,7 +23,9 @@
               length="5"
               :value="customer.stars"
             ></v-rating>
-            <p class="customers__container__right__head__rating_digit">{{ customer.stars }}</p>
+            <p class="customers__container__right__head__rating_digit">
+              {{ customer.stars }}
+            </p>
           </div>
         </div>
         <div class="customers__container__right__text">
@@ -42,7 +44,7 @@ export default {
       required: true,
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

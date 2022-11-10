@@ -1,10 +1,6 @@
 <template>
   <div class="banner">
-    <img
-      class="banner__img"
-      src="/img/expert-one/bckg.png"
-      alt="background"
-    />
+    <img class="banner__img" src="/img/expert-one/bckg.png" alt="background" />
     <p>{{ title }}</p>
     <img class="banner__arrow" src="/img/expert-one/arrow.svg" alt="arrow" />
   </div>
@@ -18,7 +14,7 @@ export default {
       required: true,
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

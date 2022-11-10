@@ -56,7 +56,7 @@ export default {
       type: Object,
       required: true,
       validator: (obj) => {
-        return obj.status === 'AVAILABLE' || obj.status === 'UNAVAILABLE'
+        return obj.status === 'AVAILABLE' || obj.status === 'UNAVAILABLE';
       },
     },
   },
@@ -65,20 +65,20 @@ export default {
       const options = {
         year: 'numeric',
         month: 'long',
-      }
+      };
 
-      return this.expert.since.toLocaleDateString('en-US', options)
+      return this.expert.since.toLocaleDateString('en-US', options);
     },
     getLastReview() {
-      const today = new Date(Date.now())
+      const today = new Date(Date.now());
 
       return Math.ceil(
         Math.abs(today.getTime() - this.expert.latestReview.getTime()) /
           (1000 * 3600 * 24)
-      )
+      );
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

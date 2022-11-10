@@ -44,9 +44,9 @@ export default {
           title: 'Trading',
         },
       ],
-    }
+    };
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

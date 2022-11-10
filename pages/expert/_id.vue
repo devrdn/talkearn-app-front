@@ -123,9 +123,9 @@ export default {
         'Money Transfers',
       ],
       title: 'Crypto Startup Advisor',
-    }
+    };
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

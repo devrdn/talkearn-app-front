@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <!-- Landing Page -->
 
     <!-- Crypto Topics Section -->
@@ -26,7 +25,7 @@
 <script>
 export default {
   name: 'MainPage',
-}
+};
 </script>
 
 <style lang="scss" scoped></style>

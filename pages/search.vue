@@ -101,9 +101,9 @@ export default {
           latestReview: new Date('11.02.2022'),
         },
       ],
-    }
+    };
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

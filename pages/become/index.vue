@@ -125,7 +125,7 @@
 <script>
 export default {
   layout: () => 'withouthero-page',
-}
+};
 </script>
 
 <style lang="scss" scoped>

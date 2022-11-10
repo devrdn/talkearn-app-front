@@ -49,8 +49,8 @@ export const state = () => ({
       price: 30,
     },
   ],
-})
+});
 
 export const getters = {
   getExperts: (state) => state.experts,
-}
+};

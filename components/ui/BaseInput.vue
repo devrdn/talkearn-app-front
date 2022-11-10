@@ -18,7 +18,7 @@ export default {
       type: String,
       default: 'text',
       validator: (value) => {
-        return ['text', 'number', 'search', 'radio'].includes(value)
+        return ['text', 'number', 'search', 'radio'].includes(value);
       },
     },
     label: {
@@ -35,7 +35,7 @@ export default {
       default: '',
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

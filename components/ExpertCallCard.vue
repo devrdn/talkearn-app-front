@@ -37,7 +37,7 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style lang="scss" scoped>
@@ -55,7 +55,6 @@ export default {}
   align-items: center;
   gap: 60px;
   &__cards {
-
     &__block {
       display: flex;
       flex-direction: column;
