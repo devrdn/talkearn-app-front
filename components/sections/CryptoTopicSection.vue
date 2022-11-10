@@ -1,7 +1,7 @@
 <template>
   <section class="crypto-topics">
     <h1 class="main-header">Crypto topics</h1>
-    <UiHeaderLine />
+    <UiBaseHeaderLine />
     <div class="crypto-topics__all">
       <!-- TODO: change key (temporary use index as key) -->
       <CryptoTopicCard

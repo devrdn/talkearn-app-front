@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="category-page">
     <div class="crypto-topics">
       <h1 class="main-header">Crypto topics</h1>
-      <UiHeaderLine />
+      <UiBaseHeaderLine />
       <div class="crypto-topics__all">
         <CryptoTopicCard
           v-for="(meta, index) in cardMeta"

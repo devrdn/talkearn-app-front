@@ -1,15 +1,9 @@
 <template>
-  <!-- Featured Experts -->
-  <v-container fluid ma-0 pa-0>
-    <FeaturedExpertsSection />
-
-    <!-- All Expert Section -->
+  <div class="search-page">
     <div class="all-experts">
       <div class="all-experts__container">
         <div class="all-experts__container__head">
-          <p class="all-experts__container__head__left">
-            Showing {{ experts.length }} of 234 Experts
-          </p>
+          <p class="all-experts__container__head__left">Results for “design”</p>
           <div class="all-experts__container__head__right">
             <div class="all-experts__container__head__right__online">
               <p>Online</p>
@@ -44,7 +38,6 @@
           </div>
         </div>
         <div class="all-experts__container__cards">
-          <!-- Expert Card List -->
           <ExpertAboutCard
             v-for="(expert, index) in experts"
             :key="index"
@@ -53,13 +46,12 @@
         </div>
       </div>
     </div>
-    <SponsorList />
-  </v-container>
+  </div>
 </template>
 
 <script>
 export default {
-  layout: () => 'secondary-page',
+  layout: () => 'withouthero-page',
   data: () => {
     return {
       experts: [

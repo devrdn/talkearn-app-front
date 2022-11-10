@@ -1,0 +1,142 @@
+<template>
+  <div class="expert__cards__block">
+    <img
+      src="/img/expert-one/card1.png"
+      class="expert__cards__block__img"
+      alt="photo"
+    />
+    <div class="expert__cards__block__text">
+      <div class="expert__cards__block__text__author">
+        <img
+          src="/img/expert-one/photo.png"
+          class="expert__cards__block__text__author__img"
+          alt="photo"
+        />
+        <div class="expert__cards__block__text__author__name">
+          <p>Jordan Sigh</p>
+          <div class="expert__cards__block__text__author__name__rating">
+            <span>4.3</span>
+            <img src="/img/index/experts/stars.svg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="expert__cards__block__text__title">
+        <p>NFT overview and portfolio coaching</p>
+      </div>
+      <div class="expert__cards__block__text__call">
+        <div class="expert__cards__block__text__call__text">
+          <span class="expert__cards__block__text__call__price">$3</span>
+          <span class="expert__cards__block__text__call__minute"
+            >per minute</span
+          >
+        </div>
+        <a href="/" class="expert__cards__block__text__call__btn">Call</a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {}
+</script>
+
+<style lang="scss" scoped>
+.expert {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: -20px;
+  padding: 40px;
+  position: relative;
+  background: #ffffff;
+  box-shadow: 0px 0px 28px rgba(62, 53, 120, 0.1);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  &__cards {
+
+    &__block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0px 8px 24px rgba(31, 31, 51, 0.1);
+      border-radius: 10px;
+
+      &__img {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+      }
+
+      &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        padding: 20px;
+
+        &__author {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+
+          &__img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+          }
+
+          &__name {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            p {
+              font-size: 18px;
+              font-weight: 600;
+            }
+
+            &__rating {
+              display: flex;
+              align-items: flex-end;
+              gap: 10px;
+            }
+          }
+        }
+
+        &__title {
+          font-size: $fs;
+          font-weight: 600;
+        }
+
+        &__call {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          &__price {
+            font-size: 19px;
+            font-weight: 600;
+            margin-right: 20px;
+          }
+
+          &__minute {
+            font-size: $fs;
+            font-weight: 500;
+          }
+
+          &__btn {
+            color: $whiteColor;
+            font-size: $fs;
+            font-weight: 700;
+            background: $purpleColor;
+            padding: 13px 23px;
+            border-radius: 39px;
+            box-shadow: 0px 10px 29px rgba(62, 53, 120, 0.14);
+          }
+        }
+      }
+    }
+  }
+}
+</style>

@@ -1,19 +1,19 @@
 <template>
   <v-app>
-    <v-container fluid class="bckg">
+    <div class="bckg">
       <TheHeader />
-      <TheMainHero />
-    </v-container>
+      <TheSecondaryHero />
+    </div>
     <v-main>
       <Nuxt />
     </v-main>
+    <TheSubscribe />
     <TheFooter />
   </v-app>
 </template>
 
 <script>
 export default {
-  name: 'DefaultLayout',
   data() {
     return {
       clipped: false,

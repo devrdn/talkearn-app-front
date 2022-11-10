@@ -1,7 +1,7 @@
 <template>
   <section class="featured-experts">
     <h1 class="main-header">Featured Experts this week</h1>
-    <UiHeaderLine />
+    <UiBaseHeaderLine />
     <div class="featured-experts__experts">
       <!-- TODO: change key (temporary use index as key) -->
       <v-slide-group show-arrows class="expert-slider">

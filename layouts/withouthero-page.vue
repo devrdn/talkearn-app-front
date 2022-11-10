@@ -2,12 +2,10 @@
   <v-app>
     <div class="bckg">
       <TheHeader />
-      <TheSecondaryHero />
     </div>
     <v-main>
       <Nuxt />
     </v-main>
-    <TheSubscribe />
     <TheFooter />
   </v-app>
 </template>
@@ -41,15 +39,7 @@ export default {
 
 <style lang="scss">
 @import '@/assets/nullstyle.scss';
-
 .bckg {
   background-color: $bckgColor;
-}
-
-.main-header {
-  font-weight: 600;
-  font-size: 40px;
-  text-align: center;
-  color: $darkColor;
 }
 </style>
