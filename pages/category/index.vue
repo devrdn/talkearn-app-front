@@ -5,9 +5,9 @@
       <UiBaseHeaderLine />
       <div class="crypto-topics__all">
         <CategoryCard
-          v-for="(meta, index) in cardMeta"
-          :key="index"
-          :meta="meta"
+          v-for="category in categories"
+          :key="category.id"
+          :category="category"
         />
       </div>
     </div>
@@ -15,62 +15,19 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import CategoryCard from '~/components/CategoryCard.vue';
 export default {
-  data: () => {
-    return {
-      cardMeta: [
-        {
-          href: '#',
-          img: 'topic1.svg',
-          title: 'Blockchains',
-        },
-        {
-          href: '#',
-          img: 'topic2.svg',
-          title: 'Wallets',
-        },
-        {
-          href: '#',
-          img: 'topic3.svg',
-          title: 'Money tranfers',
-        },
-        {
-          href: '#',
-          img: 'topic4.svg',
-          title: 'Investments',
-        },
-        {
-          href: '#',
-          img: 'topic5.svg',
-          title: 'Trading',
-        },
-        {
-          href: '#',
-          img: 'topic1.svg',
-          title: 'Blockchains',
-        },
-        {
-          href: '#',
-          img: 'topic2.svg',
-          title: 'Wallets',
-        },
-        {
-          href: '#',
-          img: 'topic3.svg',
-          title: 'Money tranfers',
-        },
-        {
-          href: '#',
-          img: 'topic4.svg',
-          title: 'Investments',
-        },
-        {
-          href: '#',
-          img: 'topic5.svg',
-          title: 'Trading',
-        },
-      ],
-    };
+  components: { CategoryCard },
+  async fetch({ store }) {
+    if (store.getters['category/getCategories'].length === 0) {
+      await store.dispatch('category/fetchCategories');
+    }
+  },
+  computed: {
+    ...mapGetters({
+      categories: 'category/getCategories',
+    }),
   },
 };
 </script>

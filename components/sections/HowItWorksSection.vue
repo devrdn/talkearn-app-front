@@ -6,9 +6,9 @@
         Start find a Crypto expert you love with us easily
       </h1>
       <div class="how-it-works__left__accordion">
-        <HowItWorkItem />
-        <HowItWorkItem />
-        <HowItWorkItem />
+        <HowItWorksItem />
+        <HowItWorksItem />
+        <HowItWorksItem />
       </div>
     </div>
     <div class="how-it-works__right">
@@ -24,7 +24,9 @@
 </template>
 
 <script>
-export default {};
+import HowItWorksItem from '../HowItWorksItem.vue';
+
+export default { components: { HowItWorksItem } };
 </script>
 
 <style lang="scss" scoped>

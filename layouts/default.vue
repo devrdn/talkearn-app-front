@@ -12,8 +12,13 @@
 </template>
 
 <script>
+import TheFooter from '~/components/TheFooter.vue';
+import TheHeader from '~/components/TheHeader.vue';
+import TheMainHero from '~/components/TheMainHero.vue';
+
 export default {
   name: 'DefaultLayout',
+  components: { TheHeader, TheMainHero, TheFooter },
   data() {
     return {
       clipped: false,
@@ -41,7 +46,12 @@ export default {
 
 <style lang="scss">
 @import '@/assets/nullstyle.scss';
-
+.main-header {
+  font-weight: 600;
+  font-size: 40px;
+  text-align: center;
+  color: $darkColor;
+}
 .bckg {
   background-color: $bckgColor;
 }

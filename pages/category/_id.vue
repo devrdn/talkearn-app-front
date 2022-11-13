@@ -45,11 +45,7 @@
         </div>
         <div class="all-experts__container__cards">
           <!-- Expert Card List -->
-          <ExpertAboutCard
-            v-for="(expert, index) in experts"
-            :key="index"
-            :expert="expert"
-          />
+          <ExpertAboutCard />
         </div>
       </div>
     </div>
@@ -58,7 +54,10 @@
 </template>
 
 <script>
+import ExpertAboutCard from '~/components/ExpertAboutCard.vue';
+
 export default {
+  components: { ExpertAboutCard },
   layout: () => 'secondary',
   data: () => {
     return {

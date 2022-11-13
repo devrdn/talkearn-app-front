@@ -12,7 +12,10 @@
 </template>
 
 <script>
+import CustomerCard from '~/components/CustomerCard.vue';
+
 export default {
+  components: { CustomerCard },
   data: () => {
     return {
       customers: [

@@ -9,7 +9,10 @@
 </template>
 
 <script>
+import SponsorListItem from '~/components/SponsorListItem.vue';
+
 export default {
+  components: { SponsorListItem },
   data: () => {
     return {
       sponsors: ['logo1', 'logo2', 'logo3', 'logo4', 'logo5'],

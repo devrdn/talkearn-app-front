@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- Landing Page -->
+    <!-- ~ Landing Page ~ -->
 
     <!-- Crypto Topics Section -->
     <CategorySection />
@@ -9,7 +9,7 @@
     <FeaturedExpertsSection />
 
     <!-- How it Works Section -->
-    <HowItWorkSection />
+    <HowItWorksSection />
 
     <!-- Become Expert Section -->
     <BecomeExpertSection />
@@ -23,8 +23,26 @@
 </template>
 
 <script>
+import BecomeExpertSection from '~/components/sections/BecomeExpertSection.vue';
+import BenefitsWorkSection from '~/components/sections/BenefitsWorkSection.vue';
+import CategorySection from '~/components/sections/CategorySection.vue';
+import CustomerSection from '~/components/sections/CustomerSection.vue';
+import FeaturedExpertsSection from '~/components/sections/FeaturedExpertsSection.vue';
+import HowItWorksSection from '~/components/sections/HowItWorksSection.vue';
+
 export default {
   name: 'MainPage',
+
+  components: {
+    CategorySection,
+    FeaturedExpertsSection,
+    HowItWorksSection,
+    BecomeExpertSection,
+    BenefitsWorkSection,
+    CustomerSection,
+  },
+
+ 
 };
 </script>
 

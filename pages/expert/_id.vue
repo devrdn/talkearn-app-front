@@ -1,7 +1,7 @@
 <template>
   <div class="expert-page">
     <!-- Banner -->
-    <UiBaseBanner :title="title" />
+    <BaseBanner :title="title" />
 
     <!-- Expert Info -->
     <div class="expert">
@@ -111,7 +111,12 @@
 </template>
 
 <script>
+import CategoryTagItem from '~/components/CategoryTagItem.vue';
+import ExpertCallCard from '~/components/ExpertCallCard.vue';
+import BaseBanner from '~/components/ui/BaseBanner.vue';
+
 export default {
+  components: { BaseBanner, CategoryTagItem, ExpertCallCard },
   layout: () => 'emptyhero',
   data: () => {
     return {

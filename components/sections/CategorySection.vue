@@ -1,50 +1,36 @@
 <template>
   <section class="crypto-topics">
     <h1 class="main-header">Crypto topics</h1>
-    <UiBaseHeaderLine />
+    <BaseHeaderLine />
     <div class="crypto-topics__all">
-      <!-- TODO: change key (temporary use index as key) -->
       <CategoryCard
-        v-for="(meta, index) in cardMeta"
-        :key="index"
-        :meta="meta"
+        v-for="category in categories"
+        :key="category.id"
+        :category="category"
       />
     </div>
   </section>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+import CategoryCard from '~/components/CategoryCard.vue';
+import BaseHeaderLine from '~/components/ui/BaseHeaderLine.vue';
+
 export default {
-  data: () => {
-    return {
-      cardMeta: [
-        {
-          href: '#',
-          img: 'topic1.svg',
-          title: 'Blockchains',
-        },
-        {
-          href: '#',
-          img: 'topic2.svg',
-          title: 'Wallets',
-        },
-        {
-          href: '#',
-          img: 'topic3.svg',
-          title: 'Money tranfers',
-        },
-        {
-          href: '#',
-          img: 'topic4.svg',
-          title: 'Investments',
-        },
-        {
-          href: '#',
-          img: 'topic5.svg',
-          title: 'Trading',
-        },
-      ],
-    };
+  components: { CategoryCard, BaseHeaderLine},
+  computed: {
+    ...mapGetters({
+      categories: 'category/getCategories',
+    }),
+  },
+  mounted() {
+    this.fetchCategories();
+  },
+  methods: {
+    ...mapActions({
+      fetchCategories: 'category/fetchCategories',
+    }),
   },
 };
 </script>

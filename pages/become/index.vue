@@ -123,7 +123,12 @@
 </template>
 
 <script>
+import BuyerStoryCard from '~/components/BuyerStoryCard.vue';
+import CommunityCard from '~/components/CommunityCard.vue';
+import HowItWorksItem from '~/components/HowItWorksItem.vue';
+
 export default {
+  components: { CommunityCard, BuyerStoryCard, HowItWorksItem },
   layout: () => 'emptyhero',
 };
 </script>

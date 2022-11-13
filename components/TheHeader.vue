@@ -17,23 +17,16 @@
       </div>
 
       <!-- ~ TODO: make separate component with own classes ~ -->
-      <div class="header__container__buttons">
-        <ul class="header__container__buttons__menu">
-          <li class="header__menu__item"><a href="/src/#">Home</a></li>
-          <li class="header__menu__item"><a href="/src/#">Experts</a></li>
-          <li class="header__menu__item"><a href="/src/">Docs</a></li>
-        </ul>
-        <a class="header__container__buttons__connect" href="/src/#">
-          Connect wallet
-        </a>
-      </div>
+      <TheNavigation />
       <!-- ~ -->
     </div>
   </header>
 </template>
 
 <script>
-export default {};
+import TheNavigation from './TheNavigation.vue';
+
+export default { components: { TheNavigation } };
 </script>
 
 <style lang="scss">

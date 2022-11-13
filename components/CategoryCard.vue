@@ -1,18 +1,18 @@
 <template>
-  <a :href="meta.href" class="crypto-topics__all__topic">
+  <nuxt-link :to="category.slug" class="crypto-topics__all__topic">
     <img
       class="crypto-topics__topic__icon"
-      :src="`/img/index/crypto-topics/${meta.img}`"
+      :src="category.icon"
       alt="topic icon"
     />
-    <p class="crypto-topics__topic__name">{{ meta.title }}</p>
-  </a>
+    <p class="crypto-topics__topic__name">{{ category.name }}</p>
+  </nuxt-link>
 </template>
 
 <script>
 export default {
   props: {
-    meta: {
+    category: {
       type: Object,
       required: true,
     },

@@ -13,7 +13,13 @@
 </template>
 
 <script>
+import TheFooter from '~/components/TheFooter.vue';
+import TheHeader from '~/components/TheHeader.vue';
+import TheSecondaryHero from '~/components/TheSecondaryHero.vue';
+import TheSubscribe from '~/components/TheSubscribe.vue';
+
 export default {
+  components: { TheSecondaryHero, TheHeader, TheSubscribe, TheFooter },
   data() {
     return {
       clipped: false,
