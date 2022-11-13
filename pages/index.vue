@@ -3,7 +3,7 @@
     <!-- Landing Page -->
 
     <!-- Crypto Topics Section -->
-    <CryptoTopicSection />
+    <CategorySection />
 
     <!-- Experts Section -->
     <FeaturedExpertsSection />

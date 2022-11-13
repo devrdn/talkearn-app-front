@@ -4,7 +4,7 @@
       <h1 class="main-header">Crypto topics</h1>
       <UiBaseHeaderLine />
       <div class="crypto-topics__all">
-        <CryptoTopicCard
+        <CategoryCard
           v-for="(meta, index) in cardMeta"
           :key="index"
           :meta="meta"

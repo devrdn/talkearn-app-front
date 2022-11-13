@@ -4,7 +4,7 @@
     <UiBaseHeaderLine />
     <div class="crypto-topics__all">
       <!-- TODO: change key (temporary use index as key) -->
-      <CryptoTopicCard
+      <CategoryCard
         v-for="(meta, index) in cardMeta"
         :key="index"
         :meta="meta"

@@ -59,7 +59,7 @@
 
 <script>
 export default {
-  layout: () => 'secondary-page',
+  layout: () => 'secondary',
   data: () => {
     return {
       experts: [

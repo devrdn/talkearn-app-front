@@ -124,7 +124,7 @@
 
 <script>
 export default {
-  layout: () => 'withouthero-page',
+  layout: () => 'emptyhero',
 };
 </script>
 

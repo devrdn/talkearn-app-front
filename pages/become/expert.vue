@@ -207,7 +207,7 @@
 
 <script>
 export default {
-  layout: () => 'withouthero-page',
+  layout: () => 'emptyhero',
   data: () => {
     return {
       expert: {
