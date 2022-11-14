@@ -1,56 +1,20 @@
 export const state = () => ({
-  experts: [
-    {
-      img: 'photo.png',
-      name: 'David Hutapea',
-      job: 'Professional Trader',
-      price: 30,
-    },
-    {
-      img: 'photo.png',
-      name: 'David Hutapea',
-      job: 'Professional Trader',
-      price: 30,
-    },
-    {
-      img: 'photo.png',
-      name: 'David Hutapea',
-      job: 'Professional Trader',
-      price: 30,
-    },
-    {
-      img: 'photo.png',
-      name: 'David Hutapea',
-      job: 'Professional Trader',
-      price: 30,
-    },
-    {
-      img: 'photo.png',
-      name: 'David Hutapea',
-      job: 'Professional Trader',
-      price: 30,
-    },
-    {
-      img: 'photo.png',
-      name: 'David Hutapea',
-      job: 'Professional Trader',
-      price: 30,
-    },
-    {
-      img: 'photo.png',
-      name: 'David Hutapea',
-      job: 'Professional Trader',
-      price: 30,
-    },
-    {
-      img: 'photo.png',
-      name: 'David Hutapea',
-      job: 'Professional Trader',
-      price: 30,
-    },
-  ],
+  featuredExperts: [],
+  searchExpert: [],
 });
+
 
 export const getters = {
   getExperts: (state) => state.experts,
 };
+
+
+export const muttations = {
+  setFeaturedExperts: (state, payload) => {
+    state.searchExpert.push(payload);
+  }
+};
+
+export const actions = {
+  
+}

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import {  mapGetters } from 'vuex';
 import CategoryCard from '~/components/CategoryCard.vue';
 import BaseHeaderLine from '~/components/ui/BaseHeaderLine.vue';
 
@@ -22,14 +22,6 @@ export default {
   computed: {
     ...mapGetters({
       categories: 'category/getCategories',
-    }),
-  },
-  mounted() {
-    this.fetchCategories();
-  },
-  methods: {
-    ...mapActions({
-      fetchCategories: 'category/fetchCategories',
     }),
   },
 };

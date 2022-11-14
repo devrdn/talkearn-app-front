@@ -18,7 +18,15 @@
       </div>
       <div class="featured-experts__experts__card_right">
         <div class="featured-experts__experts__card_right_stars">
-          <img src="/img/index/experts/stars.svg" alt="stars" />
+          <v-rating
+              color="#F4C95D"
+              background-color="#F4C95D"
+              readonly
+              hover
+              size="20"
+              length="5"
+              :value="3"
+            ></v-rating>
           <span>4.3</span>
         </div>
         <a class="featured-experts__experts__card_right_btn" href="#">
@@ -84,6 +92,7 @@ export default {
           display: flex;
           align-items: center;
           gap: 7px;
+          margin-right: 5px;
         }
         & img {
           display: inline-block;

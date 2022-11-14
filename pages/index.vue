@@ -32,7 +32,6 @@ import HowItWorksSection from '~/components/sections/HowItWorksSection.vue';
 
 export default {
   name: 'MainPage',
-
   components: {
     CategorySection,
     FeaturedExpertsSection,
@@ -41,8 +40,11 @@ export default {
     BenefitsWorkSection,
     CustomerSection,
   },
-
- 
+  fetch: async ({ store }) => {
+    if (store.getters['category/getCategories'].length === 0) {
+      await store.dispatch('category/fetchCategories');
+    }
+  }
 };
 </script>
 

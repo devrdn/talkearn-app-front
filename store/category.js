@@ -25,7 +25,7 @@ export const actions = {
       commit('setCategory', data.data);
       commit('setState', FETCH_STATE.SUCCESS);
     } catch (e) {
-      commit('setState', FETCH_STATE.FAILED);
+      return Promise.reject(e);
     }
   },
 };
