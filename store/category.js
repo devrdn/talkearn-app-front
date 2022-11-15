@@ -1,37 +1,34 @@
 import categoryApi from '~/api/categoryApi.js';
 
 export const state = () => ({
-  state: FETCH_STATE.LOADING,
+  error: {},
   category: [],
 });
 
 export const getters = {
   getCategories: (state) => state.category,
+  getError: (state) => state.error,
 };
 
 export const mutations = {
-  setCategory: (state, payload) => {
+  setCategories: (state, payload) => {
     state.category = payload;
   },
-  setState: (state, payload) => {
-    state.state = payload;
+  setError: (state, payload) => {
+    state.error = payload;
   },
 };
 
 export const actions = {
   fetchCategories: async ({ commit }) => {
-    try {
-      const data = await categoryApi.getCategories();
-      commit('setCategory', data.data);
-      commit('setState', FETCH_STATE.SUCCESS);
-    } catch (e) {
-      return Promise.reject(e);
-    }
+    await categoryApi
+      .getCategories()
+      .then((responce) => {
+        commit('setCategories', responce.data.data);
+        commit('setError', {});
+      })
+      .catch((err) => {
+        commit('setError', err);
+      });
   },
-};
-
-export const FETCH_STATE = {
-  LOADING: 'loading',
-  SUCCESS: 'success',
-  FAILED: 'failed',
 };

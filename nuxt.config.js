@@ -1,4 +1,4 @@
-import colors from 'vuetify/es5/util/colors'
+import colors from 'vuetify/es5/util/colors';
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -44,7 +44,7 @@ export default {
 
   loading: {
     color: 'blue',
-    height: '5px'
+    height: '5px',
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -81,4 +81,4 @@ export default {
       devtools: true,
     },
   },
-}
+};

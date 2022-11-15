@@ -38,7 +38,7 @@
           </div>
         </div>
         <div class="all-experts__container__cards">
-          <ExpertAboutCard
+          <ExpertCardAbout
             v-for="(expert, index) in experts"
             :key="index"
             :expert="expert"
@@ -50,7 +50,10 @@
 </template>
 
 <script>
+import ExpertCardAbout from '~/components/ExpertCardAbout.vue';
+
 export default {
+  components: { ExpertCardAbout },
   layout: () => 'emptyhero',
   data: () => {
     return {

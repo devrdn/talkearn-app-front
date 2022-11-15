@@ -4,7 +4,7 @@
       <div class="featured-experts__experts__card_left">
         <div class="featured-experts__experts__card_left__photo">
           <v-avatar size="80">
-            <img :src="`/img/index/experts/${expert.img}`" alt="photo" />
+            <img :src="expert.image" alt="photo" />
           </v-avatar>
         </div>
         <div class="featured-experts__experts__card_left__text">
@@ -12,26 +12,29 @@
             {{ expert.name }}
           </p>
           <p class="featured-experts__experts__card_left__text_profession">
-            {{ expert.job }}
+            {{ expert.services[0].name }}
           </p>
         </div>
       </div>
       <div class="featured-experts__experts__card_right">
         <div class="featured-experts__experts__card_right_stars">
           <v-rating
-              color="#F4C95D"
-              background-color="#F4C95D"
-              readonly
-              hover
-              size="20"
-              length="5"
-              :value="3"
-            ></v-rating>
-          <span>4.3</span>
+            background-color="#eee"
+            color="warning"
+            readonly
+            hover
+            size="20"
+            length="5"
+            :value="Number(expert.rating)"
+          ></v-rating>
+          <span>{{ expert.rating }}</span>
         </div>
-        <a class="featured-experts__experts__card_right_btn" href="#">
+        <nuxt-link
+          class="featured-experts__experts__card_right_btn"
+          :to="`/${expert.categorySlug}/${expert.slug}`"
+        >
           ${{ expert.price }}/hr
-        </a>
+        </nuxt-link>
       </div>
     </div>
   </v-slide-item>
@@ -54,6 +57,7 @@ export default {
     &__card {
       padding: 20px;
       width: 320px;
+      margin-right: 30px;
       &_left {
         display: flex;
         flex-direction: row;
@@ -92,7 +96,7 @@ export default {
           display: flex;
           align-items: center;
           gap: 7px;
-          margin-right: 5px;
+          margin-right: 15px;
         }
         & img {
           display: inline-block;

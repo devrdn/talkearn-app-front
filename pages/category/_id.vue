@@ -45,7 +45,7 @@
         </div>
         <div class="all-experts__container__cards">
           <!-- Expert Card List -->
-          <ExpertAboutCard />
+          <ExpertCardAbout />
         </div>
       </div>
     </div>
@@ -54,10 +54,10 @@
 </template>
 
 <script>
-import ExpertAboutCard from '~/components/ExpertAboutCard.vue';
+import ExpertCardAbout from '~/components/ExpertCardAbout.vue';
 
 export default {
-  components: { ExpertAboutCard },
+  components: { ExpertCardAbout },
   layout: () => 'secondary',
   data: () => {
     return {

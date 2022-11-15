@@ -102,9 +102,9 @@
       </div>
 
       <div class="expert__cards">
-        <ExpertCallCard />
-        <ExpertCallCard />
-        <ExpertCallCard />
+        <ExpertCardCall />
+        <ExpertCardCall />
+        <ExpertCardCall />
       </div>
     </div>
   </div>
@@ -112,11 +112,11 @@
 
 <script>
 import CategoryTagItem from '~/components/CategoryTagItem.vue';
-import ExpertCallCard from '~/components/ExpertCallCard.vue';
+import ExpertCardCall from '~/components/ExpertCardCall.vue';
 import BaseBanner from '~/components/ui/BaseBanner.vue';
 
 export default {
-  components: { BaseBanner, CategoryTagItem, ExpertCallCard },
+  components: { BaseBanner, CategoryTagItem, ExpertCardCall },
   layout: () => 'emptyhero',
   data: () => {
     return {

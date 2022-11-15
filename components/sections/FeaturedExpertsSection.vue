@@ -3,11 +3,10 @@
     <h1 class="main-header">Featured Experts this week</h1>
     <BaseHeaderLine />
     <div class="featured-experts__experts">
-      <!-- TODO: change key (temporary use index as key) -->
       <v-slide-group show-arrows class="expert-slider">
         <FeaturedExpertCard
-          v-for="(expert, index) in experts"
-          :key="index"
+          v-for="expert in featuredExperts"
+          :key="expert.id"
           :expert="expert"
         />
       </v-slide-group>
@@ -23,7 +22,7 @@ export default {
   components: { BaseHeaderLine, FeaturedExpertCard },
   computed: {
     ...mapGetters({
-      experts: 'expert/getExperts',
+      featuredExperts: 'expert/getFeaturedExperts',
     }),
   },
 };
@@ -41,7 +40,7 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     &__arrow {
       display: flex;
       align-items: center;

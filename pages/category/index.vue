@@ -3,7 +3,8 @@
     <div class="crypto-topics">
       <h1 class="main-header">Crypto topics</h1>
       <UiBaseHeaderLine />
-      <div class="crypto-topics__all">
+      <div v-if="error.message" class="crypto-topics__error">Ошибка загрузки</div>
+      <div v-else class="crypto-topics__all">
         <CategoryCard
           v-for="category in categories"
           :key="category.id"
@@ -27,6 +28,7 @@ export default {
   computed: {
     ...mapGetters({
       categories: 'category/getCategories',
+      error: 'category/getError',
     }),
   },
 };

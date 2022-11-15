@@ -44,7 +44,10 @@ export default {
     if (store.getters['category/getCategories'].length === 0) {
       await store.dispatch('category/fetchCategories');
     }
-  }
+    if (store.getters['expert/getFeaturedExperts'].length === 0) {
+      await store.dispatch('expert/fetchFeaturedExperts');
+    }
+  },
 };
 </script>
 

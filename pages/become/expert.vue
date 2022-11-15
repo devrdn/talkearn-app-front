@@ -39,9 +39,9 @@
       />
 
       <UiBaseFileInput
+        name="photo"
         :format="['TIFF', 'JPG']"
         @file-updated="captureFile($event)"
-        name="photo"
       />
 
       <div class="form__upload-photo">
@@ -59,9 +59,9 @@
               </div>
             </label>
             <input
+              id="form__upload-photo__content__block__input"
               type="file"
               class="form__upload-photo__content__block__input"
-              id="form__upload-photo__content__block__input"
             />
           </div>
         </div>
@@ -82,9 +82,9 @@
               </div>
             </label>
             <input
+              id="form__upload-photo__content__block__input"
               type="file"
               class="form__upload-photo__content__block__input"
-              id="form__upload-photo__content__block__input"
             />
           </div>
           <div class="form__upload-photo__content__block">
@@ -95,9 +95,9 @@
               <img src="/img/form/cloud.svg" alt="" />
               <div class="form__upload-photo__content__block__label__text">
                 <input
+                  id="form__upload-photo__content__block__input__text"
                   type="text"
                   class="form__upload-photo__content__block__input__text"
-                  id="form__upload-photo__content__block__input__text"
                   placeholder="Paste video link"
                 />
               </div>
@@ -132,9 +132,9 @@
                 </div>
               </label>
               <input
+                id="form__upload-photo__content__block__input"
                 type="file"
                 class="form__upload-photo__content__block__input"
-                id="form__upload-photo__content__block__input"
               />
             </div>
           </div>
@@ -160,9 +160,9 @@
                 </div>
               </label>
               <input
+                id="form__upload-photo__content__block__input"
                 type="file"
                 class="form__upload-photo__content__block__input"
-                id="form__upload-photo__content__block__input"
               />
             </div>
           </div>
@@ -188,9 +188,9 @@
                 </div>
               </label>
               <input
+                id="form__upload-photo__content__block__input"
                 type="file"
                 class="form__upload-photo__content__block__input"
-                id="form__upload-photo__content__block__input"
               />
             </div>
           </div>
