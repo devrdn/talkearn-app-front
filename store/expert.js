@@ -11,7 +11,7 @@ export const state = () => ({
   experts: [],
 
   /**
-   * Expert fetct meta
+   * Expert fetch meta
    *
    * current_page, from, to, last_page, etc..
    */
