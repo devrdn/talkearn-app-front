@@ -14,8 +14,8 @@
                 <p class="expert__head__left__info__about__text__name">
                   {{ expert.name }}
                 </p>
-                <p class="expert__head__left__info__about__text__profession">
-                  Blockchain business analyst
+                <p v-if="expert.profession" class="expert__head__left__info__about__text__profession">
+                  {{ expert.profession }}
                 </p>
                 <div class="expert__head__left__info__about__text__rating">
                   <v-rating
@@ -42,12 +42,12 @@
               </div>
             </div>
             <div class="expert__head__left__info__extra">
-              <div class="expert__head__left__info__extra__block">
+              <div v-if="expert.region" class="expert__head__left__info__extra__block">
                 <span class="expert__head__left__info__extra__block__label"
                   >From</span
                 >
                 <span class="expert__head__left__info__extra__block__text"
-                  >New York</span
+                  >{{ expert.region }}</span
                 >
               </div>
               <div class="expert__head__left__info__extra__block">
@@ -102,6 +102,7 @@
           v-for="(service, index) in expert.services"
           :key="index"
           :service="service"
+          :expert="expert"
         />
       </div>
     </div>

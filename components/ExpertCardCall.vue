@@ -1,22 +1,15 @@
 <template>
   <div class="expert__cards__block">
-    <img
-      :src="service.image"
-      class="expert__cards__block__img"
-      alt="photo"
-    />
+    <img :src="service.image" class="expert__cards__block__img" alt="photo" />
     <div class="expert__cards__block__text">
       <div class="expert__cards__block__text__author">
-        <img
-          src="/img/expert-one/photo.png"
-          class="expert__cards__block__text__author__img"
-          alt="photo"
-        />
+        <img :src="expert.image" class="expert__cards__block__text__author__img" alt="photo" />
         <div class="expert__cards__block__text__author__name">
-          <p>Jordan Sigh</p>
+          <p>{{ expert.name }}</p>
           <div class="expert__cards__block__text__author__name__rating">
-            <span>4.3</span>
-            <img src="/img/index/experts/stars.svg" alt="" />
+            <span>{{ Number(expert.rating) }}</span>
+            <v-rating background-color="#eee" color="warning" readonly hover size="20" length="5"
+              :value="Number(expert.rating)"></v-rating>
           </div>
         </div>
       </div>
@@ -26,9 +19,7 @@
       <div class="expert__cards__block__text__call">
         <div class="expert__cards__block__text__call__text">
           <span class="expert__cards__block__text__call__price">$3</span>
-          <span class="expert__cards__block__text__call__minute"
-            >per minute</span
-          >
+          <span class="expert__cards__block__text__call__minute">per minute</span>
         </div>
         <a href="/" class="expert__cards__block__text__call__btn">Call</a>
       </div>
@@ -43,6 +34,10 @@ export default {
       type: Object,
       required: true,
     },
+    expert: {
+      type: Object,
+      required: true,
+    }
   },
 };
 </script>
@@ -61,6 +56,7 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 60px;
+
   &__cards {
     &__block {
       display: flex;
@@ -107,7 +103,7 @@ export default {
 
             &__rating {
               display: flex;
-              align-items: flex-end;
+              align-items: center;
               gap: 10px;
             }
           }
