@@ -23,8 +23,12 @@ export const mutations = {
     state.experts = payload;
   },
 
-  setError(state, payload) {
+  setError: (state, payload) => {
     state.error = payload;
+  },
+
+  clearExperts: (state) => {
+    state.experts = [];
   },
 };
 
@@ -49,7 +53,8 @@ export const actions = {
         commit('setError', {});
       })
       .catch((err) => {
-        console.log('Err', err);
+        commit('clearExperts');
+        throw err;
       });
   },
 };

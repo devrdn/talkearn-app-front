@@ -1,45 +1,65 @@
 <template>
-  <div class="all-experts__container__cards__block">
-    <div class="all-experts__container__cards__block__photo">
-      <img :src="expert.image" alt="photo" />
-      <div class="all-experts__container__cards__block__photo__online">
-        {{ expert.rating ? 'AVAILABLE' : 'UNAVAILABLE' }}
+  <nuxt-link :to="{ path: '/expert/' }">
+    <div class="all-experts__container__cards__block">
+      <div class="all-experts__container__cards__block__photo">
+        <img :src="expert.image" alt="photo" />
+        <div class="all-experts__container__cards__block__photo__online">
+          {{ expert.rating ? 'AVAILABLE' : 'UNAVAILABLE' }}
+        </div>
       </div>
-    </div>
-    <div class="all-experts__container__cards__block__info">
-      <p class="all-experts__container__cards__block__info__name">{{ expert.name }}</p>
-      <p v-if="expert.profession" class="all-experts__container__cards__block__info__proffesion">
-        {{ expert.profession }}
-      </p>
-      <div class="all-experts__container__cards__block__info__rating">
-        <v-rating color="#F4C95D" background-color="#F4C95D" readonly hover length="5" :value="Number(expert.rating)">
-        </v-rating>
-        <p class="all-experts__container__cards__block__info__rating__number">
-          {{ expert.rating }}
+      <div class="all-experts__container__cards__block__info">
+        <p class="all-experts__container__cards__block__info__name">
+          {{ expert.name }}
         </p>
-      </div>
-    </div>
-    <div class="all-experts__container__cards__block__more-info">
-      <div v-if="expert.region" class="all-experts__container__cards__block__more-info__text">
-        <span>From</span>
-        <p>{{ expert.region }}</p>
-      </div>
-      <div class="all-experts__container__cards__block__more-info__text">
-        <span>Member since</span>
-        <p>
-          {{ expert.memberSince }}
+        <p
+          v-if="expert.profession"
+          class="all-experts__container__cards__block__info__proffesion"
+        >
+          {{ expert.profession }}
         </p>
+        <div class="all-experts__container__cards__block__info__rating">
+          <v-rating
+            color="#F4C95D"
+            background-color="#F4C95D"
+            readonly
+            hover
+            length="5"
+            :value="Number(expert.rating)"
+          >
+          </v-rating>
+          <p class="all-experts__container__cards__block__info__rating__number">
+            {{ expert.rating }}
+          </p>
+        </div>
       </div>
-      <div class="all-experts__container__cards__block__more-info__text">
-        <span>Rate</span>
-        <p>$ {{ expert.price }} /hr</p>
-      </div>
-      <div v-if="expert.lastReview" class="all-experts__container__cards__block__more-info__text">
-        <span>Latest Review</span>
-        <p>{{ expert.lastReview }}</p>
+      <div class="all-experts__container__cards__block__more-info">
+        <div
+          v-if="expert.region"
+          class="all-experts__container__cards__block__more-info__text"
+        >
+          <span>From</span>
+          <p>{{ expert.region }}</p>
+        </div>
+        <div class="all-experts__container__cards__block__more-info__text">
+          <span>Member since</span>
+          <p>
+            {{ expert.memberSince }}
+          </p>
+        </div>
+        <div class="all-experts__container__cards__block__more-info__text">
+          <span>Rate</span>
+          <p>$ {{ expert.price }} /hr</p>
+        </div>
+        <div
+          v-if="expert.lastReview"
+          class="all-experts__container__cards__block__more-info__text"
+        >
+          <span>Latest Review</span>
+          <p>{{ expert.lastReview }}</p>
+        </div>
       </div>
     </div>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
@@ -50,28 +70,13 @@ export default {
       required: true,
     },
   },
-  methods: {
-    getDate() {
-      const options = {
-        year: 'numeric',
-        month: 'long',
-      };
-
-      return this.expert.since.toLocaleDateString('en-US', options);
-    },
-    getLastReview() {
-      const today = new Date(Date.now());
-
-      return Math.ceil(
-        Math.abs(today.getTime() - this.expert.latestReview.getTime()) /
-        (1000 * 3600 * 24)
-      );
-    },
-  },
 };
 </script>
 
 <style lang="scss" scoped>
+a {
+  color: black;
+}
 .all-experts {
   &__container {
     &__cards {
