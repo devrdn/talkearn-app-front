@@ -4,7 +4,7 @@
       <div class="all-experts__container">
         <div class="all-experts__container__head">
           <p class="all-experts__container__head__left">
-            Results for “{{ $route.query.find }}”
+            Results for “{{ $route.params.value }}”
           </p>
           <div class="all-experts__container__head__right">
             <!-- <div class="all-experts__container__head__right__online">
@@ -61,10 +61,10 @@ import ExpertCardAbout from '~/components/ExpertCardAbout.vue';
 export default {
   components: { ExpertCardAbout },
   layout: () => 'emptyhero',
-  async fetch({ query, store, error }) {
+  async fetch({ params, store, error }) {
     await store
       .dispatch('expert/fetchSearchExperts', {
-        searchText: query.find,
+        searchText: params.value,
       })
       .catch((err) => {
         error({ statusCode: 404, message: err.response.data.errors.message });
@@ -75,19 +75,6 @@ export default {
       experts: 'expert/getExperts',
       error: 'expert/getError',
     }),
-  },
-  watch: {
-    '$route.query.find'() {
-      this.getExperts({
-        searchText: this.$route.query.find,
-      }).catch((err) => {
-        this.$nuxt.error({
-          statusCode: 404,
-          message: err.response.data.errors.message,
-        });
-      });
-    },
-    deep: true,
   },
   methods: {
     ...mapActions({

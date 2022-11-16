@@ -19,7 +19,8 @@ export default {
   }),
   methods: {
     search(searchValue) {
-      this.$router.replace({ path: `/search?find=${searchValue}` });
+      searchValue = '';
+      this.$router.replace({ path: `/search/${searchValue}` });
     },
   },
 };
