@@ -1,7 +1,7 @@
 <template>
   <div class="expert__cards__block">
     <img
-      src="/img/expert-one/card1.png"
+      :src="service.image"
       class="expert__cards__block__img"
       alt="photo"
     />
@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="expert__cards__block__text__title">
-        <p>NFT overview and portfolio coaching</p>
+        <p>{{ service.name }}</p>
       </div>
       <div class="expert__cards__block__text__call">
         <div class="expert__cards__block__text__call__text">
@@ -37,7 +37,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    service: {
+      type: Object,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -64,6 +71,9 @@ export default {};
 
       &__img {
         width: 100%;
+        object-fit: cover;
+        width: 392px;
+        height: 278px;
         border-radius: 10px 10px 0 0;
       }
 

@@ -1,29 +1,44 @@
 <template>
   <div class="expert-page">
     <!-- Banner -->
-    <BaseBanner :title="title" />
+    <BaseBanner :title="expert.name" />
 
     <!-- Expert Info -->
     <div class="expert">
       <div class="expert__head">
         <div class="expert__head__left">
-          <img src="/img/expert-one/photo.png" alt="" />
+          <img :src="expert.image" alt="" />
           <div class="expert__head__left__info">
             <div class="expert__head__left__info__about">
               <div class="expert__head__left__info__about__text">
                 <p class="expert__head__left__info__about__text__name">
-                  Jordan Sigh
+                  {{ expert.name }}
                 </p>
                 <p class="expert__head__left__info__about__text__profession">
                   Blockchain business analyst
                 </p>
                 <div class="expert__head__left__info__about__text__rating">
-                  <img src="/img/index/experts/stars.svg" alt="stars" />
-                  <span>4.3</span>
+                  <v-rating
+                    background-color="#eee"
+                    color="warning"
+                    readonly
+                    hover
+                    size="20"
+                    length="5"
+                    :value="Number(expert.rating)"
+                  ></v-rating>
+                  <span>{{ Number(expert.rating) }}</span>
                 </div>
               </div>
               <div class="expert__head__left__info__status">
-                <p>ONLINE</p>
+                <p
+                  :class="{
+                    online: expert.available,
+                    offline: !expert.available,
+                  }"
+                >
+                  {{ expert.available ? 'ONLINE' : 'OFFLINE' }}
+                </p>
               </div>
             </div>
             <div class="expert__head__left__info__extra">
@@ -40,24 +55,24 @@
                   >Rate</span
                 >
                 <span class="expert__head__left__info__extra__block__text"
-                  >$38/hr</span
+                  >${{ expert.price }}/hr</span
                 >
               </div>
               <div class="expert__head__left__info__extra__block">
                 <span class="expert__head__left__info__extra__block__label"
                   >Member since</span
                 >
-                <span class="expert__head__left__info__extra__block__text"
-                  >Oct 2020</span
-                >
+                <span class="expert__head__left__info__extra__block__text">{{
+                  expert.memberSince
+                }}</span>
               </div>
               <div class="expert__head__left__info__extra__block">
                 <span class="expert__head__left__info__extra__block__label"
                   >Latest Review</span
                 >
-                <span class="expert__head__left__info__extra__block__text"
-                  >4 Days ago</span
-                >
+                <span class="expert__head__left__info__extra__block__text">{{
+                  expert.lastReview
+                }}</span>
               </div>
             </div>
           </div>
@@ -74,43 +89,28 @@
           :tag-name="tag"
         />
       </div>
-      <div class="expert__video">
-        <img src="/img/expert-one/video.png" alt="video" />
-      </div>
+      <div class="expert__video" v-html="removeSlashed(expert.video)"></div>
 
       <div class="expert__text">
         <p>
-          Jordan is recognized expert attorney in the electronic payments space
-          and ever-growing crypto marketplace. Since 2008, James has applied his
-          legal focus to the fin-tech, payments processing, ISO, B2B, and card
-          brands space. If an issue involves online or otherwise electronic
-          payment processing over the past decade, chances are James is or has
-          been involved at some stage of the process. <br />
-          From contract formation, drafting and advisement to ongoing compliance
-          leadership, to complex payments litigation at the highest levels,
-          James is part of a very small group of attorneys intimately versed in
-          all aspects of digital payments, and assets. This background and focus
-          lead directly to his immediate and intense interest in cryptocurrency
-          from its inception. As an early adopter, James quickly saw the
-          important areas of overlap between the burgeoning crypto landscape and
-          the traditional payments environment. Whether you are a layer one or
-          layer two solution, or looking to launch your own Altcoin or
-          Stablecoin, or need compliance advisement at any stage of your crypto
-          business project, James Huber will provide expert advice based on a
-          decade of practice and expertise.
+          {{ expert.description }}
         </p>
       </div>
 
       <div class="expert__cards">
-        <ExpertCardCall />
-        <ExpertCardCall />
-        <ExpertCardCall />
+        <ExpertCardCall
+          v-for="(service, index) in expert.services"
+          :key="index"
+          :service="service"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import expertApi from '~/api/expertApi.js';
+
 import CategoryTagItem from '~/components/CategoryTagItem.vue';
 import ExpertCardCall from '~/components/ExpertCardCall.vue';
 import BaseBanner from '~/components/ui/BaseBanner.vue';
@@ -118,6 +118,17 @@ import BaseBanner from '~/components/ui/BaseBanner.vue';
 export default {
   components: { BaseBanner, CategoryTagItem, ExpertCardCall },
   layout: () => 'emptyhero',
+  async asyncData({ params, error }) {
+    return await expertApi
+      .getExpertBySlug(params.category, params.slug)
+      .then((response) => {
+        return { expert: response.data.data };
+      })
+      .catch((e) => {
+        error({ statusCode: 404, message: e.response.data.errors });
+      });
+  },
+  ssr: true,
   data: () => {
     return {
       tags: [
@@ -130,10 +141,16 @@ export default {
       title: 'Crypto Startup Advisor',
     };
   },
+  methods: {
+    removeSlashed(text) {
+      return text.replace(/\\/g, '');
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+
 .expert {
   width: 70%;
   margin: 0 auto;
@@ -214,9 +231,17 @@ export default {
         }
 
         &__status {
-          p {
+          & .online {
             color: $purpleColor;
             border: 1px solid $purpleColor;
+            border-radius: 39px;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 10px 16px;
+          }
+          & .offline {
+            color: rgb(156, 156, 156);
+            border: 1px solid rgb(156, 156, 156);
             border-radius: 39px;
             font-size: 14px;
             font-weight: 700;

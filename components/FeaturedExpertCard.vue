@@ -3,6 +3,13 @@
     <div class="featured-experts__experts__card">
       <div class="featured-experts__experts__card_left">
         <div class="featured-experts__experts__card_left__photo">
+          <v-badge
+            v-if="expert.available"
+            offset-x="-60"
+            offset-y="38"
+            color="green darken-1"
+          />
+          <v-badge v-else offset-x="-60" offset-y="38" color="grey lighten-1" />
           <v-avatar size="80">
             <img :src="expert.image" alt="photo" />
           </v-avatar>
@@ -12,7 +19,7 @@
             {{ expert.name }}
           </p>
           <p class="featured-experts__experts__card_left__text_profession">
-            {{ expert.services[0].name }}
+            {{ expert.profession }}
           </p>
         </div>
       </div>
@@ -31,7 +38,7 @@
         </div>
         <nuxt-link
           class="featured-experts__experts__card_right_btn"
-          :to="`/${expert.categorySlug}/${expert.slug}`"
+          :to="`/expert/${expert.categorySlug}/${expert.slug}`"
         >
           ${{ expert.price }}/hr
         </nuxt-link>

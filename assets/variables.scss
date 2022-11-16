@@ -8,6 +8,10 @@
   src: url("~/static/fonts/OnestRegular1602-hint.woff") format("woff");
 }
 
+$rating-padding: 0.3rem;
+
+$badge-dot-width: 30px;
+
 $body-font-family: "onest";
 
 $title-font: "onest";
@@ -23,9 +27,3 @@ $accentColor: #fe8d4d;
 $bckgColor: #f8f9fd;
 
 $fs: 16px;
-
-$rating-padding: 0.3rem !important;
-
-$material-light: (
-  "background": rgb(226, 0, 0),
-);
