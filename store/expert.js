@@ -11,6 +11,7 @@ export const state = () => ({
 export const getters = {
   getFeaturedExperts: (state) => state.featuredExperts,
   getExperts: (state) => state.experts,
+  getError: (state) => state.error,
 };
 
 export const mutations = {
@@ -48,10 +49,7 @@ export const actions = {
         commit('setError', {});
       })
       .catch((err) => {
-        commit('setError', {
-          statusCode: err.response.data.errors.status,
-          message: err.response.data.errors.message,
-        });
+        console.log('Err', err);
       });
   },
 };

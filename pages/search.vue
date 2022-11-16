@@ -5,13 +5,13 @@
         <div class="all-experts__container__head">
           <p class="all-experts__container__head__left">Results for “{{ this.$route.query.find }}”</p>
           <div class="all-experts__container__head__right">
-            <div class="all-experts__container__head__right__online">
+            <!--<div class="all-experts__container__head__right__online">
               <p>Online</p>
               <label class="all-experts__container__head__right__online__switch">
                 <input type="checkbox" />
                 <span class="all-experts__container__head__right__online__slider round"></span>
               </label>
-            </div>
+            </div>-->
             <div class="all-experts__container__head__right__category">
               <select class="all-experts__container__head__right__category__select">
                 <option value="">Category</option>
@@ -28,8 +28,11 @@
             </div>
           </div>
         </div>
-        <div class="all-experts__container__cards">
+        <div v-if="experts.length !== 0" class="all-experts__container__cards">
           <ExpertCardAbout v-for="expert in experts" :key="expert.id" :expert="expert" />
+        </div>
+        <div v-else class="all-experts__container__cards">
+          <p>Experts not Found</p>
         </div>
       </div>
     </div>
@@ -43,14 +46,15 @@ import ExpertCardAbout from '~/components/ExpertCardAbout.vue';
 export default {
   components: { ExpertCardAbout },
   layout: () => 'emptyhero',
-  async fetch({ query, store }) {
+  async fetch({ query, store, error }) {
     await store.dispatch('expert/fetchSearchExperts', {
       searchText: query.find,
-    })
+    }).catch((err) => { console.log(err) })
   },
   computed: {
     ...mapGetters({
       experts: 'expert/getExperts',
+      error: 'expert/getError',
     })
   },
   watch: {
@@ -58,6 +62,7 @@ export default {
       this.getExperts({
         searchText: this.$route.query.find,
       });
+      console.log(this.experts);
     },
     deep: true,
   },
