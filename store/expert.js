@@ -4,6 +4,9 @@ export const state = () => ({
   featuredExperts: [],
   experts: [],
 
+  // Meta For Lazy Loading
+  meta: {},
+
   // error
   error: {},
 });
@@ -23,8 +26,16 @@ export const mutations = {
     state.experts = payload;
   },
 
+  setMeta: (state, payload) => {
+    state.meta = payload;
+  },
+
   setError: (state, payload) => {
     state.error = payload;
+  },
+
+  clearError: (state) => {
+    state.error = {};
   },
 
   clearExperts: (state) => {
@@ -38,10 +49,24 @@ export const actions = {
       .getFeaturedExperts()
       .then((response) => {
         commit('setFeaturedExperts', response.data.data);
-        commit('setError', {});
+        commit('clearError');
       })
       .catch((err) => {
         commit('setError', err);
+      });
+  },
+
+  fetchExpertsByCategory: async ({ commit }, { categoryId }) => {
+    await expertApi
+      .getExpertsByCategory(categoryId)
+      .then((response) => {
+        commit('setExperts', response.data.data);
+        commit('setMeta', response.data.meta);
+        commit('clearError');
+      })
+      .catch((err) => {
+        commit('setError', err);
+        commit('setExperts', []);
       });
   },
 
@@ -50,7 +75,7 @@ export const actions = {
       .searchExpert(searchText)
       .then((response) => {
         commit('setExperts', response.data.data);
-        commit('setError', {});
+        commit('setMeta', response.data.meta);
       })
       .catch((err) => {
         commit('clearExperts');

@@ -1,5 +1,8 @@
 <template>
-  <nuxt-link :to="category.slug" class="crypto-topics__all__topic">
+  <nuxt-link
+    :to="`/category/${category.slug}`"
+    class="crypto-topics__all__topic"
+  >
     <img
       class="crypto-topics__topic__icon"
       :src="category.icon"

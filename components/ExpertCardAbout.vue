@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="{ path: '/expert/' }">
+  <nuxt-link :to="{ path: `/expert/${expert.categorySlug}/${expert.slug}`  }">
     <div class="all-experts__container__cards__block">
       <div class="all-experts__container__cards__block__photo">
         <img :src="expert.image" alt="photo" />

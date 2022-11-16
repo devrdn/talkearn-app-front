@@ -7,29 +7,46 @@
     <div class="all-experts">
       <div class="all-experts__container">
         <div class="all-experts__container__head">
-          <p class="all-experts__container__head__left">
-            Showing {{ experts.length }} of 234 Experts
+          <p v-if="experts.length" class="all-experts__container__head__left">
+            Showing {{ experts.length }} experts
+          </p>
+          <p v-else class="all-experts__container__head__left">
+            Experts not Found
           </p>
           <div class="all-experts__container__head__right">
-            <div class="all-experts__container__head__right__online">
+            <!-- <div class="all-experts__container__head__right__online">
               <p>Online</p>
-              <label class="all-experts__container__head__right__online__switch">
+              <label
+                class="all-experts__container__head__right__online__switch"
+              >
                 <input type="checkbox" />
-                <span class="all-experts__container__head__right__online__slider round">
+                <span
+                  class="all-experts__container__head__right__online__slider round"
+                >
                 </span>
               </label>
-            </div>
+            </div> -->
             <div class="all-experts__container__head__right__category">
-              <select class="all-experts__container__head__right__category__select">
-                <option value="">Category</option>
-                <option value="1">Blockchains</option>
-                <option value="2">Wallets</option>
-                <option value="3">Money tranfers</option>
-                <option value="4">Investments</option>
+              <select
+                v-model="currentCategory"
+                class="all-experts__container__head__right__category__select"
+                @change="changeCategory"
+              >
+                <option
+                  v-for="category in categories"
+                  :key="category.id"
+                  :selected="category.slug === $route.params.slug"
+                  :value="category.slug"
+                >
+                  {{ category.name }}
+                </option>
               </select>
             </div>
             <div class="all-experts__container__head__right__filter">
-              <a class="all-experts__container__head__right__filter__link" href="/">
+              <a
+                class="all-experts__container__head__right__filter__link"
+                href="/"
+              >
                 <img src="/img/cat-one/all-experts/filter.svg" alt="" />
               </a>
             </div>
@@ -37,7 +54,11 @@
         </div>
         <div class="all-experts__container__cards">
           <!-- Expert Card List -->
-          <ExpertCardAbout />
+          <ExpertCardAbout
+            v-for="expert in experts"
+            :key="expert.id"
+            :expert="expert"
+          />
         </div>
       </div>
     </div>
@@ -46,61 +67,43 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import categoryApi from '~/api/categoryApi.js';
 import ExpertCardAbout from '~/components/ExpertCardAbout.vue';
 
 export default {
   components: { ExpertCardAbout },
   layout: () => 'secondary',
-  data: () => {
+  data() {
     return {
-      experts: [
-        {
-          status: 'AVAILABLE',
-          job: 'Mining specialist',
-          stars: 4,
-          from: 'New York, US',
-          since: new Date('01.10.2008'),
-          rate: 50,
-          latestReview: new Date('11.02.2022'),
-        },
-        {
-          status: 'AVAILABLE',
-          job: 'Mining specialist',
-          stars: 4,
-          from: 'New York, US',
-          since: new Date('01.10.2008'),
-          rate: 50,
-          latestReview: new Date('11.02.2022'),
-        },
-        {
-          status: 'AVAILABLE',
-          job: 'Mining specialist',
-          stars: 4,
-          from: 'New York, US',
-          since: new Date('01.10.2008'),
-          rate: 50,
-          latestReview: new Date('11.02.2022'),
-        },
-        {
-          status: 'AVAILABLE',
-          job: 'Mining specialist',
-          stars: 4,
-          from: 'New York, US',
-          since: new Date('01.10.2008'),
-          rate: 50,
-          latestReview: new Date('11.02.2022'),
-        },
-        {
-          status: 'AVAILABLE',
-          job: 'Mining specialist',
-          stars: 4,
-          from: 'New York, US',
-          since: new Date('01.10.2008'),
-          rate: 50,
-          latestReview: new Date('11.02.2022'),
-        },
-      ],
+      currentCategory: this.$route.params.slug,
     };
+  },
+  async fetch({ params, store, error }) {
+    await categoryApi
+      .getCategoryBySlug(params.slug)
+      .then(async (response) => {
+        await store.dispatch('expert/fetchExpertsByCategory', {
+          categoryId: response.data.data.id,
+        });
+      })
+      .catch(({ response }) => {
+        error({ statusCode: 404, message: response.data.errors });
+      });
+    if (store.getters['category/getCategories'].length === 0) {
+      await store.dispatch('category/fetchCategories');
+    }
+  },
+  computed: {
+    ...mapGetters({
+      experts: 'expert/getExperts',
+      categories: 'category/getCategories',
+    }),
+  },
+  methods: {
+    changeCategory() {
+      this.$router.push(`/category/${this.currentCategory}`);
+    },
   },
 };
 </script>
@@ -171,15 +174,15 @@ export default {
             transition: 0.4s;
           }
 
-          input:checked+&__slider {
+          input:checked + &__slider {
             background-color: $purpleColor;
           }
 
-          input:focus+&__slider {
+          input:focus + &__slider {
             box-shadow: 0 0 1px $purpleColor;
           }
 
-          input:checked+&__slider:before {
+          input:checked + &__slider:before {
             -webkit-transform: translateX(26px);
             -ms-transform: translateX(26px);
             transform: translateX(26px);

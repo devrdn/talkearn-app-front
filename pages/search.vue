@@ -4,7 +4,7 @@
       <div class="all-experts__container">
         <div class="all-experts__container__head">
           <p class="all-experts__container__head__left">
-            Results for “{{ this.$route.query.find }}”
+            Results for “{{ $route.query.find }}”
           </p>
           <div class="all-experts__container__head__right">
             <!-- <div class="all-experts__container__head__right__online">
@@ -70,6 +70,12 @@ export default {
         error({ statusCode: 404, message: err.response.data.errors.message });
       });
   },
+  computed: {
+    ...mapGetters({
+      experts: 'expert/getExperts',
+      error: 'expert/getError',
+    }),
+  },
   watch: {
     '$route.query.find'() {
       this.getExperts({
@@ -82,12 +88,6 @@ export default {
       });
     },
     deep: true,
-  },
-  computed: {
-    ...mapGetters({
-      experts: 'expert/getExperts',
-      error: 'expert/getError',
-    }),
   },
   methods: {
     ...mapActions({

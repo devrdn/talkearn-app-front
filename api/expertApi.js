@@ -14,6 +14,14 @@ export default {
     });
   },
 
+  getExpertsByCategory: async (categoryId) => {
+    return await axios.get('https://back.talkearn.app/api/experts', {
+      params: {
+        category_id: categoryId,
+      },
+    });
+  },
+
   searchExpert: async (searchText) => {
     return await axios.get('https://back.talkearn.app/api/experts/search', {
       params: {

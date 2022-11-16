@@ -2,17 +2,17 @@ import categoryApi from '~/api/categoryApi.js';
 
 export const state = () => ({
   error: {},
-  category: [],
+  categories: [],
 });
 
 export const getters = {
-  getCategories: (state) => state.category,
+  getCategories: (state) => state.categories,
   getError: (state) => state.error,
 };
 
 export const mutations = {
   setCategories: (state, payload) => {
-    state.category = payload;
+    state.categories = payload;
   },
   setError: (state, payload) => {
     state.error = payload;
