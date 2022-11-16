@@ -1,5 +1,11 @@
 import categoryApi from '~/api/categoryApi.js';
 
+/**
+ * Category Vuex Module
+ *
+ * Responsible for the categories state
+ */
+
 export const state = () => ({
   error: {},
   categories: [],

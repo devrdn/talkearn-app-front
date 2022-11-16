@@ -1,10 +1,10 @@
-/**+
+import expertApi from '~/api/expertApi.js';
+
+/**
  * Expert Vuex Module
  *
  * Responsible for the expert state
  */
-
-import expertApi from '~/api/expertApi.js';
 
 export const state = () => ({
   featuredExperts: [],
