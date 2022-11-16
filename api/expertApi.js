@@ -14,10 +14,11 @@ export default {
     });
   },
 
-  getExpertsByCategory: async (categoryId) => {
+  getExpertsByCategory: async (categoryId, pageNum) => {
     return await axios.get('https://back.talkearn.app/api/experts', {
       params: {
         category_id: categoryId,
+        page: pageNum,
       },
     });
   },

@@ -1,10 +1,17 @@
 <template>
-  <nuxt-link :to="{ path: `/expert/${expert.categorySlug}/${expert.slug}`  }">
+  <nuxt-link :to="{ path: `/expert/${expert.categorySlug}/${expert.slug}` }">
     <div class="all-experts__container__cards__block">
       <div class="all-experts__container__cards__block__photo">
         <img :src="expert.image" alt="photo" />
-        <div class="all-experts__container__cards__block__photo__online">
-          {{ expert.rating ? 'AVAILABLE' : 'UNAVAILABLE' }}
+        <div
+          :class="{
+            'all-experts__container__cards__block__photo__online':
+              expert.available,
+            'all-experts__container__cards__block__photo__offline':
+              !expert.available,
+          }"
+        >
+          {{ expert.available ? 'AVAILABLE' : 'UNAVAILABLE' }}
         </div>
       </div>
       <div class="all-experts__container__cards__block__info">
@@ -105,6 +112,16 @@ a {
             font-size: 14px;
             font-weight: 700;
             background-color: #30c736;
+            border-radius: 39px;
+            padding: 10px 20px;
+            margin-top: -25px;
+          }
+
+          &__offline {
+            color: $whiteColor;
+            font-size: 14px;
+            font-weight: 700;
+            background-color: rgb(187, 187, 187);
             border-radius: 39px;
             padding: 10px 20px;
             margin-top: -25px;

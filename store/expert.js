@@ -6,6 +6,7 @@ export const state = () => ({
 
   // Meta For Lazy Loading
   meta: {},
+  page: 0,
 
   // error
   error: {},
@@ -14,6 +15,8 @@ export const state = () => ({
 export const getters = {
   getFeaturedExperts: (state) => state.featuredExperts,
   getExperts: (state) => state.experts,
+  getMeta: (state) => state.meta,
+  getPage: (state) => state.page,
   getError: (state) => state.error,
 };
 
@@ -24,6 +27,10 @@ export const mutations = {
 
   setExperts: (state, payload) => {
     state.experts = payload;
+  },
+
+  setPage: (state, payload) => {
+    state.page = payload;
   },
 
   setMeta: (state, payload) => {
@@ -56,18 +63,39 @@ export const actions = {
       });
   },
 
-  fetchExpertsByCategory: async ({ commit }, { categoryId }) => {
+  fetchExpertsByCategory: async ({ commit }, { categoryId, page }) => {
     await expertApi
-      .getExpertsByCategory(categoryId)
+      .getExpertsByCategory(categoryId, page)
       .then((response) => {
         commit('setExperts', response.data.data);
         commit('setMeta', response.data.meta);
+        commit('setPage', response.data.meta.page);
         commit('clearError');
       })
       .catch((err) => {
         commit('setError', err);
         commit('setExperts', []);
       });
+  },
+
+  fetchMoreExpertsByCategory: async (
+    { state, commit },
+    { categoryId, page }
+  ) => {
+    if (state.meta.lastPage > page) {
+      commit('setPage', page);
+      await expertApi
+        .getExpertsByCategory(categoryId, page)
+        .then((response) => {
+          commit('setExperts', [...state.experts, ...response.data.data]);
+          commit('setMeta', response.data.meta);
+          commit('clearError');
+        })
+        .catch((err) => {
+          commit('setError', err);
+          commit('setExperts', []);
+        });
+    }
   },
 
   fetchSearchExperts: async ({ commit }, { searchText }) => {

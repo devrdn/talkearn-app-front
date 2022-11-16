@@ -59,6 +59,7 @@
             :key="expert.id"
             :expert="expert"
           />
+          <div ref="intersection" class="observer"></div>
         </div>
       </div>
     </div>
@@ -67,7 +68,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import categoryApi from '~/api/categoryApi.js';
 import ExpertCardAbout from '~/components/ExpertCardAbout.vue';
 
@@ -76,6 +77,7 @@ export default {
   layout: () => 'secondary',
   data() {
     return {
+      observer: null,
       currentCategory: this.$route.params.slug,
     };
   },
@@ -85,6 +87,7 @@ export default {
       .then(async (response) => {
         await store.dispatch('expert/fetchExpertsByCategory', {
           categoryId: response.data.data.id,
+          page: 1,
         });
       })
       .catch(({ response }) => {
@@ -97,10 +100,33 @@ export default {
   computed: {
     ...mapGetters({
       experts: 'expert/getExperts',
+      expertPage: 'expert/getPage',
       categories: 'category/getCategories',
     }),
   },
+  mounted() {
+    const options = {
+      rootMargin: '0px',
+      threshold: 1.0,
+    };
+
+    this.observer = new IntersectionObserver(([entry]) => {
+      if (entry && entry.isIntersecting) {
+        this.getMoreExperts({
+          categoryId: this.currentCategory,
+          page: this.expertPage + 1,
+        });
+      }
+    }, options);
+    this.observer.observe(this.$refs.intersection);
+  },
+  destroyed() {
+    this.observer.disconnect();
+  },
   methods: {
+    ...mapActions({
+      getMoreExperts: 'expert/fetchMoreExpertsByCategory',
+    }),
     changeCategory() {
       this.$router.push(`/category/${this.currentCategory}`);
     },
