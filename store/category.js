@@ -20,6 +20,10 @@ export const mutations = {
 };
 
 export const actions = {
+  /**
+   * Fetch all categories
+   * @param {Object} param0 context
+   */
   fetchCategories: async ({ commit }) => {
     await categoryApi
       .getCategories()

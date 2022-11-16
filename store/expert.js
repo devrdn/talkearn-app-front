@@ -1,10 +1,20 @@
+/**+
+ * Expert Vuex Module
+ *
+ * Responsible for the expert state
+ */
+
 import expertApi from '~/api/expertApi.js';
 
 export const state = () => ({
   featuredExperts: [],
   experts: [],
 
-  // Meta For Lazy Loading
+  /**
+   * Expert fetct meta
+   *
+   * current_page, from, to, last_page, etc..
+   */
   meta: {},
   page: 0,
 
@@ -51,6 +61,10 @@ export const mutations = {
 };
 
 export const actions = {
+  /**
+   * Fetch Featured Experts
+   * @param {Object} param0 context
+   */
   fetchFeaturedExperts: async ({ commit }) => {
     await expertApi
       .getFeaturedExperts()
@@ -63,6 +77,11 @@ export const actions = {
       });
   },
 
+  /**
+   * Fetch expert by category id
+   * @param {Object} param0 context
+   * @param {Object} param1 fetch params
+   */
   fetchExpertsByCategory: async ({ commit }, { categoryId, page }) => {
     await expertApi
       .getExpertsByCategory(categoryId, page)
@@ -78,6 +97,11 @@ export const actions = {
       });
   },
 
+  /**
+   * Fetch more experts for lazy-loading
+   * @param {Object} param0 context
+   * @param {Object} param1 fetch params
+   */
   fetchMoreExpertsByCategory: async (
     { state, commit },
     { categoryId, page }
@@ -98,6 +122,11 @@ export const actions = {
     }
   },
 
+  /**
+   * Fetch expert by search param
+   * @param {Object} param0 context
+   * @param {Object} param1 fetch params
+   */
   fetchSearchExperts: async ({ commit }, { searchText }) => {
     await expertApi
       .searchExpert(searchText)
