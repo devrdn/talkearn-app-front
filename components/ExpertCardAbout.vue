@@ -1,49 +1,42 @@
 <template>
   <div class="all-experts__container__cards__block">
     <div class="all-experts__container__cards__block__photo">
-      <img src="/img/index/experts/photo.png" alt="photo" />
+      <img :src="expert.image" alt="photo" />
       <div class="all-experts__container__cards__block__photo__online">
-        {{ expert.status }}
+        {{ expert.rating ? 'AVAILABLE' : 'UNAVAILABLE' }}
       </div>
     </div>
     <div class="all-experts__container__cards__block__info">
-      <p class="all-experts__container__cards__block__info__name">Jimmy Lee</p>
-      <p class="all-experts__container__cards__block__info__proffesion">
-        {{ expert.job }}
+      <p class="all-experts__container__cards__block__info__name">{{ expert.name }}</p>
+      <p v-if="expert.profession" class="all-experts__container__cards__block__info__proffesion">
+        {{ expert.profession }}
       </p>
       <div class="all-experts__container__cards__block__info__rating">
-        <v-rating
-          color="#F4C95D"
-          background-color="#F4C95D"
-          readonly
-          hover
-          length="5"
-          :value="expert.stars"
-        >
+        <v-rating color="#F4C95D" background-color="#F4C95D" readonly hover length="5" :value="Number(expert.rating)">
         </v-rating>
         <p class="all-experts__container__cards__block__info__rating__number">
-          {{ expert.stars }}
+          {{ expert.rating }}
         </p>
       </div>
     </div>
     <div class="all-experts__container__cards__block__more-info">
-      <div class="all-experts__container__cards__block__more-info__text">
+      <div v-if="expert.region" class="all-experts__container__cards__block__more-info__text">
         <span>From</span>
-        <p>{{ expert.from }}</p>
+        <p>{{ expert.region }}</p>
       </div>
       <div class="all-experts__container__cards__block__more-info__text">
         <span>Member since</span>
         <p>
-          {{ getDate() }}
+          {{ expert.memberSince }}
         </p>
       </div>
       <div class="all-experts__container__cards__block__more-info__text">
         <span>Rate</span>
-        <p>$ {{ expert.rate }} /hr</p>
+        <p>$ {{ expert.price }} /hr</p>
       </div>
-      <div class="all-experts__container__cards__block__more-info__text">
+      <div v-if="expert.lastReview" class="all-experts__container__cards__block__more-info__text">
         <span>Latest Review</span>
-        <p>{{ getLastReview() }} Days ago</p>
+        <p>{{ expert.lastReview }}</p>
       </div>
     </div>
   </div>
@@ -55,9 +48,6 @@ export default {
     expert: {
       type: Object,
       required: true,
-      validator: (obj) => {
-        return obj.status === 'AVAILABLE' || obj.status === 'UNAVAILABLE';
-      },
     },
   },
   methods: {
@@ -74,7 +64,7 @@ export default {
 
       return Math.ceil(
         Math.abs(today.getTime() - this.expert.latestReview.getTime()) /
-          (1000 * 3600 * 24)
+        (1000 * 3600 * 24)
       );
     },
   },
@@ -173,6 +163,7 @@ export default {
           }
         }
       }
+
       &__block:hover {
         box-shadow: 0px 11px 39px rgba(0, 0, 0, 0.07);
       }

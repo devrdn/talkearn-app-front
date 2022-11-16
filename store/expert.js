@@ -2,7 +2,7 @@ import expertApi from '~/api/expertApi.js';
 
 export const state = () => ({
   featuredExperts: [],
-  searchExpert: [],
+  experts: [],
 
   // error
   error: {},
@@ -10,11 +10,16 @@ export const state = () => ({
 
 export const getters = {
   getFeaturedExperts: (state) => state.featuredExperts,
+  getExperts: (state) => state.experts,
 };
 
 export const mutations = {
   setFeaturedExperts: (state, payload) => {
     state.featuredExperts = payload;
+  },
+
+  setExperts: (state, payload) => {
+    state.experts = payload;
   },
 
   setError(state, payload) {
@@ -32,6 +37,21 @@ export const actions = {
       })
       .catch((err) => {
         commit('setError', err);
+      });
+  },
+
+  fetchSearchExperts: async ({ commit }, { searchText }) => {
+    await expertApi
+      .searchExpert(searchText)
+      .then((response) => {
+        commit('setExperts', response.data.data);
+        commit('setError', {});
+      })
+      .catch((err) => {
+        commit('setError', {
+          statusCode: err.response.data.errors.status,
+          message: err.response.data.errors.message,
+        });
       });
   },
 };

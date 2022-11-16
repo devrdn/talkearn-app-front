@@ -5,34 +5,25 @@
         <TheLogo />
       </div>
 
-      <div class="header__container__searchfield">
-        <input
-          type="search"
-          class="header__container__searchfield__input"
-          placeholder="Search here..."
-        />
-        <a href="/src/search-page.html">
-          <img src="/img/index/search.svg" alt="search" />
-        </a>
-      </div>
+      <TheSearch />
 
-      <!-- ~ TODO: make separate component with own classes ~ -->
       <TheNavigation />
-      <!-- ~ -->
     </div>
   </header>
 </template>
 
 <script>
-import TheNavigation from './TheNavigation.vue';
+import TheNavigation from '~/components/TheNavigation.vue';
+import TheSearch from '~/components/TheSearch.vue';
 
-export default { components: { TheNavigation } };
+export default { components: { TheNavigation, TheSearch } };
 </script>
 
 <style lang="scss">
 .header {
   background-color: $bckgColor;
   width: 100%;
+
   &__container {
     max-width: 85%;
     margin: 0px auto;
@@ -40,6 +31,7 @@ export default { components: { TheNavigation } };
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     &__logo {
       display: flex;
     }
@@ -47,19 +39,23 @@ export default { components: { TheNavigation } };
     &__buttons {
       display: flex;
       align-items: center;
+
       &__menu {
         list-style-type: none;
         font-size: $fs;
         font-weight: 400;
+
         li {
           display: inline-block;
           margin-right: 50px;
         }
+
         a {
           display: block;
           color: $darkColor;
         }
       }
+
       &__connect {
         color: $whiteColor !important;
         font-size: $fs;
@@ -69,9 +65,11 @@ export default { components: { TheNavigation } };
         border-radius: 37px;
       }
     }
+
     &__searchfield {
       display: flex;
       align-items: center;
+
       & input {
         width: 400px;
         height: 50px;
@@ -82,9 +80,11 @@ export default { components: { TheNavigation } };
         font-weight: 400;
         font-size: $fs;
       }
+
       &__input::-ms-clear {
         display: none;
       }
+
       & img {
         transform: translateX(-45px);
       }

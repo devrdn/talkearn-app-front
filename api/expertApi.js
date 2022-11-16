@@ -13,4 +13,12 @@ export default {
       },
     });
   },
+
+  searchExpert: async (searchText) => {
+    return await axios.get('https://back.talkearn.app/api/experts/search', {
+      params: {
+        find: searchText,
+      },
+    });
+  },
 };

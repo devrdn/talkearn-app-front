@@ -3,23 +3,17 @@
     <div class="all-experts">
       <div class="all-experts__container">
         <div class="all-experts__container__head">
-          <p class="all-experts__container__head__left">Results for “design”</p>
+          <p class="all-experts__container__head__left">Results for “{{ this.$route.query.find }}”</p>
           <div class="all-experts__container__head__right">
             <div class="all-experts__container__head__right__online">
               <p>Online</p>
-              <label
-                class="all-experts__container__head__right__online__switch"
-              >
+              <label class="all-experts__container__head__right__online__switch">
                 <input type="checkbox" />
-                <span
-                  class="all-experts__container__head__right__online__slider round"
-                ></span>
+                <span class="all-experts__container__head__right__online__slider round"></span>
               </label>
             </div>
             <div class="all-experts__container__head__right__category">
-              <select
-                class="all-experts__container__head__right__category__select"
-              >
+              <select class="all-experts__container__head__right__category__select">
                 <option value="">Category</option>
                 <option value="1">Blockchains</option>
                 <option value="2">Wallets</option>
@@ -28,21 +22,14 @@
               </select>
             </div>
             <div class="all-experts__container__head__right__filter">
-              <a
-                class="all-experts__container__head__right__filter__link"
-                href="/"
-              >
+              <a class="all-experts__container__head__right__filter__link" href="/">
                 <img src="/img/cat-one/all-experts/filter.svg" alt="" />
               </a>
             </div>
           </div>
         </div>
         <div class="all-experts__container__cards">
-          <ExpertCardAbout
-            v-for="(expert, index) in experts"
-            :key="index"
-            :expert="expert"
-          />
+          <ExpertCardAbout v-for="expert in experts" :key="expert.id" :expert="expert" />
         </div>
       </div>
     </div>
@@ -50,61 +37,34 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
 import ExpertCardAbout from '~/components/ExpertCardAbout.vue';
 
 export default {
   components: { ExpertCardAbout },
   layout: () => 'emptyhero',
-  data: () => {
-    return {
-      experts: [
-        {
-          status: 'AVAILABLE',
-          job: 'Mining specialist',
-          stars: 4,
-          from: 'New York, US',
-          since: new Date('01.10.2008'),
-          rate: 50,
-          latestReview: new Date('11.02.2022'),
-        },
-        {
-          status: 'AVAILABLE',
-          job: 'Mining specialist',
-          stars: 4,
-          from: 'New York, US',
-          since: new Date('01.10.2008'),
-          rate: 50,
-          latestReview: new Date('11.02.2022'),
-        },
-        {
-          status: 'AVAILABLE',
-          job: 'Mining specialist',
-          stars: 4,
-          from: 'New York, US',
-          since: new Date('01.10.2008'),
-          rate: 50,
-          latestReview: new Date('11.02.2022'),
-        },
-        {
-          status: 'AVAILABLE',
-          job: 'Mining specialist',
-          stars: 4,
-          from: 'New York, US',
-          since: new Date('01.10.2008'),
-          rate: 50,
-          latestReview: new Date('11.02.2022'),
-        },
-        {
-          status: 'AVAILABLE',
-          job: 'Mining specialist',
-          stars: 4,
-          from: 'New York, US',
-          since: new Date('01.10.2008'),
-          rate: 50,
-          latestReview: new Date('11.02.2022'),
-        },
-      ],
-    };
+  async fetch({ query, store }) {
+    await store.dispatch('expert/fetchSearchExperts', {
+      searchText: query.find,
+    })
+  },
+  computed: {
+    ...mapGetters({
+      experts: 'expert/getExperts',
+    })
+  },
+  watch: {
+    '$route.query.find'() {
+      this.getExperts({
+        searchText: this.$route.query.find,
+      });
+    },
+    deep: true,
+  },
+  methods: {
+    ...mapActions({
+      getExperts: 'expert/fetchSearchExperts',
+    })
   },
 };
 </script>
@@ -122,6 +82,7 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       &__left {
         font-size: 30px;
         font-weight: 600;
@@ -174,15 +135,15 @@ export default {
             transition: 0.4s;
           }
 
-          input:checked + &__slider {
+          input:checked+&__slider {
             background-color: $purpleColor;
           }
 
-          input:focus + &__slider {
+          input:focus+&__slider {
             box-shadow: 0 0 1px $purpleColor;
           }
 
-          input:checked + &__slider:before {
+          input:checked+&__slider:before {
             -webkit-transform: translateX(26px);
             -ms-transform: translateX(26px);
             transform: translateX(26px);
@@ -197,6 +158,7 @@ export default {
             border-radius: 50%;
           }
         }
+
         &__category {
           & select {
             font-size: 18px;
@@ -211,6 +173,7 @@ export default {
             background-repeat: no-repeat;
           }
         }
+
         &__filter {
           & a {
             background: #e6e6e6;
@@ -310,6 +273,7 @@ export default {
           }
         }
       }
+
       &__block:hover {
         box-shadow: 0px 11px 39px rgba(0, 0, 0, 0.07);
       }
@@ -320,26 +284,31 @@ export default {
       display: flex;
       gap: 35px;
       align-items: center;
+
       &__previous,
       &__next {
         display: flex;
         align-items: center;
         gap: 15px;
+
         & span {
           color: $purpleColor;
           font-size: 18px;
           font-weight: 500;
         }
       }
+
       &__numbers {
         display: flex;
         gap: 10px;
+
         & span {
           color: $purpleColor;
           font-size: 18px;
           font-weight: 500;
           padding: 15px 25px;
         }
+
         & span:hover {
           color: $whiteColor;
           background-color: $purpleColor;
