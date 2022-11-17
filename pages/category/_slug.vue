@@ -1,6 +1,8 @@
 <template>
   <!-- Featured Experts -->
   <v-container fluid ma-0 pa-0>
+    <BaseBanner :title="`Experts in ${currentCategoryName}`" />
+
     <FeaturedExpertsSection />
 
     <!-- All Expert Section -->
@@ -64,6 +66,7 @@
       </div>
     </div>
     <SponsorList />
+    <TheSubscribe />
   </v-container>
 </template>
 
@@ -71,10 +74,13 @@
 import { mapActions, mapGetters } from 'vuex';
 import categoryApi from '~/api/categoryApi.js';
 import ExpertCardAbout from '~/components/ExpertCardAbout.vue';
+import SponsorList from '~/components/SponsorList.vue';
+import TheSubscribe from '~/components/TheSubscribe.vue';
+import BaseBanner from '~/components/ui/BaseBanner.vue';
 
 export default {
-  components: { ExpertCardAbout },
-  layout: () => 'secondary',
+  components: { ExpertCardAbout, BaseBanner, TheSubscribe, SponsorList },
+  layout: () => 'emptyhero',
   data() {
     return {
       observer: null,
@@ -89,6 +95,9 @@ export default {
           categoryId: response.data.data.id,
           page: 1,
         });
+        store.dispatch('category/setCurrentCategory', {
+          currentCategory: response.data.data.name,
+        });
       })
       .catch(({ response }) => {
         error({ statusCode: 404, message: response.data.errors });
@@ -102,6 +111,7 @@ export default {
       experts: 'expert/getExperts',
       expertPage: 'expert/getPage',
       categories: 'category/getCategories',
+      currentCategoryName: 'category/getCurrentCategory',
     }),
   },
   mounted() {

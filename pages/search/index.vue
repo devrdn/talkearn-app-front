@@ -4,7 +4,7 @@
       <div class="all-experts__container">
         <div class="all-experts__container__head">
           <p class="all-experts__container__head__left">
-            Results for “{{ $route.params.value }}”
+            Results for “{{ searchValue }}”
           </p>
           <div class="all-experts__container__head__right">
             <!-- <div class="all-experts__container__head__right__online">
@@ -61,19 +61,23 @@ import ExpertCardAbout from '~/components/ExpertCardAbout.vue';
 export default {
   components: { ExpertCardAbout },
   layout: () => 'emptyhero',
-  async fetch({ params, store, error }) {
+  async fetch({ route, store, error }) {
     await store
       .dispatch('expert/fetchSearchExperts', {
-        searchText: params.value,
+        searchText: route.query.find,
       })
       .catch((err) => {
         error({ statusCode: 404, message: err.response.data.errors.message });
       });
+    store.dispatch('search/setSearchValue', {
+      searchValue: route.query.find,
+    });
   },
   computed: {
     ...mapGetters({
       experts: 'expert/getExperts',
       error: 'expert/getError',
+      searchValue: 'search/getSearchValue',
     }),
   },
   methods: {

@@ -137,7 +137,11 @@ export const actions = {
       })
       .catch((err) => {
         commit('clearExperts');
-        throw err;
+        commit('setError', err);
       });
+  },
+
+  clearExperts: ({ commit }) => {
+    commit('clearExperts');
   },
 };
