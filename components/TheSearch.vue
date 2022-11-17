@@ -101,6 +101,9 @@ export default {
         this.setSearchValue({ searchValue: '' });
       } else {
         this.setSearchValue({ searchValue: val });
+        if (this.$route.name === 'search') {
+          this.$router.push(`/search?find=${val}`);
+        }
         await this.getExpertBySearch({
           searchText: val,
         }).catch((err) => {

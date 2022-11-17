@@ -3,9 +3,16 @@
     <div class="all-experts">
       <div class="all-experts__container">
         <div class="all-experts__container__head">
-          <p class="all-experts__container__head__left">
+          <p v-if="searchValue" class="all-experts__container__head__left">
             Results for “{{ searchValue }}”
           </p>
+          <span
+            v-else
+            class="all-experts__container__head__left"
+            style="margin: 0 auto !important"
+          >
+            You need to enter some search query 😒
+          </span>
           <div class="all-experts__container__head__right">
             <!-- <div class="all-experts__container__head__right__online">
               <p>Online</p>
@@ -45,9 +52,6 @@
             :key="expert.id"
             :expert="expert"
           />
-        </div>
-        <div v-else class="all-experts__container__cards">
-          <p>Experts not Found</p>
         </div>
       </div>
     </div>
