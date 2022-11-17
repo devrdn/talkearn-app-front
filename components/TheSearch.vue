@@ -2,8 +2,9 @@
   <div class="header__container__searchfield">
     <v-autocomplete
       v-if="$route.name !== 'search'"
-      v-model="searchValue"
+      v-model="localSearchValue"
       :items="searchExperts"
+      :loading="isLoading"
       :search-input.sync="search"
       clear-icon=""
       append-icon=""
@@ -65,18 +66,22 @@ import { mapActions, mapGetters } from 'vuex';
 import debounce from 'lodash.debounce';
 export default {
   data: () => ({
-    searchValue: {},
+    localSearchValue: {},
     search: null,
-    localSearchValue: '',
+    isLoading: false,
   }),
   computed: {
     ...mapGetters({
       searchExperts: 'expert/getExperts',
+      searchValue: 'search/getSearchValue',
     }),
   },
   watch: {
     async search(val) {
-      await this.handleSearchValue(val);
+      this.isLoading = true;
+      if (val !== null) {
+        await this.handleSearchValue(val);
+      }
     },
   },
   methods: {
@@ -95,38 +100,38 @@ export default {
       );
     },
 
-    async setLocalSearchValue(val) {
-      if (!val) {
-        this.clearExperts();
-        this.setSearchValue({ searchValue: '' });
-      } else {
-        this.setSearchValue({ searchValue: val });
-        if (this.$route.name === 'search') {
-          this.$router.push(`/search?find=${val}`);
-        }
-        await this.getExpertBySearch({
-          searchText: val,
-        }).catch((err) => {
-          console.log(err);
-        });
+    async setGlobalSearchValue(searchValue) {
+      if (this.$route.name === 'search') {
+        this.$router.push(`/search?find=${searchValue}`);
       }
+
+      if (!searchValue) {
+        this.clearExperts();
+        return;
+      }
+
+      await this.getExpertBySearch({
+        searchText: searchValue,
+      }).catch((err) => {
+        console.log(err);
+      });
     },
 
     handleSearchValue: debounce(async function (val) {
-      await this.setLocalSearchValue(val);
+      this.isLoading = false;
+      this.setSearchValue({ searchValue: val });
+      await this.setGlobalSearchValue(this.searchValue);
     }, 500),
 
     getSearchPage() {
-      this.$router.replace({
-        path: `/search?find=${this.search}`,
-      });
-      this.searchValue = '';
+      this.isLoading = false;
+      this.$router.push(`/search?find=${this.search}`);
     },
 
     getExpertPage() {
       this.clearExperts();
       this.$router.push(
-        `/expert/${this.searchValue.categorySlug}/${this.searchValue.slug}`
+        `/expert/${this.localSearchValue.categorySlug}/${this.localSearchValue.slug}`
       );
     },
   },
