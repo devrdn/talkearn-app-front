@@ -39,6 +39,10 @@ export default {
     font-weight: 800;
     color: $whiteColor;
     letter-spacing: 2px;
+
+    @include rwdmax(325px) {
+      display: none;
+    }
   }
 
   &__arrow {
@@ -49,6 +53,10 @@ export default {
     background: $whiteColor;
     padding: 15px;
     border-radius: 20px;
+
+    @include rwdmax(325px) {
+      padding: 5px;
+    }
   }
 }
 </style>

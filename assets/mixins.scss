@@ -38,13 +38,13 @@ $screen-xl-min: 1200px;
 }
 
 @mixin rwdmax($screen) {
-   @media (max-width: $screen+"px") {
+   @media (max-width: $screen) {
       @content;
    }
 }
 
 @mixin rwdmin($screen) {
-   @media (min-width: $screen+"px") {
+   @media (min-width: $screen) {
       @content;
    }
 }

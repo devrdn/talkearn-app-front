@@ -1,3 +1,9 @@
 .v-badge__badge {
     z-index: 1;
   }
+
+  @include rwdmax(325px) {
+    .v-icon {
+      padding: 0 !important;
+    }
+  }
