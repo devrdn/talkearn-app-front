@@ -133,6 +133,7 @@ export const actions = {
       .then((response) => {
         commit('setExperts', response.data.data);
         commit('setMeta', response.data.meta);
+        commit('setError', {});
       })
       .catch((err) => {
         commit('clearExperts');
