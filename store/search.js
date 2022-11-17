@@ -19,6 +19,11 @@ export const mutations = {
 };
 
 export const actions = {
+  /**
+   * Set search value
+   * @param {Object} param0 context
+   * @param {Object} param1 search value
+   */
   setSearchValue({ commit }, { searchValue }) {
     commit('setSearchValue', searchValue);
   },
