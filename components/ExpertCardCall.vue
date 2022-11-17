@@ -3,13 +3,24 @@
     <img :src="service.image" class="expert__cards__block__img" alt="photo" />
     <div class="expert__cards__block__text">
       <div class="expert__cards__block__text__author">
-        <img :src="expert.image" class="expert__cards__block__text__author__img" alt="photo" />
+        <img
+          :src="expert.image"
+          class="expert__cards__block__text__author__img"
+          alt="photo"
+        />
         <div class="expert__cards__block__text__author__name">
           <p>{{ expert.name }}</p>
           <div class="expert__cards__block__text__author__name__rating">
             <span>{{ Number(expert.rating) }}</span>
-            <v-rating background-color="#eee" color="warning" readonly hover size="20" length="5"
-              :value="Number(expert.rating)"></v-rating>
+            <v-rating
+              background-color="#eee"
+              color="warning"
+              readonly
+              hover
+              size="20"
+              length="5"
+              :value="Number(expert.rating)"
+            ></v-rating>
           </div>
         </div>
       </div>
@@ -19,7 +30,9 @@
       <div class="expert__cards__block__text__call">
         <div class="expert__cards__block__text__call__text">
           <span class="expert__cards__block__text__call__price">$3</span>
-          <span class="expert__cards__block__text__call__minute">per minute</span>
+          <span class="expert__cards__block__text__call__minute"
+            >per minute</span
+          >
         </div>
         <a href="/" class="expert__cards__block__text__call__btn">Call</a>
       </div>
@@ -37,7 +50,7 @@ export default {
     expert: {
       type: Object,
       required: true,
-    }
+    },
   },
 };
 </script>
@@ -50,7 +63,7 @@ export default {
   padding: 40px;
   position: relative;
   background: #ffffff;
-  box-shadow: 0px 0px 28px rgba(62, 53, 120, 0.1);
+  box-shadow: 0px 0px 28px rgba(255, 0, 0, 0.1);
   border-radius: 18px;
   display: flex;
   flex-direction: column;
@@ -64,6 +77,12 @@ export default {
       align-items: center;
       box-shadow: 0px 8px 24px rgba(31, 31, 51, 0.1);
       border-radius: 10px;
+      @include rwdmax(460px) {
+        width: 220px;
+      }
+      @include rwdmax(325px) {
+        width: 180px;
+      }
 
       &__img {
         width: 100%;
@@ -71,6 +90,15 @@ export default {
         width: 392px;
         height: 278px;
         border-radius: 10px 10px 0 0;
+        @include rwdmax(560px) {
+          width: 320px;
+        }
+        @include rwdmax(460px) {
+          width: 220px;
+        }
+        @include rwdmax(325px) {
+          width: 180px;
+        }
       }
 
       &__text {
@@ -83,6 +111,10 @@ export default {
           display: flex;
           align-items: center;
           gap: 20px;
+
+          @include rwdmax(460px) {
+            flex-direction: column;
+          }
 
           &__img {
             width: 60px;
@@ -99,12 +131,18 @@ export default {
             p {
               font-size: 18px;
               font-weight: 600;
+              @include rwdmax(460px) {
+                text-align: center;
+              }
             }
 
             &__rating {
               display: flex;
               align-items: center;
               gap: 10px;
+              @include rwdmax(325px) {
+                flex-direction: column-reverse;
+              }
             }
           }
         }
@@ -112,12 +150,20 @@ export default {
         &__title {
           font-size: $fs;
           font-weight: 600;
+          @include rwdmax(460px) {
+            text-align: center;
+          }
         }
 
         &__call {
           display: flex;
           justify-content: space-between;
           align-items: center;
+
+          @include rwdmax(460px) {
+            flex-direction: column;
+            gap: 15px;
+          }
 
           &__price {
             font-size: 19px;

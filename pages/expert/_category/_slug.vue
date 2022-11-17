@@ -14,7 +14,10 @@
                 <p class="expert__head__left__info__about__text__name">
                   {{ expert.name }}
                 </p>
-                <p v-if="expert.profession" class="expert__head__left__info__about__text__profession">
+                <p
+                  v-if="expert.profession"
+                  class="expert__head__left__info__about__text__profession"
+                >
                   {{ expert.profession }}
                 </p>
                 <div class="expert__head__left__info__about__text__rating">
@@ -42,13 +45,16 @@
               </div>
             </div>
             <div class="expert__head__left__info__extra">
-              <div v-if="expert.region" class="expert__head__left__info__extra__block">
+              <div
+                v-if="expert.region"
+                class="expert__head__left__info__extra__block"
+              >
                 <span class="expert__head__left__info__extra__block__label"
                   >From</span
                 >
-                <span class="expert__head__left__info__extra__block__text"
-                  >{{ expert.region }}</span
-                >
+                <span class="expert__head__left__info__extra__block__text">{{
+                  expert.region
+                }}</span>
               </div>
               <div class="expert__head__left__info__extra__block">
                 <span class="expert__head__left__info__extra__block__label"
@@ -151,7 +157,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .expert {
   width: 70%;
   margin: 0 auto;
@@ -166,15 +171,28 @@ export default {
   align-items: center;
   gap: 60px;
 
+  @include rwdmax(390px) {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
   &__head {
     width: 100%;
     display: flex;
     justify-content: space-between;
 
+    @include rwdmax(1800px) {
+      flex-direction: column;
+    }
+
     &__left {
       width: 70%;
       display: flex;
       gap: 60px;
+      @include rwdmax(1337px) {
+        flex-direction: column;
+        margin: 0 auto;
+      }
 
       img {
         border-radius: 94.5px;
@@ -184,20 +202,36 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        flex-wrap: wrap;
         gap: 20px;
+        @include rwdmax(1337px) {
+          align-items: center;
+        }
 
         &__about {
           display: flex;
           gap: 30px;
+          @include rwdmax(1337px) {
+            flex-direction: column-reverse;
+            align-items: center;
+          }
 
           &__text {
             display: flex;
             flex-direction: column;
             gap: 25px;
 
+            @include rwdmax(1337px) {
+              text-align: center;
+            }
+
             &__name {
               font-size: 35px;
               font-weight: 600;
+
+              @include rwdmax(325px) {
+                font-size: 25px;
+              }
             }
 
             &__rating {
@@ -205,6 +239,13 @@ export default {
               align-items: center;
               gap: 10px;
               font-weight: 600;
+              @include rwdmax(1337px) {
+                justify-content: center;
+              }
+
+              @include rwdmax(325px) {
+                flex-direction: column;
+              }
             }
           }
         }
@@ -213,6 +254,11 @@ export default {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 30px;
+
+          @include rwdmax(470px) {
+            display: flex;
+            flex-direction: column;
+          }
 
           &__block {
             display: flex;
@@ -258,6 +304,13 @@ export default {
       flex-direction: column;
       gap: 16px;
 
+      @include rwdmax(1800px) {
+        margin-top: 50px;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
       button {
         background: $purpleColor;
         padding: 15px 30px;
@@ -271,9 +324,10 @@ export default {
   }
 
   &__tags {
-    align-self: flex-start;
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
+    justify-content: space-around;
 
     &-1,
     &-2,
@@ -306,6 +360,11 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 35px;
+    @include rwdmax(1790px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
     &__block {
       display: flex;
