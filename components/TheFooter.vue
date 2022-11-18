@@ -72,7 +72,7 @@
           </a>
           <a href="/" class="footer__container__right__block__link">Products</a>
         </div>
-        <div class="footer__container__right__block">
+        <div class="footer__container__right__block footer__adress">
           <p class="footer__container__right__block__name">
             Get in Touch with Us
           </p>
@@ -109,6 +109,17 @@ export default {};
   width: 100%;
   background-color: #1f2131;
   color: $whiteColor;
+
+  &__adress {
+    @include rwdmax(1200px) {
+      max-width: 230px;
+    }
+  }
+
+  @include rwdmax(1200px) {
+    justify-content: center;
+  }
+
   &__container {
     max-width: 85%;
     margin: 0px auto;
@@ -116,11 +127,23 @@ export default {};
     display: flex;
     justify-content: space-between;
     gap: 45px;
+
+    @include rwdmax(1200px) {
+      max-width: 100%;
+      flex-direction: column;
+      margin: 0;
+    }
+
     &__left {
       display: flex;
       width: 20%;
       flex-direction: column;
       gap: 70px;
+      @include rwdmax(1200px) {
+        width: 100%;
+        gap: 10px;
+        text-align: center;
+      }
       & p {
         font-size: $fs;
         line-height: 1.3;
@@ -144,12 +167,31 @@ export default {};
     &__right {
       display: flex;
       gap: 130px;
+
+      @include rwdmax(1200px) {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      @include rwdmax(1100px) {
+        gap: 70px;
+      }
+
+      @include rwdmax(742px) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
       &__block {
         display: flex;
         align-items: stretch;
         flex-direction: column;
         justify-content: flex-start;
         gap: 20px;
+        @include rwdmax(742px) {
+          flex-basis: 100%;
+          flex: 2;
+        }
         &__name {
           font-size: 20px;
           font-weight: 600;

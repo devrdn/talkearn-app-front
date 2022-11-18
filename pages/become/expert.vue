@@ -261,19 +261,34 @@ export default {
   },
   methods: {
     send() {
+      const form = new FormData();
+      form.append('categoryId', this.expert.categoryId);
+      form.append('name', this.expert.name);
+      form.append('description', this.expert.description);
+      form.append('profession', this.expert.profession);
+      form.append('wallet', this.expert.wallet);
+      form.append('region', this.expert.region);
+      form.append('duration', this.expert.duration);
+      form.append('price', this.expert.price);
+      form.append('image', this.expert.image);
+      form.append('videoUrl', this.expert.videoUrl);
+      form.append('services', this.expert.services);
       this.$axios
-        .post('http://back.talkearn.app/api/expert', this.expert)
+        .post('https://back.talkearn.app/api/expert', form, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
         .then((response) => {
           console.log(response);
         })
         .catch((err) => {
-          console.log(err);
+          console.log(err.request);
         });
     },
     upload(e) {
-      const data = e.target.files || e.dataTransfer.files;
       console.log(e.target.files[0]);
-      this.expert.image = data[0];
+      this.expert.image = e.target.files[0];
     },
   },
 };
