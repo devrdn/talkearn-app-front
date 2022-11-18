@@ -3,7 +3,7 @@
     <!-- Banner -->
     <UiBaseBanner title="Join our growing expert's community" />
 
-    <form class="form">
+    <form class="form" @submit.prevent="send">
       <p class="form__title">Fill the application</p>
       <div class="form__fields">
         <UiBaseInput
@@ -20,7 +20,7 @@
         />
         <UiBaseInput
           v-model="expert.region"
-          label="Duration"
+          label="Region"
           type="text"
           name="region"
         />
@@ -30,18 +30,38 @@
           type="number"
           name="duration"
         />
+        <UiBaseInput
+          v-model="expert.price"
+          label="Price"
+          type="number"
+          name="price"
+        />
+        <UiBaseInput
+          v-model="expert.profession"
+          label="Profession"
+          type="text"
+          name="profession"
+        />
+
+        <div class="form__fields__input">
+          <label>SelectCategory</label> <br />
+          <select v-model="expert.categoryId">
+            <option disabled value="">Select Category</option>
+            <option
+              v-for="category in categories"
+              :key="category.id"
+              :value="category.id"
+            >
+              {{ category.name }}
+            </option>
+          </select>
+        </div>
       </div>
 
       <UiBaseTextArea
         v-model="expert.description"
         label="Describe you and your services"
         name="description"
-      />
-
-      <UiBaseFileInput
-        name="photo"
-        :format="['TIFF', 'JPG']"
-        @file-updated="captureFile($event)"
       />
 
       <div class="form__upload-photo">
@@ -62,6 +82,7 @@
               id="form__upload-photo__content__block__input"
               type="file"
               class="form__upload-photo__content__block__input"
+              @change="upload"
             />
           </div>
         </div>
@@ -83,8 +104,10 @@
             </label>
             <input
               id="form__upload-photo__content__block__input"
+              ref="avatar"
               type="file"
               class="form__upload-photo__content__block__input"
+              @change="upload"
             />
           </div>
           <div class="form__upload-photo__content__block">
@@ -95,6 +118,7 @@
               <img src="/img/form/cloud.svg" alt="" />
               <div class="form__upload-photo__content__block__label__text">
                 <input
+                  v-model="expert.videoUrl"
                   id="form__upload-photo__content__block__input__text"
                   type="text"
                   class="form__upload-photo__content__block__input__text"
@@ -206,22 +230,51 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   layout: () => 'emptyhero',
   data: () => {
     return {
       expert: {
+        categoryId: 0,
         name: '',
+        description: '',
+        profession: '',
         wallet: '',
         region: '',
         duration: '',
-        description: '',
-        photo: {
-          preview: '',
-          name: '',
-        },
+        price: 0,
+        image: '',
+        videoUrl: '',
+        services: [],
       },
     };
+  },
+  async fetch({ store }) {
+    await store.dispatch('category/fetchCategories');
+  },
+  computed: {
+    ...mapGetters({
+      categories: 'category/getCategories',
+    }),
+  },
+  methods: {
+    send() {
+      this.$axios
+        .post('http://back.talkearn.app/api/expert', this.expert)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    upload(e) {
+      const data = e.target.files || e.dataTransfer.files;
+      console.log(e.target.files[0]);
+      this.expert.image = data[0];
+    },
   },
 };
 </script>
@@ -251,6 +304,24 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+
+    &__input {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-weight: 500;
+        font-size: 14px;
+        color: $darkColor;
+      }
+
+      select {
+        background: #fbfbfb;
+        border: 1px solid #c2c2c2;
+        border-radius: 14px;
+        padding: 15px 30px;
+      }
+    }
   }
 
   &__txtarea {

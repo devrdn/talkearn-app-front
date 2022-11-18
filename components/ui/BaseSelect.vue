@@ -1,25 +1,26 @@
 <template>
   <div class="form__fields__input">
     <label v-if="label" :for="name">{{ label }}</label> <br />
-    <input
+    <select
       :value="value"
       :name="name"
-      placeholder="Type here"
       :type="type"
-      @input="$emit('input', $event.target.value)"
-    />
+      @change="$emit('input', $event.target.value)"
+    >
+      <option disabled value="">{{ defaultValue }}</option>
+      <option v-for="option in options" :key="option.id" :value="option.id">
+        {{ option.name }}
+      </option>
+    </select>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    type: {
-      type: String,
-      default: 'text',
-      validator: (value) => {
-        return ['text', 'number', 'search', 'radio'].includes(value);
-      },
+    options: {
+      type: Array,
+      required: true,
     },
     label: {
       type: String,
@@ -27,13 +28,6 @@ export default {
       default: null,
     },
     defaultValue: {
-      type: [String, Number],
-    },
-    value: {
-      type: [String, Number],
-      default: '',
-    },
-    name: {
       type: String,
       default: '',
     },
@@ -54,7 +48,7 @@ export default {
         color: $darkColor;
       }
 
-      input {
+      select {
         background: #fbfbfb;
         border: 1px solid #c2c2c2;
         border-radius: 14px;
