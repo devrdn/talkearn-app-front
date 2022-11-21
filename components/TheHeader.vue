@@ -26,6 +26,15 @@ export default { components: { TheNavigation, TheSearch } };
 
   &__container {
     max-width: 85%;
+    @include rwdmax(1207px) {
+      margin: 0px auto;
+      max-width: 85%;
+    }
+
+    @include rwdmax(850px) {
+      display: flex;
+      flex-direction: column !important;
+    }
     margin: 0px auto;
     padding: 30px 0;
     display: flex;

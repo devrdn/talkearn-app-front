@@ -1,114 +1,212 @@
 <template>
-  <div>
-    <div class="main">
-      <div class="main__container">
-        <div class="main__left">
-          <p class="main__left__title">Find out</p>
-          <p class="main__left__title main__left__title_purple">
-            Crypto Expert
-          </p>
-          <p class="main__left__title">for consulting and gigs</p>
-          <p class="main__left__subtitle">
-            A community of crypto freelancers what can consult you and give
-            answers on every cypto topic
-          </p>
-          <div class="main__left__searchfield">
-            <input
-              type="search"
-              placeholder="Search here..."
-              class="main__left__searchfield__input"
-            />
-            <button class="main__left__searchfield__button">Search</button>
-          </div>
-        </div>
-        <div class="main__right">
-          <img class="main__right__man" src="/img/index/main/man.png" alt="" />
-        </div>
+  <div class="hero">
+      <div class="hero__container">
+         <div class="hero__left">
+            <div class="hero__info">
+               <p class="hero__text">Find out</p>
+               <p class="hero__text--purple">Crypto Expert</p>
+               <p class="hero__text">for consulting and gigs</p>
+
+            </div>
+            <p class="hero__description">
+               A community of crypto freelancers what can consult you and give answers on every cypto topic
+            </p>
+            <div class="search">
+               <input type="search" placeholder="Search here..." class="search__input" />
+               <button class="search__button">Search</button>
+            </div>
+         </div>
+         <div class="hero__right">
+            <div>
+               <img class="hero__photo" src="/img/index/main/man.png" alt="">
+            </div>
+         </div>
       </div>
-    </div>
-  </div>
+   </div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style lang="scss">
-.main {
-  background-color: $bckgColor;
-  &__container {
-    max-width: 85%;
-    margin: 0px 70px auto;
-    padding-top: 70px;
-    display: flex;
-    justify-content: space-between;
-  }
-  &__left {
-    display: flex;
-    width: 50%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 3px;
-    &__title {
-      margin-top: 5px;
+<style lang="scss" scoped>
+.hero {
+   // .hero__container
+
+   background: $bckgColor;
+
+   &__container {
+      max-width: 85%;
+      margin: 0 auto;
+      padding: 20px 0px 20px;
+      justify-content: space-between;
+      display: flex;
+      @include rwdmax(1081px) {
+         flex-direction: column-reverse;
+      }
+      align-items: center;
+   }
+
+   // .hero__left
+
+   &__left {
+      @include rwdmax(1081px) {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+   }
+
+   // .hero__text
+
+   &__text {
       color: $darkColor;
       font-size: 55px;
       font-weight: 600;
-      &_purple {
-        color: $purpleColor;
+      margin-bottom: 10px;
+      @include rwdmax(710px) {
+         display: inline;
+         font-size: 18px !important;
       }
-    }
-    &__subtitle {
+   }
+
+   &__info {
+      @include rwdmax(710px) {
+         display: block !important;
+         max-width: 500px;
+         margin: 0 auto;
+         text-align: center;
+         font-size: 18px !important;
+      }
+
+      @include rwdmax(1081px) {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+      }
+   }
+
+   // .hero__text--purple
+
+   &__text--purple {
+      margin-bottom: 10px;
+      font-size: 55px;
+      font-weight: 600;
+      color: $purpleColor;
+      @include rwdmax(710px) {
+         display: inline;
+         font-size: 18px !important;
+      }
+   }
+
+   // .hero__description
+
+   &__description {
       font-size: $fs;
       color: $darkColor;
       font-weight: 500;
-      line-height: 1.3;
       margin-top: 30px;
-      margin-bottom: 0px;
-    }
-    &__searchfield {
-      position: relative;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      font-size: $fs;
-      margin-top: 30px;
-      &__input {
-        padding-left: 20px;
-        font-size: inherit;
-        width: 500px;
-        height: 65px;
-        background: $whiteColor;
-        box-shadow: 0px 19px 84px rgba(0, 0, 0, 0.04);
-        border-radius: 60px;
+      @include rwdmax(710px) {
+         display: none;
       }
-      &__button {
-        position: absolute;
-        width: 170px;
-        height: 50px;
-        background: $purpleColor;
-        border-radius: 30px;
-        color: $whiteColor;
-        font-size: inherit;
-        font-family: 'inherit';
-        transform: translateX(-8px);
-        transition: background 0.3s ease-in-out;
+   }
+
+   // .hero__right
+
+   &__right {
+   }
+
+   // .hero__photo
+
+   &__photo {
+      @include rwdmax(1680px) {
+         width: 700px;
       }
-      &__button:hover {
-        background-color: #5241c1;
+      @include rwdmax(1522px) {
+         width: 600px;
       }
-    }
-  }
-  &__right {
-    width: 50%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    &__man {
-      width: 100%;
-      height: 100%;
-    }
-  }
+
+      @include rwdmax(1200px) {
+         width: 500px;
+      }
+      @include rwdmax(500px) {
+         width: 350px;
+      }
+      @include rwdmax(380px) {
+         width: 250px;
+         margin-bottom: 20px;
+      }
+   }
 }
+.search {
+   margin-top: 30px;
+   position: relative;
+   align-items: center;
+   font-size: $fs;
+   @include rwdmax(710px) {
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+   }
+   @include rwdmax(500px) {
+      display: flex;
+      flex-direction: column;
+   }
+
+   // .search__input
+
+   &__input {
+      padding-left: 20px;
+      font-size: inherit;
+      width: 500px;
+      height: 65px;
+      background: $whiteColor;
+      box-shadow: 0px 19px 84px rgba(0, 0, 0, 0.04);
+      border-radius: 60px;
+      @include rwdmax(710px) {
+         width: 400px;
+         height: 55px;
+      }
+      @include rwdmax(500px) {
+         width: 350px;
+      }
+      @include rwdmax(380px) {
+         width: 298px;
+      }
+   }
+
+   // .search__button
+
+   &__button {
+      top: 7px;
+      position: absolute;
+      padding: 15px 60px 15px 60px;
+      background: $purpleColor;
+      border-radius: 30px;
+      color: $whiteColor;
+      font-size: inherit;
+      font-family: inherit;
+      transform: translateX(-185px);
+      transition: background 0.3s ease-in-out;
+      @include rwdmax(710px) {
+         position: relative;
+         transform: none;
+         width: 100%;
+         height: 55px;
+         margin-bottom: 20px;
+         margin-top: 14px;
+      }
+      @include rwdmax(500px) {
+         width: 350px;
+      }
+      @include rwdmax(380px) {
+         width: 298px;
+      }
+   }
+
+   &__button:hover {
+      background-color: #5241c1;
+   }
+}
+
 </style>

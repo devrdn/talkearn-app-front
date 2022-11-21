@@ -22,7 +22,6 @@ export default {};
 <style lang="scss" scoped>
 .navigation {
   // .navigation__list
-
   display: flex;
   align-items: center;
   &__list {

@@ -161,7 +161,10 @@ export default {
       }
 
       & img {
-        transform: translateX(-40px);
+        @include rwdmax(1218px) {
+          display: none !important;
+        }
+        transform: translateX(-50px);
       }
     }
   }

@@ -50,6 +50,9 @@ export default {
 <style lang="scss" scoped>
 .customers {
   &__container {
+    @include rwdmax(888px) {
+      flex-direction: column;
+    }
     display: flex;
     gap: 60px;
     &__left {
@@ -62,7 +65,14 @@ export default {
       display: flex;
       flex-direction: column;
       gap: 100px;
+      @include rwdmax(888px) {
+        gap: 50px;
+      }
       &__head {
+        @include rwdmax(888px) {
+          flex-direction: column;
+          align-items: center;
+        }
         display: flex;
         justify-content: space-between;
         &__naming {

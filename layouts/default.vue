@@ -2,8 +2,8 @@
   <v-app>
     <v-container fluid class="bckg">
       <TheHeader />
-      <TheMainHero />
     </v-container>
+    <TheMainHero />
     <v-main>
       <Nuxt />
     </v-main>

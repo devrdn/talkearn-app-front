@@ -36,7 +36,16 @@ export default {};
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @include rwdmax(1074px) {
+    text-align: center;
+    flex-direction: column;
+  }
   &__left {
+    @include rwdmax(1074px) {
+      width: 100%;
+      align-items: center;
+      gap: 30px;
+    }
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -50,11 +59,22 @@ export default {};
       color: $purpleColor;
     }
     &__text {
+      @include rwdmax(1074px) {
+        text-align: center;
+      }
       font-size: 18px;
       font-weight: 400;
       line-height: 1.3;
     }
     &__btn {
+      @include rwdmax(1074px) {
+        margin-top: 30px;
+      }
+      @include rwdmax(405px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
       &-main {
         color: $whiteColor;
         font-size: 18px;
@@ -67,10 +87,20 @@ export default {};
         margin-left: 50px;
         font-size: 18px;
         color: $purpleColor;
+        @include rwdmax(405px) {
+          margin-left: 0px;
+        }
       }
     }
   }
   &__right {
+    @include rwdmax(1074px) {
+      margin-top: 40px;
+    }
+
+    @include rwdmax(528px) {
+      display: none;
+    }
     & img {
       height: 450px;
       border-radius: 90px 0 90px 0;

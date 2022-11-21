@@ -36,6 +36,16 @@ export default {
   gap: 50px;
   &__all {
     display: flex;
+    @include rwdmax(1227px) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include rwdmax(766px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include rwdmax(524px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
     gap: 25px;
     &__topic {
       display: flex;

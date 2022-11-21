@@ -41,6 +41,9 @@ export default { components: { HowItWorksItem } };
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    @include rwdmax(1360px) {
+      width: 100%
+    }
     gap: 20px;
     &__little-title {
       color: $purpleColor;
@@ -114,6 +117,9 @@ export default { components: { HowItWorksItem } };
     }
   }
   &__right {
+    @include rwdmax(1360px) {
+      display: none;
+    }
     &__video {
       & img,
       video {

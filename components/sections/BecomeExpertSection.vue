@@ -8,11 +8,10 @@
       />
       <div class="become-expert__container__text">
         <h2 class="become-expert__container__text__header">
-          Are you interested in
+          <p>Are you interested in</p>
+          <p>becoming an expert?</p>
         </h2>
-        <h2 class="become-expert__container__text__header">
-          becoming an expert?
-        </h2>
+
         <a href="#" class="become-expert__container__text__btn">Join With Us</a>
       </div>
     </div>
@@ -31,7 +30,23 @@ export default {};
     position: relative;
     align-items: center;
     justify-content: center;
+
+    @include rwdmax(1098px) {
+      display: flex;
+      max-width: 70%;
+      margin: 0 auto;
+      text-align: center;
+      p {
+        display: inline;
+      }
+    }
     &__text {
+      @include rwdmax(1098px) {
+        position: relative;
+
+        align-items: center;
+        margin: 0;
+      }
       margin-left: 500px;
       position: absolute;
       display: flex;
@@ -54,6 +69,9 @@ export default {};
       }
     }
     & img {
+      @include rwdmax(1098px) {
+        display: none;
+      }
       width: 85%;
       height: 100%;
     }

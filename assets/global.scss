@@ -1,3 +1,45 @@
 .v-badge__badge {
-    z-index: 1;
+  z-index: 1;
+}
+
+.v-input__slot {
+  //background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 20px;
+}
+
+.v-input__control input {
+  @include rwdmax(1406px) {
+    width: 300px !important;
   }
+  @include rwdmax(1280px) {
+    width: 200px !important;
+  }
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.v-select__slot {
+  height: 50px !important;
+
+  input {
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+    padding-left: 2x !important;
+  }
+}
+
+.v-text-field.v-text-field--solo .v-input__control input {
+  padding: auto;
+}
+
+.v-autocomplete__content {
+  border-radius: 10px !important;
+}
+
+.v-autocomplete {
+  @include rwdmax(1218px) {
+    display: none !important;
+  }
+  border-radius: 30px !important;
+}

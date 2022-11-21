@@ -41,6 +41,15 @@ export default {
         display: block;
       }
       &__btn {
+        @include rwdmax(735px) {
+          width: 500px;
+        }
+        @include rwdmax(561px) {
+          width: 300px;
+        }
+        @include rwdmax(360px) {
+          width: 240px;
+        }
         display: flex;
         justify-content: space-between;
         align-items: center;
