@@ -55,7 +55,19 @@
       class="header__container__searchfield__input"
       placeholder="Search here..."
     />
-    <button @click.prevent="getSearchPage()">
+    <button
+      v-if="$route.name !== 'search'"
+      class="search__button--main"
+      @click.prevent="getSearchPage()"
+    >
+      <img src="/img/index/search.svg" alt="search" />
+    </button>
+
+    <button
+      v-else
+      class="search__button--secondary"
+      @click.prevent="getSearchPage()"
+    >
       <img src="/img/index/search.svg" alt="search" />
     </button>
   </div>
@@ -156,14 +168,35 @@ export default {
         padding-left: 20px;
         font-weight: 400;
         font-size: $fs;
+        @include rwdmax(1380px) {
+          width: 250px;
+        }
+        @include rwdmax(1214px) {
+          width: 200px;
+        }
+        @include rwdmax(850px) {
+          margin-top: 20px;
+        }
       }
 
       &__input::-ms-clear {
         display: none;
       }
 
+      .search__button--secondary {
+        @include rwdmax(850px) {
+          position: absolute;
+        }
+      }
+      & button {
+        position: relative;
+      }
       & img {
-        transform: translateX(-50px);
+        transform: translateX(-45px);
+
+        @include rwdmax(850px) {
+          margin-top: 20px;
+        }
       }
     }
   }

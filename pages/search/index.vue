@@ -52,8 +52,8 @@
             :key="expert.id"
             :expert="expert"
           />
-          <div ref="intersection"></div>
         </div>
+        <div ref="intersection" id="intersectio-observer"></div>
       </div>
     </div>
   </div>
@@ -105,6 +105,7 @@ export default {
         });
       }
     }, options);
+
     this.observer.observe(this.$refs.intersection);
   },
   destroyed() {
