@@ -24,15 +24,13 @@ export default {
       align-items: center;
       flex-direction: column;
       gap: 30px;
-
       &__tag {
         display: flex;
         gap: 20px;
-
+        text-align: center;
         border: 1px solid #e9e6fe;
         border-radius: 50px;
         padding: 8px 22px;
-
         & span {
           font-size: 14px;
           font-weight: 500;

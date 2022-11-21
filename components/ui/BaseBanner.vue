@@ -26,21 +26,21 @@ export default {
   justify-content: center;
   position: relative;
   z-index: 0;
-
   &__img {
     position: relative;
     z-index: 0;
     width: 100%;
   }
-
   p {
     position: absolute;
     font-size: 50px;
     font-weight: 800;
     color: $whiteColor;
     letter-spacing: 2px;
+    @include rwdmax(325px) {
+      display: none;
+    }
   }
-
   &__arrow {
     display: block;
     position: absolute;
@@ -49,6 +49,9 @@ export default {
     background: $whiteColor;
     padding: 15px;
     border-radius: 20px;
+    @include rwdmax(325px) {
+      padding: 5px;
+    }
   }
 }
 </style>
