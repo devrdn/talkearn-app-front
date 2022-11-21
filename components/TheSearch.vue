@@ -101,6 +101,7 @@ export default {
     },
 
     async setGlobalSearchValue(searchValue) {
+      this.isLoading = false;
       if (this.$route.name === 'search') {
         this.$router.push(`/search?find=${searchValue}`);
       }
@@ -129,6 +130,7 @@ export default {
     },
 
     getExpertPage() {
+      this.isLoading = false;
       this.clearExperts();
       this.$router.push(
         `/expert/${this.localSearchValue.categorySlug}/${this.localSearchValue.slug}`

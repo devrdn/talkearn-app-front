@@ -66,6 +66,11 @@ import ExpertCardAbout from '~/components/ExpertCardAbout.vue';
 export default {
   components: { ExpertCardAbout },
   layout: () => 'emptyhero',
+  data: () => {
+    return {
+      observer: null,
+    };
+  },
   async fetch({ route, store, error }) {
     await store
       .dispatch('expert/fetchSearchExperts', {

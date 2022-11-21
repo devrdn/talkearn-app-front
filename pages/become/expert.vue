@@ -258,7 +258,7 @@
 
       <div class="form__btns">
         <input type="submit" value="Submit" />
-        <a href="">Cancel</a>
+        <a @click="reset">Cancel</a>
       </div>
     </form>
   </div>
@@ -359,6 +359,9 @@ export default {
     },
     uploadVideo(event) {
       this.expert.videoUrl = event.target.file[0];
+    },
+    reset() {
+      this.$refs.form.reset();
     },
   },
 };
