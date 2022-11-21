@@ -118,7 +118,10 @@
                 Example: I will consult You on how to invest in HODL (spot
                 crypto currency)
               </p>
-              <input type="text" />
+              <input
+                class="form__services__container__content__block__ex__input"
+                type="text"
+              />
             </div>
             <div class="form__upload-photo__content__block">
               <label
@@ -146,7 +149,10 @@
               <p class="form__services__container__content__block__ex">
                 Example: I will consult You on how to setup a Metamask wallet
               </p>
-              <input type="text" />
+              <input
+                class="form__services__container__content__block__ex__input"
+                type="text"
+              />
             </div>
             <div class="form__upload-photo__content__block">
               <label
@@ -174,7 +180,10 @@
               <p class="form__services__container__content__block__ex">
                 Example: I will consult You on how to start trading on crypto
               </p>
-              <input type="text" />
+              <input
+                class="form__services__container__content__block__ex__input"
+                type="text"
+              />
             </div>
             <div class="form__upload-photo__content__block">
               <label
@@ -251,6 +260,10 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+    @include rwdmax(1190px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 
   &__txtarea {
@@ -287,6 +300,7 @@ export default {
     &__content {
       display: flex;
       gap: 15px;
+      flex-wrap: wrap;
 
       &__block {
         background: #f5f5f5;
@@ -303,11 +317,15 @@ export default {
 
         &__input {
           display: none;
+
           &__text {
             background: #fbfbfb;
             border: 1px solid #5f4bdb;
             border-radius: 14px;
             padding: 10px;
+            @include rwdmax(500px) {
+              width: 95px;
+            }
           }
         }
 
@@ -315,6 +333,9 @@ export default {
           display: flex;
           gap: 20px;
           cursor: pointer;
+          @include rwdmax(500px) {
+            flex-direction: column;
+          }
 
           &__text {
             display: flex;
@@ -354,6 +375,10 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
+        @include rwdmax(1110px) {
+          gap: 20px;
+        }
         &__block {
           display: flex;
           flex-direction: column;
@@ -364,6 +389,12 @@ export default {
             border: 1px solid #c2c2c2;
             border-radius: 14px;
             padding: 10px 20px;
+            @include rwdmax(385px) {
+              width: 200px;
+            }
+            @include rwdmax(320px) {
+              width: 150px;
+            }
           }
         }
       }
@@ -373,6 +404,10 @@ export default {
   &__btns {
     display: flex;
     justify-content: space-between;
+    @include rwdmax(500px) {
+      flex-direction: column;
+      gap: 20px;
+    }
     input {
       background: #5f4bdb;
       border-radius: 60px;
@@ -388,6 +423,7 @@ export default {
       color: #9f9f9f;
       font-weight: 600;
       font-size: 16px;
+      text-align: center;
     }
   }
 }

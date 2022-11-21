@@ -42,6 +42,7 @@ export default {};
     padding-top: 70px;
     display: flex;
     justify-content: space-between;
+    align-content: center;
   }
   &__left {
     display: flex;
@@ -107,7 +108,6 @@ export default {};
     justify-content: center;
     &__man {
       width: 100%;
-      height: 100%;
     }
   }
 }

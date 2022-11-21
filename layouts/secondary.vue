@@ -19,7 +19,7 @@ import TheSecondaryHero from '~/components/TheSecondaryHero.vue';
 import TheSubscribe from '~/components/TheSubscribe.vue';
 
 export default {
-  components: { TheSecondaryHero, TheHeader, TheSubscribe, TheFooter },
+  components: { TheSecondaryHero, TheHeader, TheFooter, TheSubscribe },
   data() {
     return {
       clipped: false,

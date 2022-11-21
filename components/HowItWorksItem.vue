@@ -53,6 +53,15 @@ export default {
         border-radius: 20px;
         box-shadow: 0px 7px 22px rgba(143, 134, 196, 0.07);
         transition: box-shadow 0.3s ease-in-out;
+        @include rwdmax(650px) {
+          width: 500px;
+        }
+        @include rwdmax(500px) {
+          width: 400px;
+        }
+        @include rwdmax(375px) {
+          width: 290px;
+        }
       }
       &__btn:hover {
         box-shadow: 0px 10px 29px rgba(62, 53, 120, 0.14);

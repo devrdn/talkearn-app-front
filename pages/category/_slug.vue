@@ -141,16 +141,28 @@ export default {
     margin: 70px auto;
     display: flex;
     flex-direction: column;
+    @include rwdmax(375px) {
+      margin: 0;
+      width: 100%;
+    }
 
     &__head {
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      @include rwdmax(425px) {
+        gap: 30px;
+        flex-direction: column;
+      }
 
       &__left {
         font-size: 30px;
         font-weight: 600;
+
+        @include rwdmax(425px) {
+          font-size: 20px;
+        }
       }
 
       &__right {
@@ -231,11 +243,15 @@ export default {
             background-color: #fff;
             border: 1px solid #e6e6e6;
             border-radius: 60px;
-            padding: 15px 20px 15px 20px;
+            padding: 15px 40px 15px 20px;
             appearance: none;
             background-image: url(/img/cat-one/all-experts/arrow.svg);
-            background-position: calc(100% - 1.1em) 1.05em;
+            background-position: calc(100% - 0.5em) 1.3em;
             background-repeat: no-repeat;
+
+            @include rwdmax(1024px) {
+              font-size: 14px;
+            }
           }
         }
 
@@ -255,6 +271,10 @@ export default {
       grid-template-columns: repeat(4, 1fr);
       justify-items: center;
       gap: 45px;
+      @include rwdmax(425px) {
+        display: flex;
+        flex-direction: column;
+      }
 
       &__block {
         width: 300px;

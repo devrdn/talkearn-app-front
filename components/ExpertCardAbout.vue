@@ -101,6 +101,10 @@ a {
         align-items: center;
         gap: 25px;
         padding: 10px;
+        @include rwdmax(375px) {
+          width: 100%;
+          margin: 0;
+        }
 
         &__photo {
           display: flex;

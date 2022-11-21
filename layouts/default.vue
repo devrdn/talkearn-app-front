@@ -51,6 +51,9 @@ export default {
   font-size: 40px;
   text-align: center;
   color: $darkColor;
+  @include rwdmax(425px) {
+    font-size: 20px;
+  }
 }
 .bckg {
   background-color: $bckgColor;

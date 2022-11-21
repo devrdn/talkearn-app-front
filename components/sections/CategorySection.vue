@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import {  mapGetters } from 'vuex';
+import { mapGetters } from 'vuex';
 import CategoryCard from '~/components/CategoryCard.vue';
 import BaseHeaderLine from '~/components/ui/BaseHeaderLine.vue';
 
 export default {
-  components: { CategoryCard, BaseHeaderLine},
+  components: { CategoryCard, BaseHeaderLine },
   computed: {
     ...mapGetters({
       categories: 'category/getCategories',

@@ -56,6 +56,15 @@ export default {
         border: 1px solid #c2c2c2;
         border-radius: 14px;
         padding: 15px 30px;
+        @include rwdmax(770px) {
+          width: 220px;
+        }
+        @include rwdmax(375px) {
+          width: 180px;
+        }
+        @include rwdmax(320px) {
+          width: 160px;
+        }
       }
     }
   }

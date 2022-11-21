@@ -1,7 +1,22 @@
 <template>
   <div>
     <!-- Banner -->
+    <!-- <div class="become-expert-main">
+      <div class="become-expert-main__text">
+        <p class="become-expert-main__text__title">Work Your way</p>
+        <p class="become-expert-main__text__subtitle">
+          You bring te skill. We’ll make earning easy.
+        </p>
+        <a href="/" class="become-expert-main__text__btn">Became an expert</a>
+      </div>
+    </div> -->
+
     <div class="become-expert-main">
+      <img
+        class="become-expert-main__img"
+        src="/img/become-expert/main.png"
+        alt="background"
+      />
       <div class="become-expert-main__text">
         <p class="become-expert-main__text__title">Work Your way</p>
         <p class="become-expert-main__text__subtitle">
@@ -10,7 +25,6 @@
         <a href="/" class="become-expert-main__text__btn">Became an expert</a>
       </div>
     </div>
-
     <!-- Community -->
     <div class="community">
       <div class="community__container">
@@ -135,28 +149,38 @@ export default {
 
 <style lang="scss" scoped>
 .become-expert-main {
+  width: 85%;
   position: relative;
   display: flex;
   justify-content: center;
-  background-image: url('/img/become-expert/main.png');
-  background-repeat: no-repeat;
-  background-size: 100%;
+  align-items: center;
+  // background-image: url('/img/become-expert/main.png');
+  // background-repeat: no-repeat;
+  // background-size: 100%;
 
   &__text {
     margin: 170px 0;
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    justify-content: space-evenly;
+    gap: 50px;
+
+    &__img {
+      position: relative;
+    }
 
     &__title {
       color: $whiteColor;
+      text-align: center;
       font-size: 40px;
       font-weight: 700;
     }
 
     &__subtitle {
       color: $whiteColor;
+      text-align: center;
       font-size: 28px;
       font-weight: 600;
     }
@@ -185,12 +209,15 @@ export default {
     &__title {
       color: $darkColor;
       font-size: 32px;
+      text-align: center;
       font-weight: 600;
     }
 
     &__cards {
       position: relative;
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 40px;
     }
   }
@@ -203,21 +230,29 @@ export default {
     max-width: 85%;
     margin: 70px auto;
     padding: 50px 0;
-
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 70px;
 
     &__title {
       font-size: 32px;
+      text-align: center;
       font-weight: 600;
       color: $darkColor;
     }
 
     &__blocks {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
       gap: 80px;
+
+      @include rwdmax(425px) {
+        flex-direction: column;
+      }
 
       &__step {
         width: 33%;
@@ -239,6 +274,7 @@ export default {
           &__title {
             font-weight: 600;
             font-size: 25px;
+            text-align: center;
             color: $darkColor;
           }
 
@@ -261,10 +297,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 60px;
 
   &__title {
     color: $darkColor;
+    text-align: center;
     font-size: 32px;
     font-weight: 600;
   }
@@ -297,12 +335,14 @@ export default {
     }
 
     &__questions {
-      // display: flex;
-      // flex-direction: column;
-      // flex-wrap: wrap;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px 50px;
+      @include rwdmax(1024px) {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
     }
   }
 }
@@ -318,6 +358,7 @@ export default {
   p {
     font-weight: 600;
     font-size: 28px;
+    text-align: center;
     color: $darkColor;
   }
 

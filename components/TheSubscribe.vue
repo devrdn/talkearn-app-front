@@ -34,16 +34,27 @@ export default {};
   color: $whiteColor;
   &__container {
     width: 85%;
-    margin: 0 auto;
+    //margin: 0 auto;
     padding: 100px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include rwdmax(425px) {
+      flex-direction: column;
+    }
+    @include rwdmax(375px) {
+      margin: 0 auto;
+      width: 100%;
+    }
     &__left {
       width: 50%;
       & p {
         font-size: 40px;
         font-weight: 600;
+        @include rwdmax(425px) {
+          font-size: 30px;
+          text-align: center;
+        }
       }
     }
     &__right {
@@ -51,6 +62,10 @@ export default {};
         display: flex;
         align-items: center;
         justify-content: flex-end;
+
+        @include rwdmax(768px) {
+          flex-direction: column;
+        }
         &__input {
           color: $whiteColor;
           font-size: 18px;
@@ -62,6 +77,19 @@ export default {};
           background: #1f2131;
           padding-left: 20px;
           position: relative;
+          @include rwdmax(768px) {
+            margin-top: 15px;
+            width: 300px;
+          }
+          @include rwdmax(590px) {
+            font-size: 14px;
+          }
+          @include rwdmax(425px) {
+            height: 50px;
+          }
+          @include rwdmax(375px) {
+            width: 220px;
+          }
         }
         &__btn {
           position: absolute;
@@ -73,6 +101,10 @@ export default {};
           font-size: 18px;
           font-weight: 600;
           transform: translateX(-13px);
+          @include rwdmax(768px) {
+            position: relative;
+            margin-top: 20px;
+          }
         }
       }
     }

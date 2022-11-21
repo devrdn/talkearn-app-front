@@ -43,6 +43,15 @@ export default {
     @include rwdmax(325px) {
       display: none;
     }
+    @include rwdmax(1024px) {
+      font-size: 40px;
+    }
+    @include rwdmax(770px) {
+      font-size: 25px;
+    }
+    @include rwdmax(500px) {
+      font-size: 15px;
+    }
   }
 
   &__arrow {
