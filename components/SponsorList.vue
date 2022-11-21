@@ -27,5 +27,11 @@ export default {
   margin: 0 auto;
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 15px;
+  @include rwdmax(375px) {
+    margin: 0;
+    width: 100%;
+  }
 }
 </style>

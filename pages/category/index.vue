@@ -3,7 +3,9 @@
     <div class="crypto-topics">
       <h1 class="main-header">Crypto topics</h1>
       <UiBaseHeaderLine />
-      <div v-if="error.message" class="crypto-topics__error">Ошибка загрузки</div>
+      <div v-if="error.message" class="crypto-topics__error">
+        Ошибка загрузки
+      </div>
       <div v-else class="crypto-topics__all">
         <CategoryCard
           v-for="category in categories"
@@ -45,6 +47,11 @@ export default {
   &__all {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    @include rwdmax(1200px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 }
 </style>

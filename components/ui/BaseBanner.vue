@@ -37,8 +37,10 @@ export default {
     font-weight: 800;
     color: $whiteColor;
     letter-spacing: 2px;
-    @include rwdmax(325px) {
-      display: none;
+    @include rwdmax(370px) {
+      font-size: 19px;
+      //display: none;
+      
     }
   }
   &__arrow {

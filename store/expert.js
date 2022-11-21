@@ -106,7 +106,7 @@ export const actions = {
     { state, commit },
     { categoryId, page }
   ) => {
-    if (state.meta.lastPage > page) {
+    if (state.meta.last_page >= page) {
       commit('setPage', page);
       await expertApi
         .getExpertsByCategory(categoryId, page)
@@ -129,16 +129,34 @@ export const actions = {
    */
   fetchSearchExperts: async ({ commit }, { searchText }) => {
     await expertApi
-      .searchExpert(searchText)
+      .searchExpert(searchText, 1)
       .then((response) => {
         commit('setExperts', response.data.data);
         commit('setMeta', response.data.meta);
+        commit('setPage', 1);
         commit('setError', {});
       })
       .catch((err) => {
         commit('clearExperts');
         commit('setError', err);
       });
+  },
+
+  fetchMoreSearchExperts: async ({ state, commit }, { searchValue, page }) => {
+    if (state.meta.last_page >= page) {
+      commit('setPage', page);
+      await expertApi
+        .searchExpert(searchValue, page)
+        .then((response) => {
+          commit('setExperts', [...state.experts, ...response.data.data]);
+          commit('setMeta', response.data.meta);
+          commit('clearError');
+        })
+        .catch((err) => {
+          commit('setError', err);
+          commit('setExperts', []);
+        });
+    }
   },
 
   clearExperts: ({ commit }) => {

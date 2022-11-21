@@ -52,6 +52,7 @@
             :key="expert.id"
             :expert="expert"
           />
+          <div ref="intersection"></div>
         </div>
       </div>
     </div>
@@ -80,13 +81,34 @@ export default {
   computed: {
     ...mapGetters({
       experts: 'expert/getExperts',
+      expertPage: 'expert/getPage',
       error: 'expert/getError',
       searchValue: 'search/getSearchValue',
     }),
   },
+  mounted() {
+    const options = {
+      rootMargin: '0px',
+      threshold: 1.0,
+    };
+
+    this.observer = new IntersectionObserver(([entry]) => {
+      if (entry && entry.isIntersecting) {
+        this.getMoreSearchExpert({
+          searchValue: this.searchValue,
+          page: this.expertPage + 1,
+        });
+      }
+    }, options);
+    this.observer.observe(this.$refs.intersection);
+  },
+  destroyed() {
+    this.observer.disconnect();
+  },
   methods: {
     ...mapActions({
       getExperts: 'expert/fetchSearchExperts',
+      getMoreSearchExpert: 'expert/fetchMoreSearchExperts',
     }),
   },
 };
@@ -213,6 +235,16 @@ export default {
       grid-template-columns: repeat(4, 1fr);
       justify-items: center;
       gap: 45px;
+      @include rwdmax(1500px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @include rwdmax(1080px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include rwdmax(710px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
 
       &__block {
         width: 300px;

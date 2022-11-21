@@ -14,7 +14,10 @@
                 <p class="expert__head__left__info__about__text__name">
                   {{ expert.name }}
                 </p>
-                <p v-if="expert.profession" class="expert__head__left__info__about__text__profession">
+                <p
+                  v-if="expert.profession"
+                  class="expert__head__left__info__about__text__profession"
+                >
                   {{ expert.profession }}
                 </p>
                 <div class="expert__head__left__info__about__text__rating">
@@ -42,13 +45,16 @@
               </div>
             </div>
             <div class="expert__head__left__info__extra">
-              <div v-if="expert.region" class="expert__head__left__info__extra__block">
+              <div
+                v-if="expert.region"
+                class="expert__head__left__info__extra__block"
+              >
                 <span class="expert__head__left__info__extra__block__label"
                   >From</span
                 >
-                <span class="expert__head__left__info__extra__block__text"
-                  >{{ expert.region }}</span
-                >
+                <span class="expert__head__left__info__extra__block__text">{{
+                  expert.region
+                }}</span>
               </div>
               <div class="expert__head__left__info__extra__block">
                 <span class="expert__head__left__info__extra__block__label"
@@ -151,7 +157,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .expert {
   width: 70%;
   margin: 0 auto;
@@ -165,72 +170,99 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 60px;
-
+  @include rwdmax(390px) {
+    width: 100% !important;
+    margin: 0 !important;
+  }
   &__head {
     width: 100%;
     display: flex;
     justify-content: space-between;
-
+    @include rwdmax(1800px) {
+      flex-direction: column;
+    }
     &__left {
       width: 70%;
       display: flex;
       gap: 60px;
-
+      @include rwdmax(1337px) {
+        flex-direction: column;
+        margin: 0 auto;
+      }
       img {
+        @include rwdmin(1337px) {
+          width: 400px;
+          height: 500px;
+        }
+        object-fit: cover;
         border-radius: 94.5px;
       }
-
       &__info {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        flex-wrap: wrap;
         gap: 20px;
-
+        @include rwdmax(1337px) {
+          align-items: center;
+        }
         &__about {
           display: flex;
           gap: 30px;
-
+          @include rwdmax(1337px) {
+            flex-direction: column-reverse;
+            align-items: center;
+          }
           &__text {
             display: flex;
             flex-direction: column;
             gap: 25px;
-
+            @include rwdmax(1337px) {
+              text-align: center;
+            }
             &__name {
               font-size: 35px;
               font-weight: 600;
+              @include rwdmax(325px) {
+                font-size: 25px;
+              }
             }
-
             &__rating {
               display: flex;
               align-items: center;
               gap: 10px;
               font-weight: 600;
+              @include rwdmax(1337px) {
+                justify-content: center;
+              }
+              @include rwdmax(325px) {
+                flex-direction: column;
+              }
             }
           }
         }
-
         &__extra {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 30px;
-
+          @include rwdmax(470px) {
+            display: flex;
+            flex-direction: column;
+          }
           &__block {
             display: flex;
             flex-direction: column;
-
             &__label {
               font-size: $fs;
               font-weight: 400;
               margin-bottom: 5px;
             }
-
             &__text {
               font-size: $fs;
               font-weight: 600;
             }
           }
         }
-
         &__status {
           & .online {
             color: $purpleColor;
@@ -251,13 +283,17 @@ export default {
         }
       }
     }
-
     &__right {
       margin: auto;
       display: flex;
       flex-direction: column;
       gap: 16px;
-
+      @include rwdmax(1800px) {
+        margin-top: 50px;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
       button {
         background: $purpleColor;
         padding: 15px 30px;
@@ -269,12 +305,11 @@ export default {
       }
     }
   }
-
   &__tags {
-    align-self: flex-start;
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
-
+    justify-content: space-around;
     &-1,
     &-2,
     &-3,
@@ -286,67 +321,60 @@ export default {
       padding: 8px 22px;
     }
   }
-
   &__video {
     width: 100%;
-
     img {
       width: 100%;
     }
   }
-
   &__text {
     p {
       font-size: 18px;
       line-height: 1.5;
     }
   }
-
   &__cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 35px;
-
+    @include rwdmax(1790px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
     &__block {
       display: flex;
       flex-direction: column;
       align-items: center;
       box-shadow: 0px 8px 24px rgba(31, 31, 51, 0.1);
       border-radius: 10px;
-
       &__img {
         width: 100%;
         border-radius: 10px 10px 0 0;
       }
-
       &__text {
         display: flex;
         flex-direction: column;
         gap: 40px;
         padding: 20px;
-
         &__author {
           display: flex;
           align-items: center;
           gap: 20px;
-
           &__img {
             width: 60px;
             height: 60px;
             object-fit: cover;
             border-radius: 50%;
           }
-
           &__name {
             display: flex;
             flex-direction: column;
             gap: 10px;
-
             p {
               font-size: 18px;
               font-weight: 600;
             }
-
             &__rating {
               display: flex;
               align-items: flex-end;
@@ -354,28 +382,23 @@ export default {
             }
           }
         }
-
         &__title {
           font-size: $fs;
           font-weight: 600;
         }
-
         &__call {
           display: flex;
           justify-content: space-between;
           align-items: center;
-
           &__price {
             font-size: 19px;
             font-weight: 600;
             margin-right: 20px;
           }
-
           &__minute {
             font-size: $fs;
             font-weight: 500;
           }
-
           &__btn {
             color: $whiteColor;
             font-size: $fs;

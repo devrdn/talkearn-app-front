@@ -3,46 +3,100 @@
     <!-- Banner -->
     <UiBaseBanner title="Join our growing expert's community" />
 
-    <form class="form" @submit.prevent="send">
+    <form ref="form" class="form" @submit.prevent="send">
       <p class="form__title">Fill the application</p>
       <div class="form__fields">
-        <UiBaseInput v-model="expert.name" label="Name" type="text" name="name" :errors="errors?.name" />
-        <UiBaseInput v-model="expert.wallet" label="Wallet" type="text" name="wallet" :errors="errors?.description" />
-        <UiBaseInput v-model="expert.region" label="Region" type="text" name="region" :errors="errors?.region" />
-        <UiBaseInput v-model="expert.duration" label="Duration" type="number" name="duration"
-          :errors="errors?.duration" />
-        <UiBaseInput v-model="expert.price" label="Price" type="number" name="price" :errors="errors?.price" />
-        <UiBaseInput v-model="expert.profession" label="Profession" type="text" name="profession"
-          :errors="errors?.profession" />
+        <UiBaseInput
+          v-model="expert.name"
+          label="Name"
+          type="text"
+          name="name"
+          :errors="errors?.name"
+        />
+        <UiBaseInput
+          v-model="expert.wallet"
+          label="Wallet"
+          type="text"
+          name="wallet"
+          :errors="errors?.description"
+        />
+        <UiBaseInput
+          v-model="expert.region"
+          label="Region"
+          type="text"
+          name="region"
+          :errors="errors?.region"
+        />
+        <UiBaseInput
+          v-model="expert.duration"
+          label="Duration"
+          type="number"
+          name="duration"
+          :errors="errors?.duration"
+        />
+        <UiBaseInput
+          v-model="expert.price"
+          label="Price"
+          type="number"
+          name="price"
+          :errors="errors?.price"
+        />
+        <UiBaseInput
+          v-model="expert.profession"
+          label="Profession"
+          type="text"
+          name="profession"
+          :errors="errors?.profession"
+        />
 
         <div class="form__fields__input">
           <label>SelectCategory</label> <br />
           <select v-model="expert.categoryId">
             <option disabled value="">Select Category</option>
-            <option v-for="category in categories" :key="category.id" :value="category.id">
+            <option
+              v-for="category in categories"
+              :key="category.id"
+              :value="category.id"
+            >
               {{ category.name }}
             </option>
           </select>
         </div>
       </div>
 
-      <UiBaseTextArea v-model="expert.description" label="Describe you and your services" name="description"
-        :errors="errors?.description" />
+      <UiBaseTextArea
+        v-model="expert.description"
+        label="Describe you and your services"
+        name="description"
+        :errors="errors?.description"
+      />
 
       <div class="form__upload-photo">
         <p class="form__upload-photo__title">Upload your photo</p>
         <div class="form__upload-photo__content">
           <div class="form__upload-photo__content__block">
-            <label for="your-photo-input" class="form__upload-photo__content__block__label">
+            <label
+              for="your-photo-input"
+              class="form__upload-photo__content__block__label"
+            >
               <img src="/img/form/cloud.svg" alt="" />
               <div class="form__upload-photo__content__block__label__text">
                 <p>Upload image</p>
                 <span>JPEG, PNG, TIFF</span>
               </div>
             </label>
-            <input id="your-photo-input" type="file" class="form__upload-photo__content__block__input"
-              @change="upload" />
+            <input
+              id="your-photo-input"
+              type="file"
+              class="form__upload-photo__content__block__input"
+              @change="upload"
+            />
           </div>
+        </div>
+        <div if="errors.image" class="form__error">
+          <p v-for="(error, index) in errors.image" :key="index">
+            * {{ error }}
+          </p>
         </div>
       </div>
 
@@ -50,28 +104,46 @@
         <p class="form__upload-photo__title">Upload your video</p>
         <div class="form__upload-photo__content">
           <div class="form__upload-photo__content__block">
-            <label for="form__upload-photo__content__block__input" class="form__upload-photo__content__block__label">
+            <label
+              for="form__upload-photo__content__block__input"
+              class="form__upload-photo__content__block__label"
+            >
               <img src="/img/form/cloud.svg" alt="" />
               <div class="form__upload-photo__content__block__label__text">
                 <p>Upload video</p>
                 <span>AVI, MOV, MPEG</span>
               </div>
             </label>
-            <input id="form__upload-photo__content__block__input" ref="avatar" type="file"
-              class="form__upload-photo__content__block__input" @change="upload" />
+            <input
+              id="form__upload-photo__content__block__input"
+              ref="avatar"
+              type="file"
+              class="form__upload-photo__content__block__input"
+              @change="uploadVideo"
+            />
           </div>
           <div class="form__upload-photo__content__block">
-            <label for="form__upload-photo__content__block__input" class="form__upload-photo__content__block__label">
+            <label
+              for="form__upload-photo__content__block__input"
+              class="form__upload-photo__content__block__label"
+            >
               <img src="/img/form/cloud.svg" alt="" />
               <div class="form__upload-photo__content__block__label__text">
-                <input v-model="expert.videoUrl" id="form__upload-photo__content__block__input__text" type="text"
-                  class="form__upload-photo__content__block__input__text" placeholder="Paste video link" />
+                <input
+                  id="form__upload-photo__content__block__input__text"
+                  v-model="expert.videoUrl"
+                  type="text"
+                  class="form__upload-photo__content__block__input__text"
+                  placeholder="Paste video link"
+                />
               </div>
             </label>
           </div>
         </div>
-        <div class="form__error" if="errors.videoUrl">
-          <p v-for="(error, index) in errors.videoUrl" :key="index">* {{ error }}</p>
+        <div if="errors.videoUrl" class="form__error">
+          <p v-for="(error, index) in errors.videoUrl" :key="index">
+            * {{ error }}
+          </p>
         </div>
       </div>
 
@@ -87,17 +159,30 @@
                 Example: I will consult You on how to invest in HODL (spot
                 crypto currency)
               </p>
-              <input type="text" v-model="expert.services[0].name" />
+              <UiBaseInput
+                v-model="expert.services[0].name"
+                style="margin-top: -20px"
+                placeholder="Service Name"
+                type="text"
+              />
             </div>
             <div class="form__upload-photo__content__block">
-              <label for="service-one" class="form__upload-photo__content__block__label">
+              <label
+                for="service-one"
+                class="form__upload-photo__content__block__label"
+              >
                 <img src="/img/form/cloud.svg" alt="" />
                 <div class="form__upload-photo__content__block__label__text">
                   <p>Upload image</p>
                   <span>JPEG, PNG, TIFF</span>
                 </div>
               </label>
-              <input id="service-one" type="file" class="form__upload-photo__content__block__input" @change="upload2" />
+              <input
+                id="service-one"
+                type="file"
+                class="form__upload-photo__content__block__input"
+                @change="uploadService($event, 0)"
+              />
             </div>
           </div>
           <div class="form__services__container__content">
@@ -108,18 +193,30 @@
               <p class="form__services__container__content__block__ex">
                 Example: I will consult You on how to setup a Metamask wallet
               </p>
-              <input type="text" />
+              <UiBaseInput
+                v-model="expert.services[1].name"
+                style="margin-top: -20px"
+                placeholder="Service Name"
+                type="text"
+              />
             </div>
             <div class="form__upload-photo__content__block">
-              <label for="form__upload-photo__content__block__input" class="form__upload-photo__content__block__label">
+              <label
+                for="service-two"
+                class="form__upload-photo__content__block__label"
+              >
                 <img src="/img/form/cloud.svg" alt="" />
                 <div class="form__upload-photo__content__block__label__text">
                   <p>Upload image</p>
                   <span>JPEG, PNG, TIFF</span>
                 </div>
               </label>
-              <input id="form__upload-photo__content__block__input" type="file"
-                class="form__upload-photo__content__block__input" />
+              <input
+                id="service-two"
+                type="file"
+                class="form__upload-photo__content__block__input"
+                @change="uploadService($event, 1)"
+              />
             </div>
           </div>
           <div class="form__services__container__content">
@@ -130,18 +227,30 @@
               <p class="form__services__container__content__block__ex">
                 Example: I will consult You on how to start trading on crypto
               </p>
-              <input type="text" />
+              <UiBaseInput
+                v-model="expert.services[2].name"
+                style="margin-top: -20px"
+                placeholder="Service Name"
+                type="text"
+              />
             </div>
             <div class="form__upload-photo__content__block">
-              <label for="form__upload-photo__content__block__input" class="form__upload-photo__content__block__label">
+              <label
+                for="service-three"
+                class="form__upload-photo__content__block__label"
+              >
                 <img src="/img/form/cloud.svg" alt="" />
                 <div class="form__upload-photo__content__block__label__text">
                   <p>Upload image</p>
                   <span>JPEG, PNG, TIFF</span>
                 </div>
               </label>
-              <input id="form__upload-photo__content__block__input" type="file"
-                class="form__upload-photo__content__block__input" />
+              <input
+                id="service-three"
+                type="file"
+                class="form__upload-photo__content__block__input"
+                @change="uploadService($event, 2)"
+              />
             </div>
           </div>
         </div>
@@ -157,6 +266,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import expertApi from '~/api/expertApi';
 
 export default {
   layout: () => 'emptyhero',
@@ -171,6 +281,12 @@ export default {
         duration: [],
         image: [],
         videoUrl: [],
+        'services.1.image': [],
+        'services.1.name': [],
+        'services.2.image': [],
+        'services.2.name': [],
+        'services.3.image': [],
+        'services.3.name': [],
       },
       expert: {
         categoryId: 0,
@@ -186,8 +302,16 @@ export default {
         services: [
           {
             name: '',
-            image: ''
-          }
+            image: '',
+          },
+          {
+            name: '',
+            image: '',
+          },
+          {
+            name: '',
+            image: '',
+          },
         ],
       },
     };
@@ -201,7 +325,7 @@ export default {
     }),
   },
   methods: {
-    send() {
+    async send() {
       const form = new FormData();
       Object.entries(this.expert).forEach(([key, value]) => {
         if (!Array.isArray(value)) {
@@ -209,33 +333,32 @@ export default {
         }
       });
 
-      this.expert.services.forEach((item, index) => {
-        Object.entries(item).forEach(([key, value]) => {
-          const newKey = `services.${index}.${key}`;
-          form.append(newKey, value);
-        })
-      })
-      this.$axios
-        .post('https://back.talkearn.app/api/expert', form, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        })
-        .then((response) => {
-          console.log(response);
+      this.expert.services.forEach((item) => {
+        if (item.name && item.image) {
+          Object.entries(item).forEach(([key, value]) => {
+            const newKey = `services[][${key}]`;
+            form.append(newKey, value);
+          });
+        }
+      });
+
+      await expertApi
+        .setExpert(form)
+        .then(() => {
+          this.$refs.form.reset();
         })
         .catch((err) => {
           this.errors = err.response.data.errors;
-          console.log(err.request);
         });
     },
-    upload(e) {
-      console.log(e.target.files[0]);
-      this.expert.image = e.target.files[0];
+    upload(event) {
+      this.expert.image = event.target.files[0];
     },
-    upload2(e) {
-      console.log(e.target.files[0]);
-      this.expert.services[0].image = e.target.files[0];
+    uploadService(event, id) {
+      this.expert.services[id].image = event.target.files[0];
+    },
+    uploadVideo(event) {
+      this.expert.videoUrl = event.target.file[0];
     },
   },
 };
@@ -255,51 +378,29 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 50px;
-
-  &__error {
-    color: rgb(194, 30, 30);
-  }
-
   &__title {
     font-weight: 600;
     font-size: 20px;
     color: $darkColor;
   }
-
   &__fields {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-
-    &__input {
+    @include rwdmax(1190px) {
       display: flex;
-      flex-direction: column;
-
-      label {
-        font-weight: 500;
-        font-size: 14px;
-        color: $darkColor;
-      }
-
-      select {
-        background: #fbfbfb;
-        border: 1px solid #c2c2c2;
-        border-radius: 14px;
-        padding: 15px 30px;
-      }
+      flex-wrap: wrap;
     }
   }
 
   &__txtarea {
     display: flex;
     flex-direction: column;
-
     label {
       font-weight: 500;
       font-size: 14px;
       color: $darkColor;
     }
-
     textarea {
       background: #fbfbfb;
       border: 1px solid #c2c2c2;
@@ -309,62 +410,58 @@ export default {
       resize: none;
     }
   }
-
   &__upload-photo {
     display: flex;
     flex-direction: column;
     gap: 15px;
-
     &__title {
       color: $darkColor;
       font-weight: 600;
       font-size: 14px;
     }
-
     &__content {
       display: flex;
       gap: 15px;
-
+      flex-wrap: wrap;
       &__block {
         background: #f5f5f5;
         border: 2px dashed #c2c2c2;
         border-radius: 14px;
         padding: 10px 10px;
         display: flex;
-
         img {
           background: $purpleColor;
           border-radius: 14px;
           padding: 15px 14px;
         }
-
         &__input {
           display: none;
-
           &__text {
             background: #fbfbfb;
             border: 1px solid #5f4bdb;
             border-radius: 14px;
             padding: 10px;
+            @include rwdmax(500px) {
+              width: 95px;
+            }
           }
         }
-
         &__label {
           display: flex;
           gap: 20px;
           cursor: pointer;
-
+          @include rwdmax(500px) {
+            flex-direction: column;
+          }
           &__text {
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
-
             p {
               font-weight: 600;
               font-size: 14px;
               color: $darkColor;
             }
-
             span {
               font-weight: 600;
               font-size: 12px;
@@ -375,49 +472,55 @@ export default {
       }
     }
   }
-
   &__services {
     display: flex;
     flex-direction: column;
     gap: 20px;
-
     &__title {
       font-weight: 600;
       font-size: 20px;
     }
-
     &__container {
       display: flex;
       flex-direction: column;
       gap: 40px;
-
       &__content {
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
-
+        flex-wrap: wrap;
+        @include rwdmax(1110px) {
+          gap: 20px;
+        }
         &__block {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
           gap: 10px;
-
           input {
             background: #fbfbfb;
             border: 1px solid #c2c2c2;
             border-radius: 14px;
             padding: 10px 20px;
+            @include rwdmax(385px) {
+              width: 200px;
+            }
+            @include rwdmax(320px) {
+              width: 150px;
+            }
           }
         }
       }
     }
   }
-
   &__btns {
     display: flex;
     justify-content: space-between;
-
+    @include rwdmax(500px) {
+      flex-direction: column;
+      gap: 20px;
+    }
     input {
       background: #5f4bdb;
       border-radius: 60px;
@@ -426,7 +529,6 @@ export default {
       font-weight: 600;
       font-size: 16px;
     }
-
     a {
       background: #f4f4f4;
       border-radius: 60px;
@@ -434,6 +536,7 @@ export default {
       color: #9f9f9f;
       font-weight: 600;
       font-size: 16px;
+      text-align: center;
     }
   }
 }

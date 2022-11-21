@@ -44,10 +44,19 @@ export default {
    * @param {String} searchText
    * @returns Promise
    */
-  searchExpert: async (searchText) => {
+  searchExpert: async (searchText, pageNum) => {
     return await axios.get('https://back.talkearn.app/api/experts/search', {
       params: {
         find: searchText,
+        page: pageNum,
+      },
+    });
+  },
+
+  setExpert: async (expert) => {
+    return await axios.post('https://back.talkearn.app/api/expert', expert, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
       },
     });
   },
