@@ -38,8 +38,8 @@
 }
 
 .v-autocomplete {
-  @include rwdmax(1218px) {
-    display: none !important;
-  }
+  // @include rwdmax(1218px) {
+  //   display: none !important;
+  // }
   border-radius: 30px !important;
 }
