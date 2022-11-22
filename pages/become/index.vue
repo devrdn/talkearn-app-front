@@ -135,32 +135,37 @@ export default {
 
 <style lang="scss" scoped>
 .become-expert-main {
+  width: 85%;
   position: relative;
   display: flex;
   justify-content: center;
-  background-image: url('/img/become-expert/main.png');
-  background-repeat: no-repeat;
-  background-size: 100%;
-
+  align-items: center;
+  // background-image: url('/img/become-expert/main.png');
+  // background-repeat: no-repeat;
+  // background-size: 100%;
   &__text {
     margin: 170px 0;
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
-
+    justify-content: space-evenly;
+    gap: 50px;
+    &__img {
+      position: relative;
+    }
     &__title {
       color: $whiteColor;
+      text-align: center;
       font-size: 40px;
       font-weight: 700;
     }
-
     &__subtitle {
       color: $whiteColor;
+      text-align: center;
       font-size: 28px;
       font-weight: 600;
     }
-
     &__btn {
       color: $whiteColor;
       font-size: $fs;
@@ -171,7 +176,6 @@ export default {
     }
   }
 }
-
 .community {
   margin-top: 130px;
   &__container {
@@ -181,67 +185,67 @@ export default {
     flex-direction: column;
     align-items: center;
     gap: 90px;
-
     &__title {
       color: $darkColor;
       font-size: 32px;
+      text-align: center;
       font-weight: 600;
     }
-
     &__cards {
       position: relative;
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 40px;
     }
   }
 }
-
 .how-it-work {
   background: $bckgColor;
-
   &__container {
     max-width: 85%;
     margin: 70px auto;
     padding: 50px 0;
-
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 70px;
-
     &__title {
       font-size: 32px;
+      text-align: center;
       font-weight: 600;
       color: $darkColor;
     }
-
     &__blocks {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
       gap: 80px;
-
+      @include rwdmax(425px) {
+        flex-direction: column;
+      }
       &__step {
         width: 33%;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 50px;
-
         &__icon {
           width: 85px;
         }
-
         &__text {
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: 20px;
-
           &__title {
             font-weight: 600;
             font-size: 25px;
+            text-align: center;
             color: $darkColor;
           }
-
           &__subtitle {
             font-weight: 400;
             font-size: 18px;
@@ -254,21 +258,20 @@ export default {
     }
   }
 }
-
 .stories {
   width: 85%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 60px;
-
   &__title {
     color: $darkColor;
+    text-align: center;
     font-size: 32px;
     font-weight: 600;
   }
-
   &__comments {
     display: flex;
     flex-wrap: wrap;
@@ -276,11 +279,9 @@ export default {
     gap: 55px;
   }
 }
-
 .qa {
   background: $bckgColor;
   margin-top: 50px;
-
   &__container {
     width: 85%;
     margin: 0 auto;
@@ -289,24 +290,23 @@ export default {
     flex-direction: column;
     align-items: center;
     gap: 30px;
-
     &__title {
       color: $darkColor;
       font-size: 32px;
       font-weight: 600;
     }
-
     &__questions {
-      // display: flex;
-      // flex-direction: column;
-      // flex-wrap: wrap;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px 50px;
+      @include rwdmax(1024px) {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
     }
   }
 }
-
 .action {
   width: 85%;
   margin: 100px auto;
@@ -314,13 +314,12 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 40px;
-
   p {
     font-weight: 600;
     font-size: 28px;
+    text-align: center;
     color: $darkColor;
   }
-
   a {
     color: $whiteColor;
     font-weight: 600;
