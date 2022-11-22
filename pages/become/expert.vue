@@ -394,6 +394,24 @@ export default {
       display: flex;
       flex-wrap: wrap;
     }
+    &__input {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-weight: 500;
+        font-size: 14px;
+        color: $darkColor;
+      }
+
+      select {
+        background: #fbfbfb;
+        border: 1px solid #c2c2c2;
+        border-radius: 14px;
+        padding: 15px 30px;
+        appearance: auto !important;
+      }
+    }
   }
 
   &__txtarea {
