@@ -8,39 +8,19 @@
         </p>
         <div class="footer__container__left__icons">
           <a href="#">
-            <img
-              src="/img/index/footer/fb.svg"
-              alt=""
-              class="footer__container__left__icons_fb"
-            />
+            <img src="/img/index/footer/fb.svg" alt="" class="footer__container__left__icons_fb" />
+          </a>
+          <a href="https://twitter.com/TalkEarn">
+            <img src="/img/index/footer/tw.svg" alt="" class="footer__container__left__icons_tw" />
           </a>
           <a href="#">
-            <img
-              src="/img/index/footer/tw.svg"
-              alt=""
-              class="footer__container__left__icons_tw"
-            />
+            <img src="/img/index/footer/yt.svg" alt="" class="footer__container__left__icons_yt" />
           </a>
           <a href="#">
-            <img
-              src="/img/index/footer/yt.svg"
-              alt=""
-              class="footer__container__left__icons_yt"
-            />
+            <img src="/img/index/footer/lin.svg" alt="" class="footer__container__left__icons_lin" />
           </a>
           <a href="#">
-            <img
-              src="/img/index/footer/lin.svg"
-              alt=""
-              class="footer__container__left__icons_lin"
-            />
-          </a>
-          <a href="#">
-            <img
-              src="/img/index/footer/inst.svg"
-              alt=""
-              class="footer__container__left__icons_inst"
-            />
+            <img src="/img/index/footer/inst.svg" alt="" class="footer__container__left__icons_inst" />
           </a>
         </div>
       </div>
@@ -139,31 +119,38 @@ export default {};
       width: 20%;
       flex-direction: column;
       gap: 70px;
+
       @include rwdmax(1200px) {
         width: 100%;
         gap: 10px;
         text-align: center;
       }
+
       & p {
         font-size: $fs;
         line-height: 1.3;
       }
+
       &__icons {
         display: flex;
         justify-content: center;
         align-items: center;
       }
+
       &__icons img {
         height: 20px;
       }
+
       &__icons a {
         padding: 20px;
       }
+
       &__icons a:hover {
         border-radius: 50px;
         background-color: $purpleColor;
       }
     }
+
     &__right {
       display: flex;
       gap: 130px;
@@ -178,8 +165,9 @@ export default {};
       }
 
       @include rwdmax(742px) {
-        display: flex;
+        display: grid;
         flex-wrap: wrap;
+        justify-items: center;
       }
 
       &__block {
@@ -188,19 +176,29 @@ export default {};
         flex-direction: column;
         justify-content: flex-start;
         gap: 20px;
+
         @include rwdmax(742px) {
           flex-basis: 100%;
           flex: 2;
         }
+
+
+        @include rwdmax(742px) {
+          align-items: center;
+        }
+
         &__name {
           font-size: 20px;
           font-weight: 600;
         }
+
+
         &__link {
           font-size: 13px;
           font-weight: 400;
           color: $whiteColor;
           line-height: 1.3;
+
           &__icon {
             display: flex;
             align-items: center;
@@ -210,5 +208,8 @@ export default {};
       }
     }
   }
+}
+.footer__adress {
+  display: flex;
 }
 </style>

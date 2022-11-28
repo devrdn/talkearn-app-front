@@ -14,8 +14,7 @@
       </p>
       <div class="benefits__left__btn">
         <a href="/src/#" class="benefits__left__btn-main">Start learning</a>
-        <a href="/src/#" class="benefits__left__btn-secondary"
-          ><u>Read more</u></a
+        <a href="/src/#" class="benefits__left__btn-secondary"><u>Read more</u></a
         >
       </div>
     </div>
@@ -88,6 +87,7 @@ export default {};
         font-size: 18px;
         color: $purpleColor;
         @include rwdmax(405px) {
+          margin-top: 40px;
           margin-left: 0px;
         }
       }

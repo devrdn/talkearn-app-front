@@ -6,9 +6,7 @@
         Start find a Crypto expert you love with us easily
       </h1>
       <div class="how-it-works__left__accordion">
-        <HowItWorksItem />
-        <HowItWorksItem />
-        <HowItWorksItem />
+        <HowItWorksItem v-for="(item, index) in items" :key="index" :info="item" />
       </div>
     </div>
     <div class="how-it-works__right">
@@ -26,7 +24,25 @@
 <script>
 import HowItWorksItem from '../HowItWorksItem.vue';
 
-export default { components: { HowItWorksItem } };
+export default {
+  components: { HowItWorksItem },
+  data: () => ({
+    items: [
+      {
+        number: 1,
+        text: "Search the service You need",
+      },
+      {
+        number: 2,
+        text: "Select the expert which is Online",
+      },
+      {
+        number: 3,
+        text: "Contact him/her now (click Call button)",
+      }
+    ]
+  })
+};
 </script>
 
 <style lang="scss" scoped>
@@ -35,29 +51,36 @@ export default { components: { HowItWorksItem } };
   margin: 70px auto;
   display: flex;
   justify-content: space-between;
+
   &__left {
     display: flex;
     width: 50%;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
     @include rwdmax(1360px) {
       width: 100%
     }
+
     gap: 20px;
+
     &__little-title {
       color: $purpleColor;
       font-size: 18px;
     }
+
     &__title {
       color: $darkColor;
       font-size: 40px;
       font-weight: 600;
     }
+
     &__accordion {
       &__text:hover {
         display: block;
       }
+
       &__btn {
         display: flex;
         justify-content: space-between;
@@ -72,9 +95,11 @@ export default { components: { HowItWorksItem } };
         box-shadow: 0px 7px 22px rgba(143, 134, 196, 0.07);
         transition: box-shadow 0.3s ease-in-out;
       }
+
       &__btn:hover {
         box-shadow: 0px 10px 29px rgba(62, 53, 120, 0.14);
       }
+
       &__btn1__number,
       &__btn2__number,
       &__btn3__number {
@@ -82,6 +107,7 @@ export default { components: { HowItWorksItem } };
         align-items: center;
         gap: 10px;
         font-weight: 600;
+
         & span {
           font-weight: 600;
         }
@@ -96,6 +122,7 @@ export default { components: { HowItWorksItem } };
           font-size: 26px;
         }
       }
+
       &__btn2__number {
         & button {
           padding: 13px 25px;
@@ -105,6 +132,7 @@ export default { components: { HowItWorksItem } };
           font-size: 26px;
         }
       }
+
       &__btn3__number {
         & button {
           padding: 13px 25px;
@@ -116,11 +144,14 @@ export default { components: { HowItWorksItem } };
       }
     }
   }
+
   &__right {
     @include rwdmax(1360px) {
       display: none;
     }
+
     &__video {
+
       & img,
       video {
         width: 500px;

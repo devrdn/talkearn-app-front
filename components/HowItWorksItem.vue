@@ -2,17 +2,8 @@
   <div>
     <div class="how-it-works__left__accordion__btn">
       <div class="how-it-works__left__accordion__btn1__number">
-        <button><span>1</span></button>
-        <p>Complete Profile</p>
-      </div>
-      <img src="/img/index/how it works/dropdown.svg" alt="" />
-    </div>
-    <div class="how-it-works__left__accordion__text" hidden>
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aut culpa
-        ratione fugit adipisci sequi minus pariatur non atque temporibus
-        doloribus nemo quae ipsam consequatur accusantium itaque eius aspernatur
-        aperiam?
+        <button><span>{{ info.number }}</span></button>
+        <p>{{ info.text }}</p>
       </div>
     </div>
   </div>
@@ -20,7 +11,12 @@
 
 <script>
 export default {
-  props: {},
+  props: {
+    info: {
+      type: Object,
+      required: true,
+    }
+  },
 };
 </script>
 
@@ -31,25 +27,31 @@ export default {
       color: $purpleColor;
       font-size: 18px;
     }
+
     &__title {
       color: $darkColor;
       font-size: 40px;
       font-weight: 600;
     }
+
     &__accordion {
       &__text:hover {
         display: block;
       }
+
       &__btn {
         @include rwdmax(735px) {
           width: 500px;
         }
+
         @include rwdmax(561px) {
           width: 300px;
         }
+
         @include rwdmax(360px) {
           width: 240px;
         }
+
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -63,9 +65,11 @@ export default {
         box-shadow: 0px 7px 22px rgba(143, 134, 196, 0.07);
         transition: box-shadow 0.3s ease-in-out;
       }
+
       &__btn:hover {
         box-shadow: 0px 10px 29px rgba(62, 53, 120, 0.14);
       }
+
       &__btn1__number,
       &__btn2__number,
       &__btn3__number {
@@ -73,6 +77,7 @@ export default {
         align-items: center;
         gap: 10px;
         font-weight: 600;
+
         & span {
           font-weight: 600;
         }
@@ -87,6 +92,7 @@ export default {
           font-size: 26px;
         }
       }
+
       &__btn2__number {
         & button {
           padding: 13px 25px;
@@ -96,6 +102,7 @@ export default {
           font-size: 26px;
         }
       }
+
       &__btn3__number {
         & button {
           padding: 13px 25px;
