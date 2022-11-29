@@ -11,7 +11,7 @@
               !expert.available,
           }"
         >
-          {{ expert.available ? 'AVAILABLE' : 'UNAVAILABLE' }}
+          {{ expert.available ? 'ONLINE' : 'UNAVAILABLE' }}
         </div>
       </div>
       <div class="all-experts__container__cards__block__info">

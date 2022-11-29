@@ -3,7 +3,7 @@
     <h1 class="main-header">Featured Experts this week</h1>
     <BaseHeaderLine />
     <div class="featured-experts__experts">
-      <v-slide-group show-arrows class="expert-slider">
+      <v-slide-group style="height: 460px" show-arrows class="expert-slider">
         <FeaturedExpertCard
           v-for="expert in featuredExperts"
           :key="expert.id"

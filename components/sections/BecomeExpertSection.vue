@@ -12,7 +12,7 @@
           <p>becoming an expert?</p>
         </h2>
 
-        <a href="#" class="become-expert__container__text__btn">Join With Us</a>
+        <nuxt-link to="/become" class="become-expert__container__text__btn">Join With Us</nuxt-link>
       </div>
     </div>
   </section>

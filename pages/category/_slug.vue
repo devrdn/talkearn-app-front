@@ -38,7 +38,7 @@
               </select>
             </div>
             <div class="all-experts__container__head__right__filter">
-              <a class="all-experts__container__head__right__filter__link" href="/">
+              <a class="all-experts__container__head__right__filter__link">
                 <img src="/img/cat-one/all-experts/filter.svg" alt="" />
               </a>
             </div>

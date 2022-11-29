@@ -7,11 +7,9 @@
         Ошибка загрузки
       </div>
       <div v-else class="crypto-topics__all">
-        <CategoryCard
-          v-for="category in categories"
-          :key="category.id"
-          :category="category"
-        />
+        <v-slide-group style="height: 245px" show-arrows>
+          <CategoryCard v-for="category in categories" :key="category.id" :category="category" />
+        </v-slide-group>
       </div>
     </div>
   </div>
@@ -43,10 +41,11 @@ export default {
   align-items: center;
   margin-top: 50px;
   margin-bottom: 50px;
-  gap: 50px;
+
   &__all {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    margin-top: 40px;
+    width: 85%;
+
     @include rwdmax(1200px) {
       display: flex;
       flex-wrap: wrap;

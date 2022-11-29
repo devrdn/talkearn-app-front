@@ -3,18 +3,16 @@
     <div class="benefits__left">
       <div class="benefits__left__title">
         <h1 class="benefits__left__title">
-          Benefits Of Working on
-          <span class="benefits__left__title-purple">TalkEarn</span> platform
+          Why search experts on
+          <span class="benefits__left__title-purple">TalkEarn</span> platform?
         </h1>
       </div>
       <p class="benefits__left__text">
-        Watch on-demand video lectures from renowned instructors in subjects
-        such as Proggraming, business, computer science, data science, and
-        language learning.
+        Welcome to our platform of crypto & blockchain experts available in one click. You can find professional crypto experts, traders, investors, blockchain developers, NFT creators,  whitepaper designers, and other web3 experts in one place and receive instant advice through direct web calls. You get instant help from trustworthy experts, verified on the blockchain. You pay per minute, exactly as much as you use. The money for consumed minutes settles instantly into the expert's wallet. And, yet, You can choose to remain anonymous.
       </p>
       <div class="benefits__left__btn">
-        <a href="/src/#" class="benefits__left__btn-main">Start learning</a>
-        <a href="/src/#" class="benefits__left__btn-secondary"><u>Read more</u></a
+        <a href="/src/#" class="benefits__left__btn-main">Find Your Expert</a>
+        <a href="https://talkearn.gitbook.io/talkearn/" class="benefits__left__btn-secondary"><u>Read more</u></a
         >
       </div>
     </div>
@@ -48,7 +46,7 @@ export default {};
     width: 50%;
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: 30px;
     &__title {
       font-size: 40px;
       font-weight: 600;
@@ -66,6 +64,7 @@ export default {};
       line-height: 1.3;
     }
     &__btn {
+      margin-top: 30px;
       @include rwdmax(1074px) {
         margin-top: 30px;
       }

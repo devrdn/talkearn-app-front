@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Banner -->
-    <div class="become-expert-main">
+    <!-- <div class="become-expert-main">
       <div class="become-expert-main__text">
         <p class="become-expert-main__text__title">Work Your way</p>
         <p class="become-expert-main__text__subtitle">
@@ -9,7 +9,7 @@
         </p>
         <a href="/" class="become-expert-main__text__btn">Became an expert</a>
       </div>
-    </div>
+    </div> -->
 
     <!-- Community -->
     <div class="community">
@@ -31,11 +31,7 @@
         <p class="how-it-work__container__title">How it works</p>
         <div class="how-it-work__container__blocks">
           <div class="how-it-work__container__blocks__step">
-            <img
-              src="/img/become-expert/wallet.svg"
-              alt="wallet"
-              class="how-it-work__container__blocks__step__icon"
-            />
+            <img src="/img/become-expert/wallet.svg" alt="wallet" class="how-it-work__container__blocks__step__icon" />
             <div class="how-it-work__container__blocks__step__text">
               <p class="how-it-work__container__blocks__step__text__title">
                 1. Connect wallet
@@ -47,11 +43,7 @@
             </div>
           </div>
           <div class="how-it-work__container__blocks__step">
-            <img
-              src="/img/become-expert/setup.svg"
-              alt="wallet"
-              class="how-it-work__container__blocks__step__icon"
-            />
+            <img src="/img/become-expert/setup.svg" alt="wallet" class="how-it-work__container__blocks__step__icon" />
             <div class="how-it-work__container__blocks__step__text">
               <p class="how-it-work__container__blocks__step__text__title">
                 2. Setup Your services
@@ -63,11 +55,8 @@
             </div>
           </div>
           <div class="how-it-work__container__blocks__step">
-            <img
-              src="/img/become-expert/making-money.svg"
-              alt="wallet"
-              class="how-it-work__container__blocks__step__icon"
-            />
+            <img src="/img/become-expert/making-money.svg" alt="wallet"
+              class="how-it-work__container__blocks__step__icon" />
             <div class="how-it-work__container__blocks__step__text">
               <p class="how-it-work__container__blocks__step__text__title">
                 3. Get Paid
@@ -104,12 +93,7 @@
       <div class="qa__container">
         <div class="qa__container__title">Q&A</div>
         <div class="qa__container__questions">
-          <HowItWorksItem />
-          <HowItWorksItem />
-          <HowItWorksItem />
-          <HowItWorksItem />
-          <HowItWorksItem />
-          <HowItWorksItem />
+          <HowItWorksItem v-for="(item, index) in items" :key="index" :info="item" />
         </div>
       </div>
     </div>
@@ -130,6 +114,22 @@ import HowItWorksItem from '~/components/HowItWorksItem.vue';
 export default {
   components: { CommunityCard, BuyerStoryCard, HowItWorksItem },
   layout: () => 'emptyhero',
+  data: () => ({
+    items: [
+      {
+        number: 1,
+        text: "Search the service You need",
+      },
+      {
+        number: 2,
+        text: "Select the expert which is Online",
+      },
+      {
+        number: 3,
+        text: "Contact him/her now (click Call button)",
+      }
+    ]
+  })
 };
 </script>
 
@@ -140,6 +140,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+
   // background-image: url('/img/become-expert/main.png');
   // background-repeat: no-repeat;
   // background-size: 100%;
@@ -151,21 +152,25 @@ export default {
     align-items: center;
     justify-content: space-evenly;
     gap: 50px;
+
     &__img {
       position: relative;
     }
+
     &__title {
       color: $whiteColor;
       text-align: center;
       font-size: 40px;
       font-weight: 700;
     }
+
     &__subtitle {
       color: $whiteColor;
       text-align: center;
       font-size: 28px;
       font-weight: 600;
     }
+
     &__btn {
       color: $whiteColor;
       font-size: $fs;
@@ -176,8 +181,10 @@ export default {
     }
   }
 }
+
 .community {
   margin-top: 130px;
+
   &__container {
     width: 85%;
     margin: 0 auto;
@@ -185,12 +192,14 @@ export default {
     flex-direction: column;
     align-items: center;
     gap: 90px;
+
     &__title {
       color: $darkColor;
       font-size: 32px;
       text-align: center;
       font-weight: 600;
     }
+
     &__cards {
       position: relative;
       display: flex;
@@ -200,8 +209,10 @@ export default {
     }
   }
 }
+
 .how-it-work {
   background: $bckgColor;
+
   &__container {
     max-width: 85%;
     margin: 70px auto;
@@ -211,41 +222,49 @@ export default {
     align-items: center;
     justify-content: center;
     gap: 70px;
+
     &__title {
       font-size: 32px;
       text-align: center;
       font-weight: 600;
       color: $darkColor;
     }
+
     &__blocks {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
       gap: 80px;
+
       @include rwdmax(425px) {
         flex-direction: column;
       }
+
       &__step {
         width: 33%;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 50px;
+
         &__icon {
           width: 85px;
         }
+
         &__text {
           display: flex;
           flex-direction: column;
           align-items: center;
           gap: 20px;
+
           &__title {
             font-weight: 600;
             font-size: 25px;
             text-align: center;
             color: $darkColor;
           }
+
           &__subtitle {
             font-weight: 400;
             font-size: 18px;
@@ -258,6 +277,7 @@ export default {
     }
   }
 }
+
 .stories {
   width: 85%;
   margin: 0 auto;
@@ -266,12 +286,14 @@ export default {
   align-items: center;
   justify-content: center;
   gap: 60px;
+
   &__title {
     color: $darkColor;
     text-align: center;
     font-size: 32px;
     font-weight: 600;
   }
+
   &__comments {
     display: flex;
     flex-wrap: wrap;
@@ -279,9 +301,11 @@ export default {
     gap: 55px;
   }
 }
+
 .qa {
   background: $bckgColor;
   margin-top: 50px;
+
   &__container {
     width: 85%;
     margin: 0 auto;
@@ -290,15 +314,18 @@ export default {
     flex-direction: column;
     align-items: center;
     gap: 30px;
+
     &__title {
       color: $darkColor;
       font-size: 32px;
       font-weight: 600;
     }
+
     &__questions {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px 50px;
+
       @include rwdmax(1024px) {
         display: flex;
         flex-direction: column;
@@ -307,6 +334,7 @@ export default {
     }
   }
 }
+
 .action {
   width: 85%;
   margin: 100px auto;
@@ -314,12 +342,14 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 40px;
+
   p {
     font-weight: 600;
     font-size: 28px;
     text-align: center;
     color: $darkColor;
   }
+
   a {
     color: $whiteColor;
     font-weight: 600;

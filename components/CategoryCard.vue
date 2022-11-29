@@ -1,15 +1,10 @@
 <template>
-  <nuxt-link
-    :to="`/category/${category.slug}`"
-    class="crypto-topics__all__topic"
-  >
-    <img
-      class="crypto-topics__topic__icon"
-      :src="category.icon"
-      alt="topic icon"
-    />
-    <p class="crypto-topics__topic__name">{{ category.name }}</p>
-  </nuxt-link>
+  <v-slide-item>
+    <nuxt-link :to="`/category/${category.slug}`" class="crypto-topics__all__topic">
+      <img class="crypto-topics__topic__icon" :src="category.icon" alt="topic icon" />
+      <p class="crypto-topics__topic__name">{{ category.name }}</p>
+    </nuxt-link>
+  </v-slide-item>
 </template>
 
 <script>
@@ -23,19 +18,20 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .crypto-topics {
   &__all {
-    display: flex;
-    gap: 25px;
+    //display: flex;
+
     &__topic {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-evenly;
-      width: 220px;
+      width: 215px;
       height: 225px;
       box-shadow: 0px 5px 10px rgba(31, 31, 51, 0.3);
+      margin-right: 50px;
       border-radius: 20px;
       color: $darkColor;
       font-size: 20px;
@@ -43,6 +39,7 @@ export default {
       transition: background-color 0.3s ease-in-out;
       transition: color 0.15s ease-in-out;
     }
+
     &__topic:hover {
       color: $whiteColor;
       background-color: $purpleColor;
