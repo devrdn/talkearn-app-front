@@ -7,20 +7,40 @@
           assistancy on every topic.
         </p>
         <div class="footer__container__left__icons">
-          <a href="#">
-            <img src="/img/index/footer/fb.svg" alt="" class="footer__container__left__icons_fb" />
+          <a href="https://t.me/talkearn_official">
+            <img
+              src="/img/index/footer/tg.svg"
+              style="fill: #fff"
+              class="footer__container__left__icons_fb"
+            />
           </a>
           <a href="https://twitter.com/TalkEarn">
-            <img src="/img/index/footer/tw.svg" alt="" class="footer__container__left__icons_tw" />
+            <img
+              src="/img/index/footer/tw.svg"
+              alt=""
+              class="footer__container__left__icons_tw"
+            />
           </a>
-          <a href="#">
-            <img src="/img/index/footer/yt.svg" alt="" class="footer__container__left__icons_yt" />
+          <a href="https://talkearn.medium.com">
+            <img
+              src="/img/index/footer/md.svg"
+              alt=""
+              class="footer__container__left__icons_yt"
+            />
           </a>
-          <a href="#">
-            <img src="/img/index/footer/lin.svg" alt="" class="footer__container__left__icons_lin" />
+          <a href="https://discord.gg/39jtvD6Q">
+            <img
+              src="/img/index/footer/ds.svg"
+              alt=""
+              class="footer__container__left__icons_lin"
+            />
           </a>
-          <a href="#">
-            <img src="/img/index/footer/inst.svg" alt="" class="footer__container__left__icons_inst" />
+          <a href="https://github.com/talkearn/talkearn">
+            <img
+              src="/img/index/footer/git.svg"
+              alt=""
+              class="footer__container__left__icons_inst"
+            />
           </a>
         </div>
       </div>
@@ -182,7 +202,6 @@ export default {};
           flex: 2;
         }
 
-
         @include rwdmax(742px) {
           align-items: center;
         }
@@ -191,7 +210,6 @@ export default {};
           font-size: 20px;
           font-weight: 600;
         }
-
 
         &__link {
           font-size: 13px;

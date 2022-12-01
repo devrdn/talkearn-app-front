@@ -4,7 +4,11 @@
     <BaseHeaderLine />
     <div class="crypto-topics__all">
       <v-slide-group style="height: 245px" show-arrows>
-        <CategoryCard v-for="category in categories" :key="category.id" :category="category" />
+        <CategoryCard
+          v-for="category in categories"
+          :key="category.id"
+          :category="category"
+        />
       </v-slide-group>
     </div>
   </section>
@@ -35,7 +39,7 @@ export default {
 
   &__all {
     display: flex;
-
+    justify-content: center;
     width: 85%;
 
     // @include rwdmax(1227px) {
