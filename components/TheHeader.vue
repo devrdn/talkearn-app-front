@@ -30,6 +30,14 @@ export default { components: { TheNavigation, TheSearch } };
       margin: 0px auto;
       max-width: 85%;
     }
+    @include rwdmax(1400px) {
+      margin: 0px auto;
+      max-width: 95%;
+    }
+
+    @include rwdmax(1184px) {
+      width: 100%;
+    }
 
     @include rwdmax(850px) {
       display: flex;

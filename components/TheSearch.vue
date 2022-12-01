@@ -168,7 +168,7 @@ export default {
         padding-left: 20px;
         font-weight: 400;
         font-size: $fs;
-        @include rwdmax(1380px) {
+        @include rwdmax(1507px) {
           width: 250px;
         }
         @include rwdmax(1214px) {

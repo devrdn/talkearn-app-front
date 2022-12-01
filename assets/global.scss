@@ -9,10 +9,10 @@
 }
 
 .v-input__control input {
-  @include rwdmax(1406px) {
+  @include rwdmax(1507px) {
     width: 300px !important;
   }
-  @include rwdmax(1280px) {
+  @include rwdmax(1381px) {
     width: 200px !important;
   }
   background: transparent !important;
