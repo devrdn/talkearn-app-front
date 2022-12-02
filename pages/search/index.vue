@@ -6,7 +6,11 @@
           <p v-if="searchValue" class="all-experts__container__head__left">
             Results for “{{ searchValue }}”
           </p>
-          <span v-else class="all-experts__container__head__left" style="margin: 0 auto !important">
+          <span
+            v-else
+            class="all-experts__container__head__left"
+            style="margin: 0 auto !important"
+          >
             You need to enter some search query 😒
           </span>
           <div class="all-experts__container__head__right">
@@ -43,9 +47,19 @@
           </div>
         </div>
         <div v-if="experts.length !== 0" class="all-experts__container__cards">
-          <ExpertCardAbout v-for="expert in experts" :key="expert.id" :expert="expert" />
+          <ExpertCardAbout
+            v-for="expert in experts"
+            :key="expert.id"
+            :expert="expert"
+          />
         </div>
-        <h1 v-else style="display: flex; margin-top: 20px;">Ups, there are not experts matching with Your search request. Please try again :(</h1>
+        <h1
+          v-if="experts.length === 0 && searchValue"
+          style="display: flex; margin-top: 20px"
+        >
+          Ups, there are not experts matching with Your search request. Please
+          try again :(
+        </h1>
         <div ref="intersection" id="intersectio-observer"></div>
       </div>
     </div>
@@ -179,15 +193,15 @@ export default {
             transition: 0.4s;
           }
 
-          input:checked+&__slider {
+          input:checked + &__slider {
             background-color: $purpleColor;
           }
 
-          input:focus+&__slider {
+          input:focus + &__slider {
             box-shadow: 0 0 1px $purpleColor;
           }
 
-          input:checked+&__slider:before {
+          input:checked + &__slider:before {
             -webkit-transform: translateX(26px);
             -ms-transform: translateX(26px);
             transform: translateX(26px);

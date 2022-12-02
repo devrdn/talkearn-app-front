@@ -14,45 +14,70 @@
                 <p class="expert__head__left__info__about__text__name">
                   {{ expert.name }}
                 </p>
-                <p v-if="expert.profession" class="expert__head__left__info__about__text__profession">
+                <p
+                  v-if="expert.profession"
+                  class="expert__head__left__info__about__text__profession"
+                >
                   {{ expert.profession }}
                 </p>
                 <div class="expert__head__left__info__about__text__rating">
-                  <v-rating background-color="#eee" color="warning" readonly hover size="20" length="5"
-                    :value="Number(expert.rating)"></v-rating>
+                  <v-rating
+                    background-color="#eee"
+                    color="warning"
+                    readonly
+                    hover
+                    size="20"
+                    length="5"
+                    :value="Number(expert.rating)"
+                  ></v-rating>
                   <span>{{ Number(expert.rating) }}</span>
                 </div>
               </div>
               <div class="expert__head__left__info__status">
-                <p :class="{
-                  online: expert.available,
-                  offline: !expert.available,
-                }">
+                <p
+                  :class="{
+                    online: expert.available,
+                    offline: !expert.available,
+                  }"
+                >
                   {{ expert.available ? 'ONLINE' : 'OFFLINE' }}
                 </p>
               </div>
             </div>
             <div class="expert__head__left__info__extra">
-              <div v-if="expert.region" class="expert__head__left__info__extra__block">
-                <span class="expert__head__left__info__extra__block__label">From</span>
+              <div
+                v-if="expert.region"
+                class="expert__head__left__info__extra__block"
+              >
+                <span class="expert__head__left__info__extra__block__label"
+                  >From</span
+                >
                 <span class="expert__head__left__info__extra__block__text">{{
-                    expert.region
+                  expert.region
                 }}</span>
               </div>
               <div class="expert__head__left__info__extra__block">
-                <span class="expert__head__left__info__extra__block__label">Rate</span>
-                <span class="expert__head__left__info__extra__block__text">${{ expert.price }}/hr</span>
+                <span class="expert__head__left__info__extra__block__label"
+                  >Rate</span
+                >
+                <span class="expert__head__left__info__extra__block__text"
+                  >${{ expert.price }}/hr</span
+                >
               </div>
               <div class="expert__head__left__info__extra__block">
-                <span class="expert__head__left__info__extra__block__label">Member since</span>
+                <span class="expert__head__left__info__extra__block__label"
+                  >Member since</span
+                >
                 <span class="expert__head__left__info__extra__block__text">{{
-                    expert.memberSince
+                  expert.memberSince
                 }}</span>
               </div>
               <div class="expert__head__left__info__extra__block">
-                <span class="expert__head__left__info__extra__block__label">Latest Review</span>
+                <span class="expert__head__left__info__extra__block__label"
+                  >Latest Review</span
+                >
                 <span class="expert__head__left__info__extra__block__text">{{
-                    expert.lastReview
+                  expert.lastReview
                 }}</span>
               </div>
             </div>
@@ -64,7 +89,11 @@
         </div>
       </div>
       <div class="expert__tags">
-        <CategoryTagItem v-for="(tag, index) in tags" :key="index" :tag-name="tag" />
+        <CategoryTagItem
+          v-for="(tag, index) in tags"
+          :key="index"
+          :tag-name="tag"
+        />
       </div>
       <div class="expert__video" v-html="removeSlashed(expert.video)"></div>
 
@@ -73,9 +102,15 @@
           {{ expert.description }}
         </p>
       </div>
-
+      <h1 class="main-header">Services I offer</h1>
+      <BaseHeaderLine />
       <div class="expert__cards">
-        <ExpertCardCall v-for="(service, index) in expert.services" :key="index" :service="service" :expert="expert" />
+        <ExpertCardCall
+          v-for="(service, index) in expert.services"
+          :key="index"
+          :service="service"
+          :expert="expert"
+        />
       </div>
     </div>
   </div>
@@ -87,9 +122,10 @@ import expertApi from '~/api/expertApi.js';
 import CategoryTagItem from '~/components/CategoryTagItem.vue';
 import ExpertCardCall from '~/components/ExpertCardCall.vue';
 import BaseBanner from '~/components/ui/BaseBanner.vue';
+import BaseHeaderLine from '~/components/ui/BaseHeaderLine.vue';
 
 export default {
-  components: { BaseBanner, CategoryTagItem, ExpertCardCall },
+  components: { BaseBanner, CategoryTagItem, ExpertCardCall, BaseHeaderLine },
   layout: () => 'emptyhero',
   async asyncData({ params, error }) {
     return await expertApi

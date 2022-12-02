@@ -1,16 +1,34 @@
 <template>
   <div>
-    <!-- Banner -->
-    <!-- <div class="become-expert-main">
+    <!-- Banner
+      
+    <div class="become-expert-main">
       <div class="become-expert-main__text">
         <p class="become-expert-main__text__title">Work Your way</p>
         <p class="become-expert-main__text__subtitle">
-          You bring te skill. We’ll make earning easy.
+          You bring te skill. We'll make earning easy.
         </p>
         <a href="/" class="become-expert-main__text__btn">Became an expert</a>
       </div>
     </div> -->
 
+    <div class="banner">
+      <img
+        class="banner__img"
+        src="/img/become-expert/main.png"
+        alt="background"
+      />
+      <p style="display: flex; flex-direction: column; align-items: center">
+        <span>Work Your way</span>
+        <span> You bring te skill. </span>
+        <span>We'll make earning easy.</span>
+        <span
+          ><a href="/" class="become-expert-main__text__btn"
+            >Became an expert</a
+          ></span
+        >
+      </p>
+    </div>
     <!-- Community -->
     <div class="community">
       <div class="community__container">
@@ -31,7 +49,11 @@
         <p class="how-it-work__container__title">How it works</p>
         <div class="how-it-work__container__blocks">
           <div class="how-it-work__container__blocks__step">
-            <img src="/img/become-expert/wallet.svg" alt="wallet" class="how-it-work__container__blocks__step__icon" />
+            <img
+              src="/img/become-expert/wallet.svg"
+              alt="wallet"
+              class="how-it-work__container__blocks__step__icon"
+            />
             <div class="how-it-work__container__blocks__step__text">
               <p class="how-it-work__container__blocks__step__text__title">
                 1. Connect wallet
@@ -43,7 +65,11 @@
             </div>
           </div>
           <div class="how-it-work__container__blocks__step">
-            <img src="/img/become-expert/setup.svg" alt="wallet" class="how-it-work__container__blocks__step__icon" />
+            <img
+              src="/img/become-expert/setup.svg"
+              alt="wallet"
+              class="how-it-work__container__blocks__step__icon"
+            />
             <div class="how-it-work__container__blocks__step__text">
               <p class="how-it-work__container__blocks__step__text__title">
                 2. Setup Your services
@@ -55,8 +81,11 @@
             </div>
           </div>
           <div class="how-it-work__container__blocks__step">
-            <img src="/img/become-expert/making-money.svg" alt="wallet"
-              class="how-it-work__container__blocks__step__icon" />
+            <img
+              src="/img/become-expert/making-money.svg"
+              alt="wallet"
+              class="how-it-work__container__blocks__step__icon"
+            />
             <div class="how-it-work__container__blocks__step__text">
               <p class="how-it-work__container__blocks__step__text__title">
                 3. Get Paid
@@ -93,7 +122,11 @@
       <div class="qa__container">
         <div class="qa__container__title">Q&A</div>
         <div class="qa__container__questions">
-          <HowItWorksItem v-for="(item, index) in items" :key="index" :info="item" />
+          <HowItWorksItem
+            v-for="(item, index) in items"
+            :key="index"
+            :info="item"
+          />
         </div>
       </div>
     </div>
@@ -118,22 +151,53 @@ export default {
     items: [
       {
         number: 1,
-        text: "Search the service You need",
+        text: 'Search the service You need',
       },
       {
         number: 2,
-        text: "Select the expert which is Online",
+        text: 'Select the expert which is Online',
       },
       {
         number: 3,
-        text: "Contact him/her now (click Call button)",
-      }
-    ]
-  })
+        text: 'Contact him/her now (click Call button)',
+      },
+    ],
+  }),
 };
 </script>
 
 <style lang="scss" scoped>
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+  &__img {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+  }
+  p {
+    position: absolute;
+    font-size: 50px;
+    font-weight: 800;
+    color: $whiteColor;
+    letter-spacing: 2px;
+    @include rwdmax(1402px) {
+      font-size: 2.5rem;
+      //display: none;
+    }
+    @include rwdmax(949px) {
+      font-size: 1.5rem;
+      //display: none;
+    }
+    @include rwdmax(588px) {
+      font-size: 0.8rem;
+      //display: none;
+    }
+  }
+}
 .become-expert-main {
   width: 85%;
   position: relative;
@@ -141,9 +205,9 @@ export default {
   justify-content: center;
   align-items: center;
 
-  // background-image: url('/img/become-expert/main.png');
-  // background-repeat: no-repeat;
-  // background-size: 100%;
+  background-image: url('/img/become-expert/main.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
   &__text {
     margin: 170px 0;
     position: absolute;
@@ -178,6 +242,15 @@ export default {
       background: $purpleColor;
       padding: 15px 20px;
       border-radius: 60px;
+      @include rwdmax(949px) {
+        padding: 5px 10px;
+        //display: none;
+      }
+      @include rwdmax(588px) {
+        padding: 5px 10px;
+        font-size: 0.5rem;
+        //display: none;
+      }
     }
   }
 }

@@ -34,7 +34,12 @@
             >per minute</span
           >
         </div>
-        <a href="/" class="expert__cards__block__text__call__btn">Call</a>
+        <div class="expert__cards__block__text__btns">
+          <a href="/" class="expert__cards__block__text__call__btn">Call</a>
+          <a href="/" class="expert__cards__block__text__call__btn"
+            >Schedule</a
+          >
+        </div>
       </div>
     </div>
   </div>
@@ -86,7 +91,7 @@ export default {
         width: 100%;
         object-fit: cover;
         width: 392px;
-        height: 278px;
+        height: 200px;
         border-radius: 10px 10px 0 0;
         @include rwdmax(560px) {
           width: 320px;
@@ -101,8 +106,22 @@ export default {
       &__text {
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 40px;
         padding: 20px;
+        &__btns {
+          margin-top: 15px;
+          gap: 10px;
+          display: flex;
+          @include rwdmax(460px) {
+            flex-direction: column;
+          }
+          a {
+            @include rwdmax(325px) {
+              font-size: 10px;
+            }
+          }
+        }
         &__author {
           display: flex;
           align-items: center;
@@ -148,6 +167,7 @@ export default {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          flex-direction: column;
           @include rwdmax(460px) {
             flex-direction: column;
             gap: 15px;

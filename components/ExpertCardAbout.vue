@@ -65,6 +65,10 @@
           <p>{{ expert.lastReview }}</p>
         </div>
       </div>
+      <div class="all-experts__btns">
+        <a v-if="(expert.available === 'ONLINE')" href="/" class="all-experts__btn">Call</a>
+        <a href="/" class="all-experts__btn">Schedule</a>
+      </div>
     </div>
   </nuxt-link>
 </template>
@@ -85,6 +89,19 @@ a {
   color: black;
 }
 .all-experts {
+  &__btns {
+    margin-top: 10px;
+    padding-bottom: 10px;
+  }
+  &__btn {
+    background: $purpleColor;
+    padding: 15px 30px;
+    color: $whiteColor;
+    font-size: $fs;
+    font-weight: 700;
+    border-radius: 60px;
+    box-shadow: 0px 5px 29px rgba(62, 53, 120, 0.14);
+  }
   &__container {
     &__cards {
       margin-top: 50px;
