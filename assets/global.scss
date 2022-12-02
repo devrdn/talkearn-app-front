@@ -15,6 +15,10 @@
   @include rwdmax(1381px) {
     width: 200px !important;
   }
+  @include rwdmax(434px) {
+    font-size: 15px !important;
+    width: 130px !important;
+  }
   background: transparent !important;
   box-shadow: none !important;
 }
@@ -38,9 +42,6 @@
 }
 
 .v-autocomplete {
-  @include rwdmax(850px) {
-    margin-top: 20px !important;
-  }
   border-radius: 30px !important;
 }
 

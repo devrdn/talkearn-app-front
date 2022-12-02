@@ -66,4 +66,4 @@
   </svg>
 </template>
 
-<style></style>
+<style style="scss" scoped></style>

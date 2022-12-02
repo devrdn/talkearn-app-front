@@ -193,9 +193,9 @@ export default {
       }
       & img {
         transform: translateX(-45px);
-
-        @include rwdmax(850px) {
-          margin-top: 20px;
+        @include rwdmax(434px) {
+          width: 90%;
+          transform: translateX(-16px);
         }
       }
     }

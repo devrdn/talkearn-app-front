@@ -55,4 +55,9 @@ export default {
 .bckg {
   background-color: $bckgColor;
 }
+.bckg {
+  @include rwdmax(730px) {
+    padding: 0 !important;
+  }
+}
 </style>
