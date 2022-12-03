@@ -1,17 +1,6 @@
 <template>
   <div>
-    <!-- Banner
-      
-    <div class="become-expert-main">
-      <div class="become-expert-main__text">
-        <p class="become-expert-main__text__title">Work Your way</p>
-        <p class="become-expert-main__text__subtitle">
-          You bring te skill. We'll make earning easy.
-        </p>
-        <a href="/" class="become-expert-main__text__btn">Became an expert</a>
-      </div>
-    </div> -->
-
+    <!-- Become Expert Banner -->
     <div class="banner">
       <img
         class="banner__img"
@@ -22,11 +11,9 @@
         <span>Work Your way</span>
         <span> You bring te skill. </span>
         <span>We'll make earning easy.</span>
-        <span
-          ><a href="/" class="become-expert-main__text__btn"
-            >Became an expert</a
-          ></span
-        >
+        <span>
+          <a href="/become/expert" class="become-expert-main__text__btn">Become an expert</a>
+        </span>
       </p>
     </div>
     <!-- Community -->
@@ -121,20 +108,27 @@
     <div class="qa">
       <div class="qa__container">
         <div class="qa__container__title">Q&A</div>
-        <div class="qa__container__questions">
+        <v-expansion-panels flat width="40px" rounded>
+          <QuestionAccordionItem
+            v-for="(item, index) in items"
+            :key="index"
+            :info="item"
+          />
+        </v-expansion-panels>
+        <!-- <div class="qa__container__questions">
           <HowItWorksItem
             v-for="(item, index) in items"
             :key="index"
             :info="item"
           />
-        </div>
+        </div> -->
       </div>
     </div>
 
     <!-- Start Making money -->
     <div class="action">
       <p>Start making money as an Expert today</p>
-      <a href="/become/expert">Became an expert</a>
+      <a href="/become/expert">Become an expert</a>
     </div>
   </div>
 </template>
@@ -142,24 +136,52 @@
 <script>
 import BuyerStoryCard from '~/components/BuyerStoryCard.vue';
 import CommunityCard from '~/components/CommunityCard.vue';
-import HowItWorksItem from '~/components/HowItWorksItem.vue';
+import QuestionAccordionItem from '~/components/QuestionAccordionItem.vue';
 
 export default {
-  components: { CommunityCard, BuyerStoryCard, HowItWorksItem },
+  components: {
+    CommunityCard,
+    BuyerStoryCard,
+    QuestionAccordionItem,
+  },
   layout: () => 'emptyhero',
   data: () => ({
     items: [
       {
         number: 1,
-        text: 'Search the service You need',
+        text: 'Why should I become an expert on TalkEarn Platform?',
+        content:
+          'On TalkEarn Platform You can monetize Your knowledge instantly. Install our App on Your phone and click a button "Online" when You ready to speak with Your customers. They will be instantly notified that You are online and can talk to You now.',
       },
       {
         number: 2,
-        text: 'Select the expert which is Online',
+        text: 'How to setup my profile on TalkEarn Platform',
+        content:
+          'Click the button "Become Expert" and fill out the form. After a short verification, You will be notified by email that Your profile is verified. The email will contain the link to download our App. Install it in Your phone and click the button "Online" when You are ready to consult Your customers',
       },
       {
         number: 3,
-        text: 'Contact him/her now (click Call button)',
+        text: 'How will I get paid?',
+        content:
+          'The payment for each call settles instantly, after the call is over based on the pay-per-minute model. It mean that You are paid based on how many minutes were spent in call and price-per-minute that You set',
+      },
+      {
+        number: 4,
+        text: 'What can I sell?',
+        content:
+          'Be creative! You can offer any consultation you wish as long as it\'s legal and complies with our terms. Take a look at the categories displayed on our platform you can browse to get ideas. If there is no category that suits You, select "Other" category when filling out the "Become Expert" form.',
+      },
+      {
+        number: 5,
+        text: 'How much money can I make?',
+        content:
+          "It's totally up to you. You can work as much as you want. Many sellers work on TalkEarn full time and some keep their 9-5 job while using TalkEarn to make extra money.",
+      },
+      {
+        number: 6,
+        text: 'How much does it cost?',
+        content:
+          "It's free to join TalkEarn. There is no subscription required or fees to list your services. You keep 90% of each transaction.",
       },
     ],
   }),
@@ -167,6 +189,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.v-item-group {
+  max-width: 645px !important;
+  border-radius: 10px !important;
+  gap: 10px;
+}
+.v-expansion-panel {
+  border-radius: 20px !important;
+  @include rwdmax(735px) {
+    max-width: 500px;
+  }
+
+  @include rwdmax(561px) {
+    max-width: 300px;
+  }
+
+  @include rwdmax(360px) {
+    max-width: 240px;
+  }
+}
 .banner {
   display: flex;
   align-items: center;
@@ -309,6 +350,9 @@ export default {
       justify-content: center;
       align-items: center;
       gap: 80px;
+      @include rwdmax(420px) {
+        gap: 50px;
+      }
 
       @include rwdmax(425px) {
         flex-direction: column;
@@ -316,6 +360,9 @@ export default {
 
       &__step {
         width: 33%;
+        @include rwdmax(420px) {
+          width: 90%;
+        }
         display: flex;
         flex-direction: column;
         align-items: center;
