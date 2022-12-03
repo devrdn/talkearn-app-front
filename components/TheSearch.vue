@@ -174,9 +174,9 @@ export default {
         @include rwdmax(1214px) {
           width: 200px;
         }
-        @include rwdmax(850px) {
+        /*@include rwdmax(850px) {
           margin-top: 20px;
-        }
+        }*/
       }
 
       &__input::-ms-clear {
@@ -184,8 +184,15 @@ export default {
       }
 
       .search__button--secondary {
-        @include rwdmax(850px) {
+        /*@include rwdmax(850px) {
           position: absolute;
+        }*/
+        @include rwdmax(434px) {
+          transform: translateX(-16px);
+        }
+        @include rwdmax(364px) {
+          width: 20px;
+          transform: translateX(-16px);
         }
       }
       & button {

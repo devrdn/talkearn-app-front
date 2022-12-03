@@ -47,6 +47,9 @@ export default {
 
 <style lang="scss" scoped>
 .form {
+  &__error {
+    color: red;
+  }
   &__fields {
     &__input {
       display: flex;

@@ -84,8 +84,8 @@ export default {
       @include rwdmax(460px) {
         width: 220px;
       }
-      @include rwdmax(325px) {
-        width: 180px;
+      @include rwdmax(400px) {
+        width: 260px;
       }
       &__img {
         width: 100%;
@@ -100,7 +100,7 @@ export default {
           width: 220px;
         }
         @include rwdmax(325px) {
-          width: 180px;
+          width: 260px;
         }
       }
       &__text {

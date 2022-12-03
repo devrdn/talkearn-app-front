@@ -29,14 +29,14 @@
         />
         <UiBaseInput
           v-model="expert.duration"
-          label="Duration"
+          label="Standart consultation duration (min)"
           type="number"
           name="duration"
           :errors="errors?.duration"
         />
         <UiBaseInput
           v-model="expert.price"
-          label="Price"
+          label="Your price per minute"
           type="number"
           name="price"
           :errors="errors?.price"
@@ -52,7 +52,7 @@
         <div class="form__fields__input">
           <label>SelectCategory</label> <br />
           <select v-model="expert.categoryId">
-            <option disabled value="">Select Category</option>
+            <option disabled value="">What kind of services You offer</option>
             <option
               v-for="category in categories"
               :key="category.id"
@@ -61,6 +61,11 @@
               {{ category.name }}
             </option>
           </select>
+          <span if="errors" class="form__error">
+            <p v-for="(error, index) in errors?.category" :key="index">
+              * {{ error }}
+            </p>
+          </span>
         </div>
       </div>
 
@@ -82,7 +87,7 @@
               <img src="/img/form/cloud.svg" alt="" />
               <div class="form__upload-photo__content__block__label__text">
                 <p>Upload image</p>
-                <span>JPEG, PNG, TIFF</span>
+                <span>JPEG, PNG, WEBP</span>
               </div>
             </label>
             <input
@@ -174,7 +179,7 @@
                 <img src="/img/form/cloud.svg" alt="" />
                 <div class="form__upload-photo__content__block__label__text">
                   <p>Upload image</p>
-                  <span>JPEG, PNG, TIFF</span>
+                  <span>JPEG, PNG, WEBP</span>
                 </div>
               </label>
               <input
@@ -208,7 +213,7 @@
                 <img src="/img/form/cloud.svg" alt="" />
                 <div class="form__upload-photo__content__block__label__text">
                   <p>Upload image</p>
-                  <span>JPEG, PNG, TIFF</span>
+                  <span>JPEG, PNG, WEBP</span>
                 </div>
               </label>
               <input
@@ -242,7 +247,7 @@
                 <img src="/img/form/cloud.svg" alt="" />
                 <div class="form__upload-photo__content__block__label__text">
                   <p>Upload image</p>
-                  <span>JPEG, PNG, TIFF</span>
+                  <span>JPEG, PNG, WEBP</span>
                 </div>
               </label>
               <input
@@ -381,6 +386,9 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 50px;
+  &__error {
+    color: red;
+  }
   &__title {
     font-weight: 600;
     font-size: 20px;
