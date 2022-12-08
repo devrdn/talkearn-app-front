@@ -29,7 +29,7 @@
                   <a href="#">All Experts</a>
                 </li>
                 <li class="mobile__subitem">
-                  <a href="#">By Category</a>
+                  <nuxt-link to="/category">By Category</nuxt-link>
                 </li>
               </ul>
             </li>
@@ -48,28 +48,36 @@
               Docs
               <ul>
                 <li class="mobile__subitem">
-                  <a href="https://talkearn.gitbook.io/talkearn/">Gitbook</a>
+                  <a
+                    target="_blank"
+                    href="https://talkearn.gitbook.io/talkearn/"
+                    >Gitbook</a
+                  >
                 </li>
                 <li class="mobile__subitem">
                   <a
+                    target="_blank"
                     href="https://talkearn.gitbook.io/talkearn/tokenomics/roadmap"
                     >Roadmap</a
                   >
                 </li>
                 <li class="mobile__subitem">
                   <a
+                    target="_blank"
                     href="https://talkearn.gitbook.io/talkearn/tokenomics/general-idea-of-tet-tokenomics"
                     >Tokenomics</a
                   >
                 </li>
                 <li class="mobile__subitem">
                   <a
+                    target="_blank"
                     href="https://www.canva.com/design/DAFS7yG_upA/e6jLQj-paAml9VE19A1-9g/view?utm_content=DAFS7yG_upA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink"
                     >Pitch Deck</a
                   >
                 </li>
                 <li class="mobile__subitem">
                   <a
+                    target="_blank"
                     href="https://talkearn.gitbook.io/talkearn/tokenomics/general-idea-of-tet-tokenomics"
                     >TET Points Program</a
                   >
@@ -146,7 +154,11 @@
               <v-list-item-title>All Experts</v-list-item-title>
             </v-list-item>
             <v-list-item>
-              <v-list-item-title>By Category</v-list-item-title>
+              <v-list-item-title
+                ><nuxt-link to="/category"
+                  >By Category</nuxt-link
+                ></v-list-item-title
+              >
             </v-list-item>
           </v-list>
         </v-menu>
@@ -178,12 +190,15 @@
           <v-list>
             <v-list-item>
               <v-list-item-title>
-                <a href="https://talkearn.gitbook.io/talkearn/">Gitbook</a>
+                <a target="_blank" href="https://talkearn.gitbook.io/talkearn/"
+                  >Gitbook</a
+                >
               </v-list-item-title>
             </v-list-item>
             <v-list-item>
               <v-list-item-title>
                 <a
+                  target="_blank"
                   href="https://talkearn.gitbook.io/talkearn/tokenomics/roadmap"
                   >Roadmap</a
                 >
@@ -192,6 +207,7 @@
             <v-list-item>
               <v-list-item-title>
                 <a
+                  target="_blank"
                   href="https://talkearn.gitbook.io/talkearn/tokenomics/general-idea-of-tet-tokenomics"
                   >Tokenomics</a
                 >
@@ -200,6 +216,7 @@
             <v-list-item>
               <v-list-item-title>
                 <a
+                  target="_blank"
                   href="https://www.canva.com/design/DAFS7yG_upA/e6jLQj-paAml9VE19A1-9g/view?utm_content=DAFS7yG_upA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink"
                   >Pitch Deck</a
                 >
@@ -208,6 +225,7 @@
             <v-list-item>
               <v-list-item-title>
                 <a
+                  target="_blank"
                   href="https://talkearn.gitbook.io/talkearn/tokenomics/general-idea-of-tet-tokenomics"
                   >TET Points Program</a
                 >
@@ -246,6 +264,14 @@ export default {
     width: null,
     isOpenMenu: false,
   }),
+  watch: {
+    '$route.path': {
+      handler() {
+        this.isOpenMenu = false;
+      },
+      deep: true,
+    },
+  },
   methods: {
     updateWidth() {
       this.width = window.innerWidth;
@@ -362,7 +388,6 @@ export default {
     align-items: center;
     gap: 5px;
     margin-top: 20px;
-    
   }
 
   .topnav {

@@ -4,6 +4,7 @@
       <img
         src="/img/index/main/TET-circle-icon.svg"
         class="mobile-icon"
+        @click="$router.push('/')"
         alt=""
       />
       <div class="header__container__logo">

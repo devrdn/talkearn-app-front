@@ -8,16 +8,35 @@
         </h1>
       </div>
       <p class="benefits__left__text">
-        Welcome to our platform of crypto & blockchain experts available in one click. You can find professional crypto experts, traders, investors, blockchain developers, NFT creators,  whitepaper designers, and other web3 experts in one place and receive instant advice through direct web calls. You get instant help from trustworthy experts, verified on the blockchain. You pay per minute, exactly as much as you use. The money for consumed minutes settles instantly into the expert's wallet. And, yet, You can choose to remain anonymous.
+        Welcome to our platform of crypto & blockchain experts available in one
+        click. You can find professional crypto experts, traders, investors,
+        blockchain developers, NFT creators, whitepaper designers, and other
+        web3 experts in one place and receive instant advice through direct web
+        calls. You get instant help from trustworthy experts, verified on the
+        blockchain. You pay per minute, exactly as much as you use. The money
+        for consumed minutes settles instantly into the expert's wallet. And,
+        yet, You can choose to remain anonymous.
       </p>
       <div class="benefits__left__btn">
         <a href="/src/#" class="benefits__left__btn-main">Find Your Expert</a>
-        <a href="https://talkearn.gitbook.io/talkearn/" class="benefits__left__btn-secondary"><u>Read more</u></a
+        <a
+          href="https://talkearn.gitbook.io/talkearn/"
+          class="benefits__left__btn-secondary"
+          ><u>Read more</u></a
         >
       </div>
     </div>
     <div class="benefits__right">
-      <img src="/img/index/benefits/benefits.png" alt="man" />
+      <iframe
+        width="427"
+        height="240"
+        src="https://www.youtube.com/embed/2fknwD3NJLU"
+        title="TalkEarn Platform Explainer Video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <!-- <img src="/img/index/benefits/benefits.png" alt="man" /> -->
     </div>
   </section>
 </template>
