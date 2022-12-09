@@ -161,6 +161,9 @@ export default {
 <style lang="scss" scoped>
 .expert {
   width: 70%;
+  @include rwdmax(730px) {
+    width: calc(100% - 40px);
+  }
   margin: 0 auto;
   margin-top: -20px;
   padding: 40px;
@@ -172,7 +175,6 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 60px;
-
   @include rwdmax(470px) {
     padding: 20px;
   }
@@ -273,7 +275,7 @@ export default {
 
           @include rwdmax(470px) {
             display: grid;
-            align-items: center;
+            align-items: start;
             grid-template-columns: repeat(2, 1fr);
           }
 
@@ -394,6 +396,7 @@ export default {
     @include rwdmax(1790px) {
       display: flex;
       flex-wrap: wrap;
+      width: 100%;
       justify-content: center;
     }
 

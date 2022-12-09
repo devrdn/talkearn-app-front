@@ -1,7 +1,7 @@
 <template>
   <div class="community__container__cards__block">
     <img
-      src="/img/become-expert/photo.png"
+      src="/img/become-expert/btnBook.svg"
       alt="photo"
       class="community__container__cards__block__img"
     />
@@ -9,30 +9,16 @@
       <div class="community__container__cards__block__text__name">
         Angela Moss
       </div>
-      <div class="community__container__cards__block__text__profession">
-        Near developer
-      </div>
+      <button class="community__btn">What’s your skill?</button>
     </div>
-    <img
-      src="/img/become-expert/dots.svg"
-      alt="dots"
-      class="community__container__cards__block__dots"
-    />
   </div>
 </template>
 
 <script>
-export default {
-  props: {
-    isButton: {
-      type: Boolean,
-      default: false,
-    },
-  },
-};
+export default {};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .community {
   &__container {
     &__cards {
@@ -44,14 +30,15 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 40px;
+        justify-content: center;
+        gap: 20px;
         padding: 20px 70px;
         box-shadow: 0px 2px 28px rgba(62, 53, 120, 0.09);
         border-radius: 18px;
 
         &__img {
-          width: 115px;
-          height: 115px;
+          width: 80px;
+          height: 80px;
           border-radius: 50%;
         }
 
@@ -85,6 +72,13 @@ export default {
         box-shadow: 0px 11px 39px rgba(0, 0, 0, 0.07);
       }
     }
+  }
+
+  &__btn {
+    background-color: $purpleColor;
+    color: white;
+    padding: 15px;
+    border-radius: 60px;
   }
 }
 </style>

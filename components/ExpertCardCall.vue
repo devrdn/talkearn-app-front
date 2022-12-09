@@ -36,9 +36,7 @@
         </div>
         <div class="expert__cards__block__text__btns">
           <a href="/" class="expert__cards__block__text__call__btn">Call</a>
-          <a href="/" class="expert__cards__block__text__call__btn"
-            >Schedule</a
-          >
+          <a href="/" class="expert__cards__block__text__call__btn">Schedule</a>
         </div>
       </div>
     </div>
@@ -82,39 +80,41 @@ export default {
       box-shadow: 0px 8px 24px rgba(31, 31, 51, 0.1);
       border-radius: 10px;
       @include rwdmax(460px) {
-        width: 220px;
+        width: 100%;
+        //width: 220px;
       }
       @include rwdmax(400px) {
-        width: 260px;
+        //width: 260px;
+        width: 100%;
       }
       &__img {
         width: 100%;
         object-fit: cover;
-        width: 392px;
+        width: 400px;
         height: 200px;
         border-radius: 10px 10px 0 0;
         @include rwdmax(560px) {
-          width: 320px;
+          width: 100%;
         }
         @include rwdmax(460px) {
-          width: 220px;
+          width: 100%;
         }
         @include rwdmax(325px) {
-          width: 260px;
+          width: 100%;
         }
       }
       &__text {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 40px;
+        gap: 10px;
         padding: 20px;
         &__btns {
           margin-top: 15px;
           gap: 10px;
           display: flex;
           @include rwdmax(460px) {
-            flex-direction: column;
+            flex-direction: row;
           }
           a {
             @include rwdmax(325px) {
@@ -183,6 +183,7 @@ export default {
           }
           &__btn {
             color: $whiteColor;
+            text-align: center;
             font-size: $fs;
             font-weight: 700;
             background: $purpleColor;

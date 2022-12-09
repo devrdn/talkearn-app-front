@@ -46,52 +46,82 @@
       </div>
       <div class="footer__container__right">
         <div class="footer__container__right__block">
-          <p class="footer__container__right__block__name">TalkEarn</p>
-          <a href="/" class="footer__container__right__block__link">
-            Why Talkearn
-          </a>
-          <a href="/" class="footer__container__right__block__link">
-            Enterprise
-          </a>
-          <a href="/" class="footer__container__right__block__link"></a>
+          <p class="footer__container__right__block__name">Experts</p>
+          <nuxt-link to="/" class="footer__container__right__block__link"
+            >Homepage</nuxt-link
+          >
+          <nuxt-link to="/" class="footer__container__right__block__link"
+            >All Experts</nuxt-link
+          >
+          <nuxt-link
+            to="/category"
+            class="footer__container__right__block__link"
+            >By Category</nuxt-link
+          >
         </div>
         <div class="footer__container__right__block">
-          <p class="footer__container__right__block__name">Resources</p>
-          <a href="/" class="footer__container__right__block__link">
-            Download
-          </a>
-          <a href="/" class="footer__container__right__block__link">
-            Help Center
-          </a>
+          <p class="footer__container__right__block__name">Become an expert</p>
+          <nuxt-link to="/become" class="footer__container__right__block__link"
+            >How to become an expert</nuxt-link
+          >
+          <nuxt-link
+            to="/become/expert"
+            class="footer__container__right__block__link"
+            >Fill out the form</nuxt-link
+          >
         </div>
         <div class="footer__container__right__block">
-          <p class="footer__container__right__block__name">Company</p>
-          <a href="/" class="footer__container__right__block__link">About us</a>
-          <a href="/" class="footer__container__right__block__link">
-            Contact us
+          <p class="footer__container__right__block__name">Docs</p>
+          <a
+            target="_blank"
+            href="https://talkearn.gitbook.io/talkearn/"
+            class="footer__container__right__block__link"
+            >Gitbook</a
+          >
+          <a
+            target="_blank"
+            href="https://talkearn.gitbook.io/talkearn/tokenomics/roadmap"
+            class="footer__container__right__block__link"
+          >
+            Roadmap
           </a>
-          <a href="/" class="footer__container__right__block__link">Products</a>
+          <a
+            target="_blank"
+            class="footer__container__right__block__link"
+            href="https://talkearn.gitbook.io/talkearn/tokenomics/general-idea-of-tet-tokenomics"
+            >Tokenomics</a
+          >
+          <a
+            target="_blank"
+            class="footer__container__right__block__link"
+            href="https://www.canva.com/design/DAFS7yG_upA/e6jLQj-paAml9VE19A1-9g/view?utm_content=DAFS7yG_upA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink"
+            >Pitch Deck</a
+          >
+          <a
+            target="_blank"
+            class="footer__container__right__block__link"
+            href="https://talkearn.gitbook.io/talkearn/tokenomics/general-idea-of-tet-tokenomics"
+            >TET Points Program</a
+          >
         </div>
         <div class="footer__container__right__block footer__adress">
-          <p class="footer__container__right__block__name">
-            Get in Touch with Us
-          </p>
+          <p class="footer__container__right__block__name">Contacts</p>
           <div class="footer__container__right__block__link__icon">
             <img src="/img/index/footer/map.svg" alt="" />
-            <a href="/" class="footer__container__right__block__link">
-              832 Thompson Drive, San Fransisco CA 94107, United States
+            <a
+              href="mailto:info@talkearn.app"
+              class="footer__container__right__block__link"
+            >
+              info@talkearn.app
             </a>
           </div>
           <div class="footer__container__right__block__link__icon">
             <img src="/img/index/footer/phone.svg" alt="" />
-            <a href="/" class="footer__container__right__block__link">
-              +123 345123 556
-            </a>
-          </div>
-          <div class="footer__container__right__block__link__icon">
-            <img src="/img/index/footer/mail.svg" alt="" />
-            <a href="/" class="footer__container__right__block__link">
-              support@ziro.id
+            <a
+              href="tel:40746150515"
+              class="footer__container__right__block__link"
+            >
+              40746150515
             </a>
           </div>
         </div>

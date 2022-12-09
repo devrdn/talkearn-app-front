@@ -1,7 +1,21 @@
 <template>
   <div class="become-expert-page">
     <!-- Banner -->
-    <UiBaseBanner title="Join our growing expert's community" />
+    <div class="banner">
+      <img
+        class="banner__img"
+        src="/img/expert-one/bckg.png"
+        alt="background"
+      />
+      <p>Join our growing expert's community</p>
+      <nuxt-link to="/">
+        <img
+          class="banner__arrow"
+          src="/img/expert-one/arrow.svg"
+          alt="arrow"
+        />
+      </nuxt-link>
+    </div>
 
     <form ref="form" class="form" @submit.prevent="send">
       <p class="form__title">Fill the application</p>
@@ -43,14 +57,15 @@
         />
         <UiBaseInput
           v-model="expert.profession"
-          label="Profession"
+          label="What do You do?"
           type="text"
           name="profession"
           :errors="errors?.profession"
         />
 
         <div class="form__fields__input">
-          <label>SelectCategory</label> <br />
+          <label>In what industry do You offer consulting services?</label>
+          <br />
           <select v-model="expert.categoryId">
             <option disabled value="">What kind of services You offer</option>
             <option
@@ -88,6 +103,7 @@
               <div class="form__upload-photo__content__block__label__text">
                 <p>Upload image</p>
                 <span>JPEG, PNG, WEBP</span>
+                <span>Size - 1180/500 px</span>
               </div>
             </label>
             <input
@@ -180,6 +196,7 @@
                 <div class="form__upload-photo__content__block__label__text">
                   <p>Upload image</p>
                   <span>JPEG, PNG, WEBP</span>
+                  <span>Size - 1180/500 px</span>
                 </div>
               </label>
               <input
@@ -214,6 +231,7 @@
                 <div class="form__upload-photo__content__block__label__text">
                   <p>Upload image</p>
                   <span>JPEG, PNG, WEBP</span>
+                  <span>Size - 1180/500 px</span>
                 </div>
               </label>
               <input
@@ -248,6 +266,7 @@
                 <div class="form__upload-photo__content__block__label__text">
                   <p>Upload image</p>
                   <span>JPEG, PNG, WEBP</span>
+                  <span>Size - 1180/500 px</span>
                 </div>
               </label>
               <input
@@ -337,7 +356,6 @@ export default {
           form.append(key, value);
         }
       });
-
       this.expert.services.forEach((item) => {
         if (item.name && item.image) {
           Object.entries(item).forEach(([key, value]) => {
@@ -346,7 +364,6 @@ export default {
           });
         }
       });
-
       await expertApi
         .setExpert(form)
         .then(() => {
@@ -385,6 +402,14 @@ export default {
   border-radius: 18px;
   display: flex;
   flex-direction: column;
+  @include rwdmax(470px) {
+    padding: 20px;
+  }
+
+  @include rwdmax(452px) {
+    width: 100% !important;
+    margin: 0 !important;
+  }
   gap: 50px;
   &__error {
     color: red;
@@ -398,14 +423,21 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    @include rwdmax(1190px) {
+    @include rwdmax(1310px) {
+      gap: 40px;
       display: flex;
+      justify-content: space-around;
       flex-wrap: wrap;
     }
+    //@include rwdmax(930px) {
+    //  grid-template-columns: repeat(1, 1fr);
+    //}
     &__input {
       display: flex;
       flex-direction: column;
-
+      @include rwdmax(884px) {
+        width: 100%;
+      }
       label {
         font-weight: 500;
         font-size: 14px;
@@ -418,6 +450,9 @@ export default {
         border-radius: 14px;
         padding: 15px 30px;
         appearance: auto !important;
+        @include rwdmax(518px) {
+          width: 100%;
+        }
       }
     }
   }
@@ -566,6 +601,48 @@ export default {
       font-weight: 600;
       font-size: 16px;
       text-align: center;
+    }
+  }
+}
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+  &__img {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+  }
+  p {
+    position: absolute;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 800;
+    color: $whiteColor;
+    letter-spacing: 2px;
+    @include rwdmax(937px) {
+      font-size: 2rem;
+    }
+    @include rwdmax(675px) {
+      font-size: 1.5rem;
+    }
+    @include rwdmax(450px) {
+      font-size: 19px;
+      //display: none;
+    }
+  }
+  &__arrow {
+    display: block;
+    position: absolute;
+    top: 10%;
+    left: 7.5%;
+    background: $whiteColor;
+    padding: 15px;
+    border-radius: 20px;
+    @include rwdmax(325px) {
+      padding: 5px;
     }
   }
 }

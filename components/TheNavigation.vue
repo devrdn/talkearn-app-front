@@ -421,16 +421,17 @@ export default {
     @include rwdmax(730px) {
       position: absolute;
       display: flex;
-      margin-left: 25px;
+      margin-left: 20px;
       left: 0px;
     }
     @include rwdmax(345px) {
       position: absolute;
       display: flex;
-      margin-left: 15px;
+      margin-left: 20px;
       left: 0px;
     }
     margin-right: 20px;
+    margin-left: 20px;
     width: 20px;
   }
 }

@@ -1,5 +1,11 @@
 <template>
-  <header class="header">
+  <header
+    class="header"
+    :style="[
+      { position: headerStaticPosition ? 'fixed' : 'static' },
+      { 'z-index': 100 },
+    ]"
+  >
     <div class="header__container">
       <img
         src="/img/index/main/TET-circle-icon.svg"
@@ -10,7 +16,6 @@
       <div class="header__container__logo">
         <TheLogo />
       </div>
-
       <TheSearch />
 
       <TheNavigation />
@@ -23,7 +28,35 @@
 import TheNavigation from '~/components/TheNavigation.vue';
 import TheSearch from '~/components/TheSearch.vue';
 
-export default { components: { TheNavigation, TheSearch } };
+export default {
+  components: { TheNavigation, TheSearch },
+  data: () => ({
+    width: null,
+    yPosition: null,
+  }),
+  methods: {
+    updateWidth() {
+      this.width = window.innerWidth;
+    },
+    updateScroll() {
+      this.yPosition = window.scrollY;
+    },
+  },
+  computed: {
+    headerStaticPosition() {
+      return this.width <= 730 && this.yPosition >= 100;
+    },
+  },
+  mounted() {
+    window.addEventListener('resize', this.updateWidth);
+    window.addEventListener('scroll', this.updateScroll);
+    this.updateWidth();
+    this.updateScroll();
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.updateWidth);
+  },
+};
 </script>
 
 <style lang="scss">
@@ -55,6 +88,9 @@ export default { components: { TheNavigation, TheSearch } };
     @include rwdmax(450px) {
       display: block !important;
       width: 30px;
+    }
+    @include rwdmax(543px) {
+     // margin-right: 10px;
     }
   }
 }
@@ -89,8 +125,8 @@ export default { components: { TheNavigation, TheSearch } };
       padding-top: 10px;
       padding-bottom: 10px;
       background: #fff;
-      padding-right: 10px;
-      padding-left: 10px;
+      padding-right: 20px;
+      padding-left: 20px;
     }
     margin: 0px auto;
     padding: 30px 0;

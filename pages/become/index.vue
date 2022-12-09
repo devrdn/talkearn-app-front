@@ -7,14 +7,18 @@
         src="/img/become-expert/main.png"
         alt="background"
       />
-      <p style="display: flex; flex-direction: column; align-items: center">
-        <span>Work Your way</span>
-        <span> You bring te skill. </span>
-        <span>We'll make earning easy.</span>
-        <span>
-          <a href="/become/expert" class="become-expert-main__text__btn">Become an expert</a>
-        </span>
-      </p>
+      <div class="banner__text">
+        <div class="banner__slogan">
+          <span>Work Your way</span>
+          <span> You bring te skill. </span>
+          <span>We'll make earning easy.</span>
+        </div>
+        <div class="banner_btn">
+          <a href="/become/expert" class="become-expert-main__text__btn"
+            >Become an expert</a
+          >
+        </div>
+      </div>
     </div>
     <!-- Community -->
     <div class="community">
@@ -23,9 +27,10 @@
           Join our growing expert's community
         </p>
         <div class="community__container__cards">
-          <CommunityCard />
-          <CommunityCard />
-          <CommunityCard />
+          <CommunityCard id="community-1" />
+          <CommunityCard id="community-2" />
+          <CommunityCard id="community-3" />
+          <SkillCard />
         </div>
       </div>
     </div>
@@ -90,17 +95,17 @@
     <div class="stories">
       <p class="stories__title">Buyer stories</p>
       <div class="stories__comments">
-        <BuyerStoryCard />
-        <BuyerStoryCard />
-        <BuyerStoryCard />
-        <BuyerStoryCard />
-        <BuyerStoryCard />
-        <BuyerStoryCard />
-        <BuyerStoryCard />
-        <BuyerStoryCard />
-        <BuyerStoryCard />
-        <BuyerStoryCard />
-        <BuyerStoryCard />
+        <BuyerStoryCard id="buyer-1" />
+        <BuyerStoryCard id="buyer-2" />
+        <BuyerStoryCard id="buyer-3" />
+        <BuyerStoryCard id="buyer-4" />
+        <BuyerStoryCard id="buyer-5" />
+        <BuyerStoryCard id="buyer-6" />
+        <BuyerStoryCard id="buyer-7" />
+        <BuyerStoryCard id="buyer-8" />
+        <BuyerStoryCard id="buyer-9" />
+        <BuyerStoryCard id="buyer-10" />
+        <BuyerStoryCard id="buyer-11" />
       </div>
     </div>
 
@@ -115,13 +120,6 @@
             :info="item"
           />
         </v-expansion-panels>
-        <!-- <div class="qa__container__questions">
-          <HowItWorksItem
-            v-for="(item, index) in items"
-            :key="index"
-            :info="item"
-          />
-        </div> -->
       </div>
     </div>
 
@@ -137,12 +135,14 @@
 import BuyerStoryCard from '~/components/BuyerStoryCard.vue';
 import CommunityCard from '~/components/CommunityCard.vue';
 import QuestionAccordionItem from '~/components/QuestionAccordionItem.vue';
+import SkillCard from '~/components/SkillCard.vue';
 
 export default {
   components: {
     CommunityCard,
     BuyerStoryCard,
     QuestionAccordionItem,
+    SkillCard,
   },
   layout: () => 'emptyhero',
   data: () => ({
@@ -219,7 +219,13 @@ export default {
     z-index: 0;
     width: 100%;
   }
-  p {
+  &__text {
+    margin: 0 auto;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     position: absolute;
     font-size: 50px;
     font-weight: 800;
@@ -236,6 +242,14 @@ export default {
     @include rwdmax(588px) {
       font-size: 0.8rem;
       //display: none;
+    }
+    @include rwdmax(585px) {
+      width: 100%;
+    }
+  }
+  &__slogan {
+    @include rwdmax(585px) {
+      display: none;
     }
   }
 }
@@ -292,6 +306,9 @@ export default {
         font-size: 0.5rem;
         //display: none;
       }
+      @include rwdmax(585px) {
+        font-size: 1.5rem;
+      }
     }
   }
 }
@@ -320,8 +337,11 @@ export default {
       flex-wrap: wrap;
       justify-content: center;
       gap: 40px;
+
+      
     }
   }
+
 }
 
 .how-it-work {
