@@ -31,7 +31,7 @@ export default {};
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 20px;
+        gap: 2g0px;
         padding: 20px 70px;
         box-shadow: 0px 2px 28px rgba(62, 53, 120, 0.09);
         border-radius: 18px;
