@@ -166,7 +166,7 @@
       <li class="navigation__item">
         <v-menu open-on-hover close-on-click rounded="b-xl" offset-y>
           <template #activator="{ on, attrs }">
-            <div stlye="z-index: 10" v-bind="attrs" v-on="on">Category</div>
+            <div stlye="z-index: 10" v-bind="attrs" v-on="on">Become an expert</div>
           </template>
           <v-list>
             <v-list-item>

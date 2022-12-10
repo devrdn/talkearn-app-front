@@ -2,10 +2,95 @@
   <v-footer class="footer">
     <div class="footer__container">
       <div class="footer__container__left">
-        <p>
-          TalkEarn is a marketplace of crypto experts where you can find an
-          assistancy on every topic.
-        </p>
+        <img src="@/static/logo-white.png" style="width: 300px" alt="" />
+
+        <div class="footer__container__right">
+          <div class="footer__container__right__block">
+            <p class="footer__container__right__block__name">Experts</p>
+            <nuxt-link to="/" class="footer__container__right__block__link"
+              >Homepage</nuxt-link
+            >
+            <nuxt-link to="/" class="footer__container__right__block__link"
+              >All Experts</nuxt-link
+            >
+            <nuxt-link
+              to="/category"
+              class="footer__container__right__block__link"
+              >By Category</nuxt-link
+            >
+          </div>
+          <div class="footer__container__right__block">
+            <p class="footer__container__right__block__name">
+              Become an expert
+            </p>
+            <nuxt-link
+              to="/become"
+              class="footer__container__right__block__link"
+              >How to become an expert</nuxt-link
+            >
+            <nuxt-link
+              to="/become/expert"
+              class="footer__container__right__block__link"
+              >Fill out the form</nuxt-link
+            >
+          </div>
+          <div class="footer__container__right__block">
+            <p class="footer__container__right__block__name">Docs</p>
+            <a
+              target="_blank"
+              href="https://talkearn.gitbook.io/talkearn/"
+              class="footer__container__right__block__link"
+              >Gitbook</a
+            >
+            <a
+              target="_blank"
+              href="https://talkearn.gitbook.io/talkearn/tokenomics/roadmap"
+              class="footer__container__right__block__link"
+            >
+              Roadmap
+            </a>
+            <a
+              target="_blank"
+              class="footer__container__right__block__link"
+              href="https://talkearn.gitbook.io/talkearn/tokenomics/general-idea-of-tet-tokenomics"
+              >Tokenomics</a
+            >
+            <a
+              target="_blank"
+              class="footer__container__right__block__link"
+              href="https://www.canva.com/design/DAFS7yG_upA/e6jLQj-paAml9VE19A1-9g/view?utm_content=DAFS7yG_upA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink"
+              >Pitch Deck</a
+            >
+            <a
+              target="_blank"
+              class="footer__container__right__block__link"
+              href="https://talkearn.gitbook.io/talkearn/tokenomics/general-idea-of-tet-tokenomics"
+              >TET Points Program</a
+            >
+          </div>
+          <div class="footer__container__right__block footer__adress">
+            <p class="footer__container__right__block__name">Contacts</p>
+            <div class="footer__container__right__block__link__icon">
+              <img src="/img/index/footer/map.svg" alt="" />
+              <a
+                href="mailto:info@talkearn.app"
+                class="footer__container__right__block__link"
+              >
+                info@talkearn.app
+              </a>
+            </div>
+            <div class="footer__container__right__block__link__icon">
+              <img src="/img/index/footer/phone.svg" alt="" />
+              <a
+                href="tel:40746150515"
+                class="footer__container__right__block__link"
+              >
+                40746150515
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div class="footer__container__left__icons">
           <a href="https://t.me/talkearn_official">
             <img
@@ -43,88 +128,10 @@
             />
           </a>
         </div>
-      </div>
-      <div class="footer__container__right">
-        <div class="footer__container__right__block">
-          <p class="footer__container__right__block__name">Experts</p>
-          <nuxt-link to="/" class="footer__container__right__block__link"
-            >Homepage</nuxt-link
-          >
-          <nuxt-link to="/" class="footer__container__right__block__link"
-            >All Experts</nuxt-link
-          >
-          <nuxt-link
-            to="/category"
-            class="footer__container__right__block__link"
-            >By Category</nuxt-link
-          >
-        </div>
-        <div class="footer__container__right__block">
-          <p class="footer__container__right__block__name">Become an expert</p>
-          <nuxt-link to="/become" class="footer__container__right__block__link"
-            >How to become an expert</nuxt-link
-          >
-          <nuxt-link
-            to="/become/expert"
-            class="footer__container__right__block__link"
-            >Fill out the form</nuxt-link
-          >
-        </div>
-        <div class="footer__container__right__block">
-          <p class="footer__container__right__block__name">Docs</p>
-          <a
-            target="_blank"
-            href="https://talkearn.gitbook.io/talkearn/"
-            class="footer__container__right__block__link"
-            >Gitbook</a
-          >
-          <a
-            target="_blank"
-            href="https://talkearn.gitbook.io/talkearn/tokenomics/roadmap"
-            class="footer__container__right__block__link"
-          >
-            Roadmap
-          </a>
-          <a
-            target="_blank"
-            class="footer__container__right__block__link"
-            href="https://talkearn.gitbook.io/talkearn/tokenomics/general-idea-of-tet-tokenomics"
-            >Tokenomics</a
-          >
-          <a
-            target="_blank"
-            class="footer__container__right__block__link"
-            href="https://www.canva.com/design/DAFS7yG_upA/e6jLQj-paAml9VE19A1-9g/view?utm_content=DAFS7yG_upA&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink"
-            >Pitch Deck</a
-          >
-          <a
-            target="_blank"
-            class="footer__container__right__block__link"
-            href="https://talkearn.gitbook.io/talkearn/tokenomics/general-idea-of-tet-tokenomics"
-            >TET Points Program</a
-          >
-        </div>
-        <div class="footer__container__right__block footer__adress">
-          <p class="footer__container__right__block__name">Contacts</p>
-          <div class="footer__container__right__block__link__icon">
-            <img src="/img/index/footer/map.svg" alt="" />
-            <a
-              href="mailto:info@talkearn.app"
-              class="footer__container__right__block__link"
-            >
-              info@talkearn.app
-            </a>
-          </div>
-          <div class="footer__container__right__block__link__icon">
-            <img src="/img/index/footer/phone.svg" alt="" />
-            <a
-              href="tel:40746150515"
-              class="footer__container__right__block__link"
-            >
-              40746150515
-            </a>
-          </div>
-        </div>
+        <p class="footer__container--text">
+          TalkEarn is a marketplace of crypto experts where you can find an
+          assistancy on every topic.
+        </p>
       </div>
     </div>
   </v-footer>
@@ -147,33 +154,47 @@ export default {};
   }
 
   @include rwdmax(1200px) {
-    justify-content: center;
+    gap: 40px;
+    //justify-content: center;
   }
 
   &__container {
-    max-width: 85%;
-    margin: 0px auto;
+    margin: auto;
+    width: 85%;
     padding: 70px 0;
     display: flex;
     justify-content: space-between;
     gap: 45px;
 
+    &--text {
+      text-align: left;
+
+      @include rwdmax(492px) {
+        text-align: center;
+      }
+    }
+
     @include rwdmax(1200px) {
-      max-width: 100%;
+      //max-width: 100%;
       flex-direction: column;
-      margin: 0;
+      margin: auto;
     }
 
     &__left {
       display: flex;
-      width: 20%;
+      width: 100%;
       flex-direction: column;
-      gap: 70px;
+      gap: 30px;
 
       @include rwdmax(1200px) {
-        width: 100%;
-        gap: 10px;
+        //width: 100%;
+        gap: 40px;
         text-align: center;
+      }
+
+      @include rwdmax(492px) {
+        //max-width: 100%;
+        align-items: center;
       }
 
       & p {
@@ -183,7 +204,7 @@ export default {};
 
       &__icons {
         display: flex;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
       }
 
@@ -203,7 +224,8 @@ export default {};
 
     &__right {
       display: flex;
-      gap: 130px;
+      justify-content: space-between;
+      gap: 100px;
 
       @include rwdmax(1419px) {
         gap: 70px;
@@ -211,17 +233,22 @@ export default {};
 
       @include rwdmax(1200px) {
         flex-wrap: wrap;
-        justify-content: center;
+        //justify-content: center;
       }
 
       @include rwdmax(1100px) {
         gap: 70px;
       }
 
-      @include rwdmax(742px) {
+      @include rwdmax(872px) {
         display: grid;
-        flex-wrap: wrap;
-        justify-items: center;
+        justify-content: stretch;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include rwdmax(492px) {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
       }
 
       &__block {
@@ -231,12 +258,17 @@ export default {};
         justify-content: flex-start;
         gap: 20px;
 
+        @include rwdmax(1200px) {
+          align-items: flex-start;
+        }
+
         @include rwdmax(742px) {
+          align-items: flex-start;
           flex-basis: 100%;
           flex: 2;
         }
 
-        @include rwdmax(742px) {
+        @include rwdmax(492px) {
           align-items: center;
         }
 

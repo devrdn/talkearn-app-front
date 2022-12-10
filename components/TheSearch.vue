@@ -91,7 +91,7 @@ export default {
   watch: {
     async search(val) {
       this.isLoading = true;
-      if (val !== null) {
+      if (val !== null || val !== undefined) {
         await this.handleSearchValue(val);
       }
     },
@@ -138,6 +138,9 @@ export default {
 
     getSearchPage() {
       this.isLoading = false;
+      if (this.search === null) {
+        this.search = '';
+      }
       this.$router.push(`/search?find=${this.search}`);
     },
 
@@ -174,9 +177,13 @@ export default {
         @include rwdmax(1214px) {
           width: 200px;
         }
-        /*@include rwdmax(850px) {
-          margin-top: 20px;
-        }*/
+        @include rwdmax(575px) {
+          background: transparent !important;
+          box-shadow: none;
+        }
+        @include rwdmax(375px) {
+          width: 160px;
+        }
       }
 
       &__input::-ms-clear {
@@ -191,19 +198,30 @@ export default {
           transform: translateX(-16px);
         }
         @include rwdmax(364px) {
-          width: 20px;
+          width: 30px;
           transform: translateX(-16px);
+        }
+        & img {
+          transform: translateX(-45px);
+          @include rwdmax(434px) {
+            width: 20px;
+            transform: translateX(-16px);
+          }
+        }
+      }
+      .search__button--main {
+        & img {
+          position: relative;
+          transform: translateX(-45px);
+          @include rwdmax(434px) {
+            width: 20px;
+            transform: translateX(-16px);
+          }
+          z-index: 100;
         }
       }
       & button {
         position: relative;
-      }
-      & img {
-        transform: translateX(-45px);
-        @include rwdmax(434px) {
-          width: 90%;
-          transform: translateX(-16px);
-        }
       }
     }
   }

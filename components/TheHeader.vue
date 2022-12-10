@@ -2,7 +2,7 @@
   <header
     class="header"
     :style="[
-      { position: headerStaticPosition ? 'fixed' : 'static' },
+      { position: headerStaticPosition ? 'fixed' : 'relative' },
       { 'z-index': 100 },
     ]"
   >
