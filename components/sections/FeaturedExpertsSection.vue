@@ -1,9 +1,9 @@
 <template>
   <section class="featured-experts">
-    <h1 class="main-header">Featured Experts this week</h1>
+    <h1 class="main-header">{{ title }}</h1>
     <BaseHeaderLine />
     <div class="featured-experts__experts">
-      <v-slide-group style="height: 460px" show-arrows class="expert-slider">
+      <v-slide-group style="height: 510px" show-arrows class="expert-slider">
         <template #next>
           <svg
             class="slider__right-arrow"
@@ -52,7 +52,7 @@
             </g>
           </svg>
         </template>
-        <FeaturedExpertCard
+        <ExpertCardAbout
           v-for="expert in featuredExperts"
           :key="expert.id"
           :expert="expert"
@@ -64,10 +64,16 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import ExpertCardAbout from '~/components/ExpertCardAbout.vue';
 import BaseHeaderLine from '~/components/ui/BaseHeaderLine.vue';
-import FeaturedExpertCard from '~/components/FeaturedExpertCard.vue';
 export default {
-  components: { BaseHeaderLine, FeaturedExpertCard },
+  components: { BaseHeaderLine, ExpertCardAbout },
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+  },
   computed: {
     ...mapGetters({
       featuredExperts: 'expert/getFeaturedExperts',
@@ -82,12 +88,27 @@ export default {
   position: absolute;
   top: -60px;
   right: 120px;
+  @include rwdmax(670px) {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 60px;
+    text-align: center;
+  }
 }
 .slider__right-arrow {
   position: absolute;
   top: -60px;
+
   right: 60px;
   width: 40px;
+  @include rwdmax(670px) {
+    margin-left: auto;
+    margin-right: auto;
+    left: 60px;
+    right: 0;
+    text-align: center;
+  }
 }
 .featured-experts {
   margin: 70px auto;

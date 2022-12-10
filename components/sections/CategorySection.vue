@@ -83,12 +83,27 @@ export default {
   position: absolute;
   top: -60px;
   right: 120px;
+  @include rwdmax(670px) {
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 60px;
+    text-align: center;
+  }
 }
 .slider__right-arrow {
   position: absolute;
   top: -60px;
+
   right: 60px;
   width: 40px;
+  @include rwdmax(670px) {
+    margin-left: auto;
+    margin-right: auto;
+    left: 60px;
+    right: 0;
+    text-align: center;
+  }
 }
 .crypto-topics {
   display: flex;

@@ -205,6 +205,10 @@ export default {};
       display: flex;
       gap: 130px;
 
+      @include rwdmax(1419px) {
+        gap: 70px;
+      }
+
       @include rwdmax(1200px) {
         flex-wrap: wrap;
         justify-content: center;
