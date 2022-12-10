@@ -87,7 +87,7 @@ export default {};
       @include rwdmax(1074px) {
         margin-top: 30px;
       }
-      @include rwdmax(405px) {
+      @include rwdmax(415px) {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -104,7 +104,7 @@ export default {};
         margin-left: 50px;
         font-size: 18px;
         color: $purpleColor;
-        @include rwdmax(405px) {
+        @include rwdmax(415px) {
           margin-top: 40px;
           margin-left: 0px;
         }
