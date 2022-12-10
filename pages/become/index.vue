@@ -1,133 +1,135 @@
 <template>
   <div>
-    <!-- Become Expert Banner -->
-    <div class="banner">
-      <img
-        class="banner__img"
-        src="/img/become-expert/main.png"
-        alt="background"
-      />
-      <div class="banner__text">
-        <div class="banner__slogan">
-          <p>Work Your way</p>
-          <p>You bring te skill.</p>
-          <p> We'll make earning easy.</p>
-        </div>
-        <div class="banner_btn">
-          <a href="/become/expert" class="become-expert-main__text__btn"
-            >Become an expert</a
-          >
-        </div>
-      </div>
-    </div>
-    <!-- Community -->
-    <div class="community">
-      <div class="community__container">
-        <p class="community__container__title">
-          Join our growing expert's community
-        </p>
-        <div class="community__container__cards">
-          <CommunityCard id="community-1" />
-          <CommunityCard id="community-2" />
-          <CommunityCard id="community-3" />
-          <SkillCard />
-        </div>
-      </div>
-    </div>
-
-    <!-- How it works -->
-    <div class="how-it-work">
-      <div class="how-it-work__container">
-        <p class="how-it-work__container__title">How it works</p>
-        <div class="how-it-work__container__blocks">
-          <div class="how-it-work__container__blocks__step">
-            <img
-              src="/img/become-expert/wallet.svg"
-              alt="wallet"
-              class="how-it-work__container__blocks__step__icon"
-            />
-            <div class="how-it-work__container__blocks__step__text">
-              <p class="how-it-work__container__blocks__step__text__title">
-                1. Connect wallet
-              </p>
-              <p class="how-it-work__container__blocks__step__text__subtitle">
-                Connect with Your wallet (Metamask, Ledger, etc.) and fill out
-                Your profile
-              </p>
-            </div>
+    <no-ssr>
+      <!-- Become Expert Banner -->
+      <div class="banner">
+        <img
+          class="banner__img"
+          src="/img/become-expert/main.png"
+          alt="background"
+        />
+        <div class="banner__text">
+          <div class="banner__slogan">
+            <p>Work Your way</p>
+            <p>You bring te skill.</p>
+            <p>We'll make earning easy.</p>
           </div>
-          <div class="how-it-work__container__blocks__step">
-            <img
-              src="/img/become-expert/setup.svg"
-              alt="wallet"
-              class="how-it-work__container__blocks__step__icon"
-            />
-            <div class="how-it-work__container__blocks__step__text">
-              <p class="how-it-work__container__blocks__step__text__title">
-                2. Setup Your services
-              </p>
-              <p class="how-it-work__container__blocks__step__text__subtitle">
-                Easily setup the services You provide and Your price per
-                minute/session
-              </p>
-            </div>
-          </div>
-          <div class="how-it-work__container__blocks__step">
-            <img
-              src="/img/become-expert/making-money.svg"
-              alt="wallet"
-              class="how-it-work__container__blocks__step__icon"
-            />
-            <div class="how-it-work__container__blocks__step__text">
-              <p class="how-it-work__container__blocks__step__text__title">
-                3. Get Paid
-              </p>
-              <p class="how-it-work__container__blocks__step__text__subtitle">
-                Start accepting calls, consulting clients and making money
-              </p>
-            </div>
+          <div class="banner_btn">
+            <nuxt-link to="/become/expert" class="become-expert-main__text__btn"
+              >Become an expert</nuxt-link
+            >
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Stories -->
-    <div class="stories">
-      <p class="stories__title">Buyer stories</p>
-      <div class="stories__comments">
-        <BuyerStoryCard id="buyer-1" />
-        <BuyerStoryCard id="buyer-2" />
-        <BuyerStoryCard id="buyer-3" />
-        <BuyerStoryCard id="buyer-4" />
-        <BuyerStoryCard id="buyer-5" />
-        <BuyerStoryCard id="buyer-6" />
-        <BuyerStoryCard id="buyer-7" />
-        <BuyerStoryCard id="buyer-8" />
-        <BuyerStoryCard id="buyer-9" />
-        <BuyerStoryCard id="buyer-10" />
-        <BuyerStoryCard id="buyer-11" />
+      <!-- Community -->
+      <div class="community">
+        <div class="community__container">
+          <p class="community__container__title">
+            Join our growing expert's community
+          </p>
+          <div class="community__container__cards">
+            <CommunityCard id="community-1" />
+            <CommunityCard id="community-2" />
+            <CommunityCard id="community-3" />
+            <SkillCard />
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Q&A -->
-    <div class="qa">
-      <div class="qa__container">
-        <div class="qa__container__title">Q&A</div>
-        <v-expansion-panels flat width="40px" rounded>
-          <QuestionAccordionItem
-            v-for="(item, index) in items"
-            :key="index"
-            :info="item"
-          />
-        </v-expansion-panels>
+      <!-- How it works -->
+      <div class="how-it-work">
+        <div class="how-it-work__container">
+          <p class="how-it-work__container__title">How it works</p>
+          <div class="how-it-work__container__blocks">
+            <div class="how-it-work__container__blocks__step">
+              <img
+                src="/img/become-expert/wallet.svg"
+                alt="wallet"
+                class="how-it-work__container__blocks__step__icon"
+              />
+              <div class="how-it-work__container__blocks__step__text">
+                <p class="how-it-work__container__blocks__step__text__title">
+                  1. Connect wallet
+                </p>
+                <p class="how-it-work__container__blocks__step__text__subtitle">
+                  Connect with Your wallet (Metamask, Ledger, etc.) and fill out
+                  Your profile
+                </p>
+              </div>
+            </div>
+            <div class="how-it-work__container__blocks__step">
+              <img
+                src="/img/become-expert/setup.svg"
+                alt="wallet"
+                class="how-it-work__container__blocks__step__icon"
+              />
+              <div class="how-it-work__container__blocks__step__text">
+                <p class="how-it-work__container__blocks__step__text__title">
+                  2. Setup Your services
+                </p>
+                <p class="how-it-work__container__blocks__step__text__subtitle">
+                  Easily setup the services You provide and Your price per
+                  minute/session
+                </p>
+              </div>
+            </div>
+            <div class="how-it-work__container__blocks__step">
+              <img
+                src="/img/become-expert/making-money.svg"
+                alt="wallet"
+                class="how-it-work__container__blocks__step__icon"
+              />
+              <div class="how-it-work__container__blocks__step__text">
+                <p class="how-it-work__container__blocks__step__text__title">
+                  3. Get Paid
+                </p>
+                <p class="how-it-work__container__blocks__step__text__subtitle">
+                  Start accepting calls, consulting clients and making money
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Start Making money -->
-    <div class="action">
-      <p>Start making money as an Expert today</p>
-      <a href="/become/expert">Become an expert</a>
-    </div>
+      <!-- Stories -->
+      <div class="stories">
+        <p class="stories__title">Buyer stories</p>
+        <div class="stories__comments">
+          <BuyerStoryCard id="buyer-1" />
+          <BuyerStoryCard id="buyer-2" />
+          <BuyerStoryCard id="buyer-3" />
+          <BuyerStoryCard id="buyer-4" />
+          <BuyerStoryCard id="buyer-5" />
+          <BuyerStoryCard id="buyer-6" />
+          <BuyerStoryCard id="buyer-7" />
+          <BuyerStoryCard id="buyer-8" />
+          <BuyerStoryCard id="buyer-9" />
+          <BuyerStoryCard id="buyer-10" />
+          <BuyerStoryCard id="buyer-11" />
+        </div>
+      </div>
+
+      <!-- Q&A -->
+      <div class="qa">
+        <div class="qa__container">
+          <div class="qa__container__title">Q&A</div>
+          <v-expansion-panels flat width="40px" rounded>
+            <QuestionAccordionItem
+              v-for="(item, index) in items"
+              :key="index"
+              :info="item"
+            />
+          </v-expansion-panels>
+        </div>
+      </div>
+
+      <!-- Start Making money -->
+      <div class="action">
+        <p>Start making money as an Expert today</p>
+        <nuxt-link to="/become/expert">Become an expert</nuxt-link>
+      </div>
+    </no-ssr>
   </div>
 </template>
 

@@ -76,11 +76,11 @@
               {{ category.name }}
             </option>
           </select>
-          <span if="errors" class="form__error">
+          <div if="errors" class="form__error">
             <p v-for="(error, index) in errors?.category" :key="index">
               * {{ error }}
             </p>
-          </span>
+          </div>
         </div>
       </div>
 

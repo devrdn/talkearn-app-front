@@ -8,12 +8,12 @@
           class="main-cat__container__content__logo"
         />
         <div class="cat__container__content__text">
-          <p class="main-cat__container__content__text-1">
+          <div class="main-cat__container__content__text-1">
             Search over <span>30,000+</span> talented experts
-          </p>
-          <p class="main-cat__container__content__text-2">
+          </div>
+          <div class="main-cat__container__content__text-2">
             in the world through <span>TalkEarn</span>
-          </p>
+          </div>
         </div>
         <div class="main-cat__container__content__searchfield">
           <select class="main-cat__container__content__searchfield__select">

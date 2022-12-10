@@ -6,9 +6,9 @@
     <CategorySection />
 
     <!-- Experts Section -->
-    <FeaturedExpertsSection title="Online Experts" />
+    <FeaturedExpertsSection key="ex-1" title="Online Experts" />
 
-    <FeaturedExpertsSection title="Featured Experts this week" />
+    <FeaturedExpertsSection key="ex-2" title="Featured Experts this week" />
 
     <!-- How it Works Section -->
     <HowItWorksSection />

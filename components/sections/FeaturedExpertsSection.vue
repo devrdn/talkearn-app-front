@@ -3,12 +3,12 @@
     <h1 class="main-header">{{ title }}</h1>
     <BaseHeaderLine />
     <div class="featured-experts__experts">
-      <v-slide-group style="height: 510px" show-arrows class="expert-slider">
+      <v-slide-group  show-arrows class="expert-slider">
         <template #next>
           <svg
+            id="icons_1_"
             class="slider__right-arrow"
             version="1.1"
-            id="icons_1_"
             xmlns="http://www.w3.org/2000/svg"
             x="0"
             y="0"
@@ -20,9 +20,9 @@
             <g id="row1_1_">
               <g id="_x31__3_">
                 <path
+                  id="_x32__2_"
                   class="st2"
                   d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 121.6C32.2 121.6 6.4 95.8 6.4 64S32.2 6.4 64 6.4s57.6 25.8 57.6 57.6-25.8 57.6-57.6 57.6zM49.2 38.4 73.6 64 49.2 89.6h13.5L86.4 64 62.7 38.4H49.2z"
-                  id="_x32__2_"
                 />
               </g>
             </g>
@@ -30,8 +30,8 @@
         </template>
         <template #prev>
           <svg
-            version="1.1"
             id="icons_1_"
+            version="1.1"
             fill="#5f4bdb"
             class="slider__left-arrow"
             xmlns="http://www.w3.org/2000/svg"
@@ -44,15 +44,15 @@
             <g id="row2_1_">
               <g id="_x31__4_">
                 <path
+                  id="left_3_"
                   class="st2"
                   d="M64 .3C28.7.3 0 28.8 0 64s28.7 63.7 64 63.7 64-28.5 64-63.7S99.3.3 64 .3zm0 121C32.2 121.3 6.4 95.7 6.4 64 6.4 32.3 32.2 6.7 64 6.7s57.6 25.7 57.6 57.3c0 31.7-25.8 57.3-57.6 57.3zm1.3-82.8L41.6 64l23.6 25.5h13.5L54.4 64l24.4-25.5H65.3z"
-                  id="left_3_"
                 />
               </g>
             </g>
           </svg>
         </template>
-        <ExpertCardAbout
+        <FeaturedExpertCard
           v-for="expert in featuredExperts"
           :key="expert.id"
           :expert="expert"
@@ -64,14 +64,14 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import ExpertCardAbout from '~/components/ExpertCardAbout.vue';
 import BaseHeaderLine from '~/components/ui/BaseHeaderLine.vue';
+import FeaturedExpertCard from '~/components/FeaturedExpertCard.vue';
 export default {
-  components: { BaseHeaderLine, ExpertCardAbout },
+  components: { BaseHeaderLine, FeaturedExpertCard },
   props: {
     title: {
       type: String,
-      required: true,
+      default: 'Featured Experts this week',
     },
   },
   computed: {

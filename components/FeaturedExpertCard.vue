@@ -1,7 +1,9 @@
 <template>
   <v-slide-item>
-    <nuxt-link :to="{ path: `/expert/${expert.categorySlug}/${expert.slug}` }">
-      <div class="all-experts__container__cards__block">
+    <div class="all-experts__container__cards__block">
+      <nuxt-link
+        :to="{ path: `/expert/${expert.categorySlug}/${expert.slug}` }"
+      >
         <div class="all-experts__container__cards__block__photo">
           <img :src="expert.image" alt="photo" />
           <div
@@ -68,52 +70,18 @@
             <p>{{ expert.lastReview }}</p>
           </div>
         </div>
-      </div>
-    </nuxt-link>
-    <!-- <div class="featured-experts__experts__card">
-      <div class="featured-experts__experts__card_left">
-        <div class="featured-experts__experts__card_left__photo">
-          <v-badge
-            v-if="expert.available"
-            offset-x="-60"
-            offset-y="38"
-            color="green darken-1"
-          />
-          <v-badge v-else offset-x="-60" offset-y="38" color="grey lighten-1" />
-          <v-avatar size="80">
-            <img :src="expert.image" alt="photo" />
-          </v-avatar>
-        </div>
-        <div class="featured-experts__experts__card_left__text">
-          <p class="featured-experts__experts__card_left__text_name">
-            {{ expert.name }}
-          </p>
-          <p class="featured-experts__experts__card_left__text_profession">
-            {{ expert.profession }}
-          </p>
-        </div>
-      </div>
-      <div class="featured-experts__experts__card_right">
-        <div class="featured-experts__experts__card_right_stars">
-          <v-rating
-            background-color="#eee"
-            color="warning"
-            readonly
-            hover
-            size="20"
-            length="5"
-            :value="Number(expert.rating)"
-          ></v-rating>
-          <span>{{ expert.rating }}</span>
-        </div>
+      </nuxt-link>
+      <div class="all-experts__btns">
+        <nuxt-link to="/"></nuxt-link>
         <nuxt-link
-          class="featured-experts__experts__card_right_btn"
-          :to="`/expert/${expert.categorySlug}/${expert.slug}`"
-        >
-          ${{ expert.price }}/hr
+          v-show="expert.available === 'ONLINE'"
+          to="/"
+          class="all-experts__btn"
+          >Call
         </nuxt-link>
+        <nuxt-link to="/" class="all-experts__btn">Schedule</nuxt-link>
       </div>
-    </div> -->
+    </div>
   </v-slide-item>
 </template>
 
@@ -130,6 +98,20 @@ export default {
 
 <style lang="scss" scoped>
 .all-experts {
+  color: #1f2131 !important;
+  &__btns {
+    margin-top: 10px;
+    padding-bottom: 10px;
+  }
+  &__btn {
+    background: $purpleColor;
+    padding: 15px 30px;
+    color: $whiteColor;
+    font-size: $fs;
+    font-weight: 700;
+    border-radius: 60px;
+    box-shadow: 0px 5px 29px rgba(62, 53, 120, 0.14);
+  }
   &__container {
     &__cards {
       margin-top: 50px;

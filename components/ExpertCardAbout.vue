@@ -1,6 +1,6 @@
 <template>
-  <nuxt-link :to="{ path: `/expert/${expert.categorySlug}/${expert.slug}` }">
-    <div class="all-experts__container__cards__block">
+  <div class="all-experts__container__cards__block">
+    <nuxt-link :to="{ path: `/expert/${expert.categorySlug}/${expert.slug}` }">
       <div class="all-experts__container__cards__block__photo">
         <img :src="expert.image" alt="photo" />
         <div
@@ -65,12 +65,14 @@
           <p>{{ expert.lastReview }}</p>
         </div>
       </div>
-      <div class="all-experts__btns">
-        <a v-if="(expert.available === 'ONLINE')" href="/" class="all-experts__btn">Call</a>
-        <a href="/" class="all-experts__btn">Schedule</a>
-      </div>
+    </nuxt-link>
+    <div class="all-experts__btns">
+      <a v-if="expert.available === 'ONLINE'" href="/" class="all-experts__btn"
+        >Call</a
+      >
+      <a href="/" class="all-experts__btn">Schedule</a>
     </div>
-  </nuxt-link>
+  </div>
 </template>
 
 <script>

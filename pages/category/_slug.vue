@@ -3,7 +3,7 @@
   <v-container fluid ma-0 pa-0>
     <BaseBanner :title="`Experts in ${currentCategoryName}`" />
 
-    <FeaturedExpertsSection />
+    <FeaturedExpertsSection key="ex-3" title="Featured Experts this week" />
 
     <!-- All Expert Section -->
     <div class="all-experts">
@@ -16,23 +16,18 @@
             Experts not Found
           </p>
           <div class="all-experts__container__head__right">
-            <!-- <div class="all-experts__container__head__right__online">
-              <p>Online</p>
-              <label
-                class="all-experts__container__head__right__online__switch"
-              >
-                <input type="checkbox" />
-                <span
-                  class="all-experts__container__head__right__online__slider round"
-                >
-                </span>
-              </label>
-            </div> -->
             <div class="all-experts__container__head__right__category">
-              <select v-model="currentCategory" class="all-experts__container__head__right__category__select"
-                @change="changeCategory">
-                <option v-for="category in categories" :key="category.id"
-                  :selected="category.slug === $route.params.slug" :value="category.slug">
+              <select
+                v-model="currentCategory"
+                class="all-experts__container__head__right__category__select"
+                @change="changeCategory"
+              >
+                <option
+                  v-for="category in categories"
+                  :key="category.id"
+                  :selected="category.slug === $route.params.slug"
+                  :value="category.slug"
+                >
                   {{ category.name }}
                 </option>
               </select>
@@ -46,7 +41,11 @@
         </div>
         <div class="all-experts__container__cards">
           <!-- Expert Card List -->
-          <ExpertCardAbout v-for="expert in experts" :key="expert.id" :expert="expert" />
+          <ExpertCardAbout
+            v-for="expert in experts"
+            :key="expert.id"
+            :expert="expert"
+          />
           <div ref="intersection" class="observer"></div>
         </div>
       </div>
@@ -58,10 +57,11 @@
 import { mapActions, mapGetters } from 'vuex';
 import categoryApi from '~/api/categoryApi.js';
 import ExpertCardAbout from '~/components/ExpertCardAbout.vue';
+import FeaturedExpertsSection from '~/components/sections/FeaturedExpertsSection.vue';
 import BaseBanner from '~/components/ui/BaseBanner.vue';
 
 export default {
-  components: { ExpertCardAbout, BaseBanner },
+  components: { ExpertCardAbout, BaseBanner, FeaturedExpertsSection },
   layout: () => 'emptyhero',
   data() {
     return {
@@ -84,9 +84,8 @@ export default {
       .catch(({ response }) => {
         error({ statusCode: 404, message: response.data.errors });
       });
-    if (store.getters['category/getCategories'].length === 0) {
-      await store.dispatch('category/fetchCategories');
-    }
+    await store.dispatch('category/fetchCategories');
+    await store.dispatch('expert/fetchFeaturedExperts');
   },
   computed: {
     ...mapGetters({
@@ -206,15 +205,15 @@ export default {
             transition: 0.4s;
           }
 
-          input:checked+&__slider {
+          input:checked + &__slider {
             background-color: $purpleColor;
           }
 
-          input:focus+&__slider {
+          input:focus + &__slider {
             box-shadow: 0 0 1px $purpleColor;
           }
 
-          input:checked+&__slider:before {
+          input:checked + &__slider:before {
             -webkit-transform: translateX(26px);
             -ms-transform: translateX(26px);
             transform: translateX(26px);

@@ -8,8 +8,7 @@
         <p>{{ info.text }}</p>
       </div>
     </v-expansion-panel-header>
-
-    <v-expansion-panel-content>{{ info.content }} </v-expansion-panel-content>
+    <v-expansion-panel-content>{{ info.content }}</v-expansion-panel-content>
   </v-expansion-panel>
 </template>
 
@@ -25,7 +24,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .how-it-works {
   &__left {
     &__little-title {
