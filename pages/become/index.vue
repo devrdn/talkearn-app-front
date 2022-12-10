@@ -9,9 +9,9 @@
       />
       <div class="banner__text">
         <div class="banner__slogan">
-          <span>Work Your way</span>
-          <span> You bring te skill. </span>
-          <span>We'll make earning easy.</span>
+          <p>Work Your way</p>
+          <p>You bring te skill.</p>
+          <p> We'll make earning easy.</p>
         </div>
         <div class="banner_btn">
           <a href="/become/expert" class="become-expert-main__text__btn"
@@ -337,11 +337,8 @@ export default {
       flex-wrap: wrap;
       justify-content: center;
       gap: 40px;
-
-      
     }
   }
-
 }
 
 .how-it-work {

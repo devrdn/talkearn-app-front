@@ -7,9 +7,11 @@
     />
     <div class="community__container__cards__block__text">
       <div class="community__container__cards__block__text__name">
-        Angela Moss
+        What's your skill?
       </div>
-      <button class="community__btn">What’s your skill?</button>
+      <button class="community__btn">
+        <nuxt-link to="/become/expert">Become Expert</nuxt-link>
+      </button>
     </div>
   </div>
 </template>
@@ -76,9 +78,11 @@ export default {};
 
   &__btn {
     background-color: $purpleColor;
-    color: white;
     padding: 15px;
     border-radius: 60px;
+    a {
+      color: white !important;
+    }
   }
 }
 </style>
