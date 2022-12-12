@@ -7,7 +7,7 @@
         src="/img/expert-one/bckg.png"
         alt="background"
       />
-      <p>Join our growing expert's community</p>
+      <p class="banner__text">Join our growing expert's community</p>
       <nuxt-link to="/">
         <img
           class="banner__arrow"
@@ -390,6 +390,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.banner__text {
+  @include rwdmax(750px) {
+    display: none;
+  }
+}
 .form {
   width: 70%;
   margin: 0 auto;
